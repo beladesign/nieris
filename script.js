@@ -28,10 +28,8 @@
     "lore.rail.return": "o próprio sonho?",
     "music.kicker": "ecos entre mundos",
     "music.title": "Músicas",
-    "music.intro": "As músicas originais da Nieris. Cada faixa guarda um pedaço diferente do sonho.",
-    "music.platform_kicker": "depois do debut",
-    "music.platform_note": "Spotify e YouTube Music chegam no debut.",
-    "music.at_debut": "no debut",
+    "music.intro": "Músicas originais de Nieris.",
+    "music.main_theme": "tema principal da lore",
     "credits.kicker": "quem ajudou a dar forma ao sonho",
     "credits.intro": "Artistas e profissionais que construíram partes oficiais do universo da Nieris através de commissions e contribuições criativas.",
     "credits.role.stream_art": "Arte para stream",
@@ -113,10 +111,8 @@
     "lore.rail.return": "her own dream?",
     "music.kicker": "echoes between worlds",
     "music.title": "Songs",
-    "music.intro": "Nieris’ original songs. Each track holds a different piece of the dream.",
-    "music.platform_kicker": "after debut",
-    "music.platform_note": "Spotify and YouTube Music arrive at debut.",
-    "music.at_debut": "at debut",
+    "music.intro": "Nieris’ original songs.",
+    "music.main_theme": "main lore theme",
     "credits.kicker": "the people who shaped the dream",
     "credits.intro": "Artists and professionals who built official parts of Nieris’ universe through commissions and creative contributions.",
     "credits.role.stream_art": "Stream Art",
@@ -312,13 +308,13 @@
     toggles.forEach(btn => btn.addEventListener('click', toggleAudio));
     audio.addEventListener('play', () => setState(true));
     audio.addEventListener('pause', () => setState(false));
-    audio.addEventListener('ended', () => { setState(false); progress.value = '0'; if (currentTime) currentTime.textContent = '00:00'; });
+    audio.addEventListener('ended', () => { setState(false); progress.value = '0'; progress.style.setProperty('--progress','0%'); if (currentTime) currentTime.textContent = '00:00'; });
     audio.addEventListener('timeupdate', () => {
-      if (audio.duration) progress.value = String(Math.round((audio.currentTime / audio.duration) * 1000));
+      if (audio.duration) { const ratio = audio.currentTime / audio.duration; progress.value = String(Math.round(ratio * 1000)); progress.style.setProperty('--progress', `${ratio * 100}%`); }
       if (currentTime) currentTime.textContent = formatTime(audio.currentTime);
     });
     progress.addEventListener('input', () => {
-      if (audio.duration) audio.currentTime = (Number(progress.value) / 1000) * audio.duration;
+      if (audio.duration) { const ratio = Number(progress.value) / 1000; audio.currentTime = ratio * audio.duration; progress.style.setProperty('--progress', `${ratio * 100}%`); }
     });
   });
 
