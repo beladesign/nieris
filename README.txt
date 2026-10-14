@@ -39,3 +39,10 @@ V4.2: Replaced the main lore theme "Where the Butterflies Turn Black" with the c
 V4.4: Music page adds per-track volume sliders and synced lyric viewports. Lyrics come from the MP3 metadata and scroll with playback, with active/previous/next visual states.
 
 V4.5: Portal renamed to Socials across the website. Clean route is now /socials.
+
+
+V4.6 MUSIC SYNC
+- Rebuilt lyric timing for all three tracks from audio analysis instead of proportional timing.
+- Lyrics now use the supplied official text files.
+- Removed accidental duplicated lyric lines from the previous version.
+- Timing data is also stored in assets/music/lyrics-timings.json for future fine adjustment.
