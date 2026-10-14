@@ -46,3 +46,5 @@ V4.6 MUSIC SYNC
 - Lyrics now use the supplied official text files.
 - Removed accidental duplicated lyric lines from the previous version.
 - Timing data is also stored in assets/music/lyrics-timings.json for future fine adjustment.
+
+V4.7: lyric highlighting now uses explicit vocal start AND end times. No line remains crisp during instrumental gaps; previous/upcoming lines remain softly blurred.

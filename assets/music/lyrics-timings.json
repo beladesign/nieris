@@ -1,880 +1,1098 @@
 {
-  "butterflies": [
+  "Where the Butterflies Turn Black": [
     {
-      "time": 17.19,
-      "line": "Close your eyes, the night is calling"
+      "start": 17.19,
+      "end": 21.15,
+      "text": "Close your eyes, the night is calling"
     },
     {
-      "time": 21.33,
-      "line": "Through a world where stars are falling"
+      "start": 21.33,
+      "end": 24.85,
+      "text": "Through a world where stars are falling"
     },
     {
-      "time": 25.03,
-      "line": "Little wings of pink and gold"
+      "start": 25.03,
+      "end": 28.37,
+      "text": "Little wings of pink and gold"
     },
     {
-      "time": 30.27,
-      "line": "Lead me somewhere strange and old"
+      "start": 30.27,
+      "end": 34.7,
+      "text": "Lead me somewhere strange and old"
     },
     {
-      "time": 34.88,
-      "line": "Every time I fall asleep"
+      "start": 34.88,
+      "end": 39.2,
+      "text": "Every time I fall asleep"
     },
     {
-      "time": 39.38,
-      "line": "There's another world beneath"
+      "start": 39.38,
+      "end": 42.08,
+      "text": "There's another world beneath"
     },
     {
-      "time": 42.26,
-      "line": "Strange horizons, skies unknown"
+      "start": 42.26,
+      "end": 44.99,
+      "text": "Strange horizons, skies unknown"
     },
     {
-      "time": 45.17,
-      "line": "Never a place to call my own"
+      "start": 45.17,
+      "end": 48.49,
+      "text": "Never a place to call my own"
     },
     {
-      "time": 50.94,
-      "line": "Pink-winged wishes fill the air"
+      "start": 50.94,
+      "end": 55.12,
+      "text": "Pink-winged wishes fill the air"
     },
     {
-      "time": 55.3,
-      "line": "Fragile dreams are everywhere"
+      "start": 55.3,
+      "end": 59.46,
+      "text": "Fragile dreams are everywhere"
     },
     {
-      "time": 59.64,
-      "line": "I follow where the petals fly"
+      "start": 59.64,
+      "end": 62.23,
+      "text": "I follow where the petals fly"
     },
     {
-      "time": 62.41,
-      "line": "Beneath a painted, sleeping sky"
+      "start": 62.41,
+      "end": 66.45,
+      "text": "Beneath a painted, sleeping sky"
     },
     {
-      "time": 66.63,
-      "line": "But something moves beneath the light"
+      "start": 66.63,
+      "end": 70.64,
+      "text": "But something moves beneath the light"
     },
     {
-      "time": 70.82,
-      "line": "The flowers close, the stars lose sight"
+      "start": 70.82,
+      "end": 75.39,
+      "text": "The flowers close, the stars lose sight"
     },
     {
-      "time": 75.57,
-      "line": "A crooked shadow stains the blue"
+      "start": 75.57,
+      "end": 79.16,
+      "text": "A crooked shadow stains the blue"
     },
     {
-      "time": 81.44,
-      "line": "And suddenly, the world feels new"
+      "start": 81.44,
+      "end": 85.03,
+      "text": "And suddenly, the world feels new"
     },
     {
-      "time": 86.33,
-      "line": "Where the butterflies turn black"
+      "start": 86.33,
+      "end": 89.86,
+      "text": "Where the butterflies turn black"
     },
     {
-      "time": 93.6,
-      "line": "There's no easy turning back"
+      "start": 93.6,
+      "end": 97.4,
+      "text": "There's no easy turning back"
     },
     {
-      "time": 97.58,
-      "line": "Velvet wings and liquid skies"
+      "start": 97.58,
+      "end": 100.68,
+      "text": "Velvet wings and liquid skies"
     },
     {
-      "time": 100.86,
-      "line": "Hide the fear behind their eyes"
+      "start": 100.86,
+      "end": 104.85,
+      "text": "Hide the fear behind their eyes"
     },
     {
-      "time": 105.03,
-      "line": "I will find where it began"
+      "start": 105.03,
+      "end": 108.92,
+      "text": "I will find where it began"
     },
     {
-      "time": 109.1,
-      "line": "Trace the cracks with trembling hands"
+      "start": 109.1,
+      "end": 113.12,
+      "text": "Trace the cracks with trembling hands"
     },
     {
-      "time": 114.92,
-      "line": "Through the dream and through the dark"
+      "start": 114.92,
+      "end": 119.09,
+      "text": "Through the dream and through the dark"
     },
     {
-      "time": 120.66,
-      "line": "Where the butterflies turn black"
+      "start": 120.66,
+      "end": 125.18,
+      "text": "Where the butterflies turn black"
     },
     {
-      "time": 125.36,
-      "line": "The walls are breathing, trees have eyes"
+      "start": 125.36,
+      "end": 129.65,
+      "text": "The walls are breathing, trees have eyes"
     },
     {
-      "time": 129.83,
-      "line": "The ground rewrites its own design"
+      "start": 129.83,
+      "end": 133.8,
+      "text": "The ground rewrites its own design"
     },
     {
-      "time": 133.98,
-      "line": "Blackened wings begin to crawl"
+      "start": 133.98,
+      "end": 137.69,
+      "text": "Blackened wings begin to crawl"
     },
     {
-      "time": 137.87,
-      "line": "Something's waiting past it all"
+      "start": 137.87,
+      "end": 142.43,
+      "text": "Something's waiting past it all"
     },
     {
-      "time": 142.61,
-      "line": "Little footsteps by my side"
+      "start": 142.61,
+      "end": 146.44,
+      "text": "Little footsteps by my side"
     },
     {
-      "time": 146.62,
-      "line": "Keep me tethered through the night"
+      "start": 146.62,
+      "end": 150.51,
+      "text": "Keep me tethered through the night"
     },
     {
-      "time": 150.69,
-      "line": "When the world forgets what's real"
+      "start": 150.69,
+      "end": 154.37,
+      "text": "When the world forgets what's real"
     },
     {
-      "time": 155.91,
-      "line": "You're the one thing I can feel"
+      "start": 155.91,
+      "end": 159.4,
+      "text": "You're the one thing I can feel"
     },
     {
-      "time": 162.2,
-      "line": "I never asked to cross these skies"
+      "start": 162.2,
+      "end": 166.03,
+      "text": "I never asked to cross these skies"
     },
     {
-      "time": 168.32,
-      "line": "Or wear the fear behind their eyes"
+      "start": 168.32,
+      "end": 172.48,
+      "text": "Or wear the fear behind their eyes"
     },
     {
-      "time": 172.66,
-      "line": "I only seek the breaking thread"
+      "start": 172.66,
+      "end": 177.06,
+      "text": "I only seek the breaking thread"
     },
     {
-      "time": 177.24,
-      "line": "Before the dream consumes what's left"
+      "start": 177.24,
+      "end": 181.1,
+      "text": "Before the dream consumes what's left"
     },
     {
-      "time": 181.28,
-      "line": "Where the butterflies turn black"
+      "start": 181.28,
+      "end": 184.81,
+      "text": "Where the butterflies turn black"
     },
     {
-      "time": 188.19,
-      "line": "There's no easy turning back"
+      "start": 188.19,
+      "end": 190.85,
+      "text": "There's no easy turning back"
     },
     {
-      "time": 191.03,
-      "line": "Velvet wings and liquid skies"
+      "start": 191.03,
+      "end": 193.43,
+      "text": "Velvet wings and liquid skies"
     },
     {
-      "time": 193.61,
-      "line": "Hide the fear behind their eyes"
+      "start": 193.61,
+      "end": 197.86,
+      "text": "Hide the fear behind their eyes"
     },
     {
-      "time": 198.04,
-      "line": "I will find where it began"
+      "start": 198.04,
+      "end": 201.12,
+      "text": "I will find where it began"
     },
     {
-      "time": 203.72,
-      "line": "Trace the cracks with trembling hands"
+      "start": 203.72,
+      "end": 208.29,
+      "text": "Trace the cracks with trembling hands"
     },
     {
-      "time": 208.47,
-      "line": "Through the dream and through the dark"
+      "start": 208.47,
+      "end": 212.64,
+      "text": "Through the dream and through the dark"
     },
     {
-      "time": 213.6,
-      "line": "Where the butterflies turn black"
+      "start": 213.6,
+      "end": 217.13,
+      "text": "Where the butterflies turn black"
     },
     {
-      "time": 218.58,
-      "line": "Am I awake? Am I asleep?"
+      "start": 218.58,
+      "end": 222.88,
+      "text": "Am I awake? Am I asleep?"
     },
     {
-      "time": 223.06,
-      "line": "How many worlds are left to keep?"
+      "start": 223.06,
+      "end": 227.42,
+      "text": "How many worlds are left to keep?"
     },
     {
-      "time": 227.6,
-      "line": "I've walked through dreams that weren't my own"
+      "start": 227.6,
+      "end": 232.34,
+      "text": "I've walked through dreams that weren't my own"
     },
     {
-      "time": 233.96,
-      "line": "And still have never found my home"
+      "start": 233.96,
+      "end": 237.79,
+      "text": "And still have never found my home"
     },
     {
-      "time": 239.85,
-      "line": "If every dream must fade away"
+      "start": 239.85,
+      "end": 243.19,
+      "text": "If every dream must fade away"
     },
     {
-      "time": 245.11,
-      "line": "What will be left of me someday?"
+      "start": 245.11,
+      "end": 248.69,
+      "text": "What will be left of me someday?"
     },
     {
-      "time": 250.34,
-      "line": "A thousand doors, a thousand skies"
+      "start": 250.34,
+      "end": 254.02,
+      "text": "A thousand doors, a thousand skies"
     },
     {
-      "time": 256.1,
-      "line": "And not one place where I reside"
+      "start": 256.1,
+      "end": 259.46,
+      "text": "And not one place where I reside"
     },
     {
-      "time": 259.64,
-      "line": "Where the butterflies turn black"
+      "start": 259.64,
+      "end": 263.02,
+      "text": "Where the butterflies turn black"
     },
     {
-      "time": 263.2,
-      "line": "I keep searching through the cracks"
+      "start": 263.2,
+      "end": 267.08,
+      "text": "I keep searching through the cracks"
     },
     {
-      "time": 267.26,
-      "line": "Even when the light has died"
+      "start": 267.26,
+      "end": 270.51,
+      "text": "Even when the light has died"
     },
     {
-      "time": 273.04,
-      "line": "I won't leave the lost behind"
+      "start": 273.04,
+      "end": 277.48,
+      "text": "I won't leave the lost behind"
     },
     {
-      "time": 277.66,
-      "line": "Every dream and every scar"
+      "start": 277.66,
+      "end": 280.89,
+      "text": "Every dream and every scar"
     },
     {
-      "time": 281.07,
-      "line": "Every world, no matter how far"
+      "start": 281.07,
+      "end": 284.41,
+      "text": "Every world, no matter how far"
     },
     {
-      "time": 287.58,
-      "line": "I'll keep walking through the dark"
+      "start": 287.58,
+      "end": 291.26,
+      "text": "I'll keep walking through the dark"
     },
     {
-      "time": 292.81,
-      "line": "Where the butterflies turn black"
+      "start": 292.81,
+      "end": 296.34,
+      "text": "Where the butterflies turn black"
     },
     {
-      "time": 297.89,
-      "line": "Close your eyes, the night is deep"
+      "start": 297.89,
+      "end": 302.38,
+      "text": "Close your eyes, the night is deep"
     },
     {
-      "time": 302.56,
-      "line": "Someone else's dream awaits me"
+      "start": 302.56,
+      "end": 305.83,
+      "text": "Someone else's dream awaits me"
     },
     {
-      "time": 307.53,
-      "line": "But somewhere there's a dream unknown..."
+      "start": 307.53,
+      "end": 311.46,
+      "text": "But somewhere there's a dream unknown..."
     },
     {
-      "time": 314.46,
-      "line": "A dream that never calls me home."
+      "start": 314.46,
+      "end": 318.12,
+      "text": "A dream that never calls me home."
     }
   ],
-  "girl": [
+  "The Girl Between Dreams": [
     {
-      "time": 5.31,
-      "line": "The hallway narrows, lights grow dim"
+      "start": 5.31,
+      "end": 8.43,
+      "text": "The hallway narrows, lights grow dim"
     },
     {
-      "time": 8.61,
-      "line": "I don't remember entering in"
+      "start": 8.61,
+      "end": 11.61,
+      "text": "I don't remember entering in"
     },
     {
-      "time": 11.79,
-      "line": "A distant bell rings once, then twice"
+      "start": 11.79,
+      "end": 16.14,
+      "text": "A distant bell rings once, then twice"
     },
     {
-      "time": 16.32,
-      "line": "The walls blink back with borrowed eyes"
+      "start": 16.32,
+      "end": 19.82,
+      "text": "The walls blink back with borrowed eyes"
     },
     {
-      "time": 20.0,
-      "line": "The staircase ends against a wall"
+      "start": 20.0,
+      "end": 24.24,
+      "text": "The staircase ends against a wall"
     },
     {
-      "time": 24.42,
-      "line": "I hear a voice beyond it call"
+      "start": 24.42,
+      "end": 27.83,
+      "text": "I hear a voice beyond it call"
     },
     {
-      "time": 30.08,
-      "line": "I follow it through peeling paint"
+      "start": 30.08,
+      "end": 32.65,
+      "text": "I follow it through peeling paint"
     },
     {
-      "time": 32.83,
-      "line": "The air grows thick, the lights grow faint"
+      "start": 32.83,
+      "end": 37.32,
+      "text": "The air grows thick, the lights grow faint"
     },
     {
-      "time": 39.98,
-      "line": "A doorway opens to the sea"
+      "start": 39.98,
+      "end": 43.26,
+      "text": "A doorway opens to the sea"
     },
     {
-      "time": 43.44,
-      "line": "The waves climb up the barren trees"
+      "start": 43.44,
+      "end": 47.2,
+      "text": "The waves climb up the barren trees"
     },
     {
-      "time": 47.38,
-      "line": "I turn to find the way I came"
+      "start": 47.38,
+      "end": 50.85,
+      "text": "I turn to find the way I came"
     },
     {
-      "time": 52.91,
-      "line": "The shore is gone, the walls have changed"
+      "start": 52.91,
+      "end": 57.31,
+      "text": "The shore is gone, the walls have changed"
     },
     {
-      "time": 58.13,
-      "line": "Every turn erases where I've been"
+      "start": 58.13,
+      "end": 61.73,
+      "text": "Every turn erases where I've been"
     },
     {
-      "time": 63.68,
-      "line": "Every shadow lets another in"
+      "start": 63.68,
+      "end": 67.15,
+      "text": "Every shadow lets another in"
     },
     {
-      "time": 67.33,
-      "line": "I tell myself the worst has passed"
+      "start": 67.33,
+      "end": 70.84,
+      "text": "I tell myself the worst has passed"
     },
     {
-      "time": 71.02,
-      "line": "Then something moves behind the glass"
+      "start": 71.02,
+      "end": 75.25,
+      "text": "Then something moves behind the glass"
     },
     {
-      "time": 75.43,
-      "line": "Every time I turn around"
+      "start": 75.43,
+      "end": 77.9,
+      "text": "Every time I turn around"
     },
     {
-      "time": 78.08,
-      "line": "The world has changed its face again"
+      "start": 78.08,
+      "end": 81.74,
+      "text": "The world has changed its face again"
     },
     {
-      "time": 81.92,
-      "line": "A silent scream, a shifting ground"
+      "start": 81.92,
+      "end": 86.18,
+      "text": "A silent scream, a shifting ground"
     },
     {
-      "time": 86.36,
-      "line": "A nightmare waiting round the bend"
+      "start": 86.36,
+      "end": 89.98,
+      "text": "A nightmare waiting round the bend"
     },
     {
-      "time": 90.16,
-      "line": "I run, it moves, I lose my way"
+      "start": 90.16,
+      "end": 94.45,
+      "text": "I run, it moves, I lose my way"
     },
     {
-      "time": 94.63,
-      "line": "The walls fold in, the lights decay"
+      "start": 94.63,
+      "end": 98.46,
+      "text": "The walls fold in, the lights decay"
     },
     {
-      "time": 99.73,
-      "line": "I turn around, there's something there"
+      "start": 99.73,
+      "end": 103.41,
+      "text": "I turn around, there's something there"
     },
     {
-      "time": 103.59,
-      "line": "Another nightmare, another snare"
+      "start": 103.59,
+      "end": 105.02,
+      "text": "Another nightmare, another snare"
     },
     {
-      "time": 105.2,
-      "line": "A nursery drowned in midnight rain"
+      "start": 105.2,
+      "end": 108.83,
+      "text": "A nursery drowned in midnight rain"
     },
     {
-      "time": 109.01,
-      "line": "A hundred dolls repeat my name"
+      "start": 109.01,
+      "end": 113.58,
+      "text": "A hundred dolls repeat my name"
     },
     {
-      "time": 113.76,
-      "line": "Their little heads begin to turn"
+      "start": 113.76,
+      "end": 117.71,
+      "text": "Their little heads begin to turn"
     },
     {
-      "time": 117.89,
-      "line": "Their painted smiles refuse to blur"
+      "start": 117.89,
+      "end": 121.74,
+      "text": "Their painted smiles refuse to blur"
     },
     {
-      "time": 127.93,
-      "line": "The ceiling sinks, the floor gives way"
+      "start": 127.93,
+      "end": 131.34,
+      "text": "The ceiling sinks, the floor gives way"
     },
     {
-      "time": 131.52,
-      "line": "The stairs twist back the way they came"
+      "start": 131.52,
+      "end": 135.84,
+      "text": "The stairs twist back the way they came"
     },
     {
-      "time": 137.4,
-      "line": "I find a window, pull the frame"
+      "start": 137.4,
+      "end": 140.89,
+      "text": "I find a window, pull the frame"
     },
     {
-      "time": 142.66,
-      "line": "There's only darkness there again"
+      "start": 142.66,
+      "end": 145.47,
+      "text": "There's only darkness there again"
     },
     {
-      "time": 145.65,
-      "line": "The footsteps stop when I stand still"
+      "start": 145.65,
+      "end": 149.74,
+      "text": "The footsteps stop when I stand still"
     },
     {
-      "time": 151.03,
-      "line": "Then start again against my will"
+      "start": 151.03,
+      "end": 154.08,
+      "text": "Then start again against my will"
     },
     {
-      "time": 154.26,
-      "line": "I hold my breath, I count to three"
+      "start": 154.26,
+      "end": 158.16,
+      "text": "I hold my breath, I count to three"
     },
     {
-      "time": 158.34,
-      "line": "Something counts along with me"
+      "start": 158.34,
+      "end": 161.67,
+      "text": "Something counts along with me"
     },
     {
-      "time": 161.85,
-      "line": "Every time I turn around"
+      "start": 161.85,
+      "end": 165.27,
+      "text": "Every time I turn around"
     },
     {
-      "time": 165.45,
-      "line": "The world has changed its face again"
+      "start": 165.45,
+      "end": 169.98,
+      "text": "The world has changed its face again"
     },
     {
-      "time": 170.16,
-      "line": "A silent scream, a shifting ground"
+      "start": 170.16,
+      "end": 174.33,
+      "text": "A silent scream, a shifting ground"
     },
     {
-      "time": 174.51,
-      "line": "A nightmare waiting round the bend"
+      "start": 174.51,
+      "end": 178.27,
+      "text": "A nightmare waiting round the bend"
     },
     {
-      "time": 179.7,
-      "line": "I run, it moves, I lose my way"
+      "start": 179.7,
+      "end": 183.24,
+      "text": "I run, it moves, I lose my way"
     },
     {
-      "time": 183.42,
-      "line": "The walls fold in, the lights decay"
+      "start": 183.42,
+      "end": 187.73,
+      "text": "The walls fold in, the lights decay"
     },
     {
-      "time": 187.91,
-      "line": "I turn around, there's something there"
+      "start": 187.91,
+      "end": 191.39,
+      "text": "I turn around, there's something there"
     },
     {
-      "time": 191.57,
-      "line": "Another nightmare, another snare"
+      "start": 191.57,
+      "end": 193.94,
+      "text": "Another nightmare, another snare"
     },
     {
-      "time": 194.12,
-      "line": "For one still moment, nothing moves"
+      "start": 194.12,
+      "end": 197.88,
+      "text": "For one still moment, nothing moves"
     },
     {
-      "time": 199.01,
-      "line": "No distant cries, no changing rooms"
+      "start": 199.01,
+      "end": 203.15,
+      "text": "No distant cries, no changing rooms"
     },
     {
-      "time": 203.33,
-      "line": "I almost dare to take a breath"
+      "start": 203.33,
+      "end": 206.31,
+      "text": "I almost dare to take a breath"
     },
     {
-      "time": 206.49,
-      "line": "To trust the quiet, welcome rest"
+      "start": 206.49,
+      "end": 209.49,
+      "text": "To trust the quiet, welcome rest"
     },
     {
-      "time": 209.67,
-      "line": "A footstep sounds behind my own"
+      "start": 209.67,
+      "end": 213.18,
+      "text": "A footstep sounds behind my own"
     },
     {
-      "time": 214.65,
-      "line": "A voice whispers in a voice I know"
+      "start": 214.65,
+      "end": 218.55,
+      "text": "A voice whispers in a voice I know"
     },
     {
-      "time": 221.64,
-      "line": "I turn before it says my name—"
+      "start": 221.64,
+      "end": 223.52,
+      "text": "I turn before it says my name—"
     },
     {
-      "time": 223.7,
-      "line": "And nothing here is quite the same"
+      "start": 223.7,
+      "end": 227.53,
+      "text": "And nothing here is quite the same"
     },
     {
-      "time": 228.75,
-      "line": "Every time I turn around"
+      "start": 228.75,
+      "end": 231.86,
+      "text": "Every time I turn around"
     },
     {
-      "time": 232.04,
-      "line": "Another world comes crashing in"
+      "start": 232.04,
+      "end": 235.33,
+      "text": "Another world comes crashing in"
     },
     {
-      "time": 235.51,
-      "line": "The sky falls down without a sound"
+      "start": 235.51,
+      "end": 240.07,
+      "text": "The sky falls down without a sound"
     },
     {
-      "time": 240.25,
-      "line": "And something stirs beneath my skin"
+      "start": 240.25,
+      "end": 243.26,
+      "text": "And something stirs beneath my skin"
     },
     {
-      "time": 243.44,
-      "line": "No path to follow, no way through"
+      "start": 243.44,
+      "end": 247.1,
+      "text": "No path to follow, no way through"
     },
     {
-      "time": 248.88,
-      "line": "No time to learn what waits ahead"
+      "start": 248.88,
+      "end": 252.62,
+      "text": "No time to learn what waits ahead"
     },
     {
-      "time": 254.71,
-      "line": "I turn, and all the walls are new"
+      "start": 254.71,
+      "end": 258.0,
+      "text": "I turn, and all the walls are new"
     },
     {
-      "time": 258.18,
-      "line": "I turn, and find another dread"
+      "start": 258.18,
+      "end": 261.6,
+      "text": "I turn, and find another dread"
     },
     {
-      "time": 261.78,
-      "line": "The bell rings once"
+      "start": 261.78,
+      "end": 264.55,
+      "text": "The bell rings once"
     },
     {
-      "time": 264.73,
-      "line": "The lights go out"
+      "start": 264.73,
+      "end": 268.84,
+      "text": "The lights go out"
     },
     {
-      "time": 269.02,
-      "line": "I hear it breathing"
+      "start": 269.02,
+      "end": 272.0,
+      "text": "I hear it breathing"
     },
     {
-      "time": 272.18,
-      "line": "All around"
+      "start": 272.18,
+      "end": 273.95,
+      "text": "All around"
     },
     {
-      "time": 274.13,
-      "line": "I turn my head—"
+      "start": 274.13,
+      "end": 276.16,
+      "text": "I turn my head—"
     },
     {
-      "time": 276.34,
-      "line": "Another nightmare."
+      "start": 276.34,
+      "end": 278.4,
+      "text": "Another nightmare."
     }
   ],
-  "sight": [
+  "Never Out of Sight": [
     {
-      "time": 5.75,
-      "line": "Morning spills across the floor"
+      "start": 5.75,
+      "end": 8.96,
+      "text": "Morning spills across the floor"
     },
     {
-      "time": 9.14,
-      "line": "Golden light beneath the door"
+      "start": 9.14,
+      "end": 12.16,
+      "text": "Golden light beneath the door"
     },
     {
-      "time": 12.34,
-      "line": "Little flowers turn my way"
+      "start": 12.34,
+      "end": 15.48,
+      "text": "Little flowers turn my way"
     },
     {
-      "time": 15.66,
-      "line": "Like they know I'm here to stay"
+      "start": 15.66,
+      "end": 18.97,
+      "text": "Like they know I'm here to stay"
     },
     {
-      "time": 19.15,
-      "line": "Crystal petals fill the air"
+      "start": 19.15,
+      "end": 22.44,
+      "text": "Crystal petals fill the air"
     },
     {
-      "time": 22.62,
-      "line": "Tiny bells are everywhere"
+      "start": 22.62,
+      "end": 24.15,
+      "text": "Tiny bells are everywhere"
     },
     {
-      "time": 24.33,
-      "line": "Every path is painted bright"
+      "start": 24.33,
+      "end": 28.41,
+      "text": "Every path is painted bright"
     },
     {
-      "time": 28.59,
-      "line": "Every step feels soft and light"
+      "start": 28.59,
+      "end": 32.36,
+      "text": "Every step feels soft and light"
     },
     {
-      "time": 32.54,
-      "line": "I follow ribbons through the trees"
+      "start": 32.54,
+      "end": 36.72,
+      "text": "I follow ribbons through the trees"
     },
     {
-      "time": 36.9,
-      "line": "They dance along the summer breeze"
+      "start": 36.9,
+      "end": 39.71,
+      "text": "They dance along the summer breeze"
     },
     {
-      "time": 39.89,
-      "line": "I don't know where they might go"
+      "start": 39.89,
+      "end": 44.1,
+      "text": "I don't know where they might go"
     },
     {
-      "time": 44.28,
-      "line": "For once, I don't need to know"
+      "start": 44.28,
+      "end": 47.58,
+      "text": "For once, I don't need to know"
     },
     {
-      "time": 47.76,
-      "line": "Maybe I could stay awhile"
+      "start": 47.76,
+      "end": 50.26,
+      "text": "Maybe I could stay awhile"
     },
     {
-      "time": 50.44,
-      "line": "Follow every winding mile"
+      "start": 50.44,
+      "end": 52.87,
+      "text": "Follow every winding mile"
     },
     {
-      "time": 53.05,
-      "line": "No need to wonder where I'll be"
+      "start": 53.05,
+      "end": 57.23,
+      "text": "No need to wonder where I'll be"
     },
     {
-      "time": 57.41,
-      "line": "I'll follow where it carries me"
+      "start": 57.41,
+      "end": 61.85,
+      "text": "I'll follow where it carries me"
     },
     {
-      "time": 62.03,
-      "line": "Round and round, the colors fly"
+      "start": 62.03,
+      "end": 65.45,
+      "text": "Round and round, the colors fly"
     },
     {
-      "time": 67.56,
-      "line": "Little stars across the sky"
+      "start": 67.56,
+      "end": 70.69,
+      "text": "Little stars across the sky"
     },
     {
-      "time": 70.87,
-      "line": "Every road feels warm and bright"
+      "start": 70.87,
+      "end": 73.61,
+      "text": "Every road feels warm and bright"
     },
     {
-      "time": 73.79,
-      "line": "I'm never out of sight"
+      "start": 73.79,
+      "end": 75.9,
+      "text": "I'm never out of sight"
     },
     {
-      "time": 76.08,
-      "line": "Take my hand and lead me through"
+      "start": 76.08,
+      "end": 80.02,
+      "text": "Take my hand and lead me through"
     },
     {
-      "time": 80.2,
-      "line": "Every shade of pink and blue"
+      "start": 80.2,
+      "end": 83.34,
+      "text": "Every shade of pink and blue"
     },
     {
-      "time": 83.52,
-      "line": "I don't need to know what's right"
+      "start": 83.52,
+      "end": 86.87,
+      "text": "I don't need to know what's right"
     },
     {
-      "time": 87.05,
-      "line": "I'm never out of sight"
+      "start": 87.05,
+      "end": 89.64,
+      "text": "I'm never out of sight"
     },
     {
-      "time": 101.68,
-      "line": "Didn't I pass that tree before?"
+      "start": 101.68,
+      "end": 105.02,
+      "text": "Didn't I pass that tree before?"
     },
     {
-      "time": 105.2,
-      "line": "Was there always one more door?"
+      "start": 105.2,
+      "end": 108.42,
+      "text": "Was there always one more door?"
     },
     {
-      "time": 108.6,
-      "line": "I could swear the flowers stare"
+      "start": 108.6,
+      "end": 111.73,
+      "text": "I could swear the flowers stare"
     },
     {
-      "time": 111.91,
-      "line": "I turn around—there's nothing there"
+      "start": 111.91,
+      "end": 114.66,
+      "text": "I turn around—there's nothing there"
     },
     {
-      "time": 114.84,
-      "line": "The ribbons pull a little tight"
+      "start": 114.84,
+      "end": 118.36,
+      "text": "The ribbons pull a little tight"
     },
     {
-      "time": 118.54,
-      "line": "I tell myself it's still all right"
+      "start": 118.54,
+      "end": 122.19,
+      "text": "I tell myself it's still all right"
     },
     {
-      "time": 122.37,
-      "line": "I choose the left, I swear I do"
+      "start": 122.37,
+      "end": 126.69,
+      "text": "I choose the left, I swear I do"
     },
     {
-      "time": 126.87,
-      "line": "My feet still take me somewhere new"
+      "start": 126.87,
+      "end": 130.78,
+      "text": "My feet still take me somewhere new"
     },
     {
-      "time": 131.78,
-      "line": "Maybe I should stop awhile"
+      "start": 131.78,
+      "end": 134.55,
+      "text": "Maybe I should stop awhile"
     },
     {
-      "time": 134.73,
-      "line": "Why have I walked another mile?"
+      "start": 134.73,
+      "end": 138.52,
+      "text": "Why have I walked another mile?"
     },
     {
-      "time": 138.7,
-      "line": "I know I meant to turn back there"
+      "start": 138.7,
+      "end": 142.22,
+      "text": "I know I meant to turn back there"
     },
     {
-      "time": 142.4,
-      "line": "...Didn't I?"
+      "start": 142.4,
+      "end": 143.79,
+      "text": "...Didn't I?"
     },
     {
-      "time": 143.97,
-      "line": "Round and round, the colors fly"
+      "start": 143.97,
+      "end": 146.15,
+      "text": "Round and round, the colors fly"
     },
     {
-      "time": 146.33,
-      "line": "I don't know the reason why"
+      "start": 146.33,
+      "end": 149.28,
+      "text": "I don't know the reason why"
     },
     {
-      "time": 149.46,
-      "line": "Every road bends left and right"
+      "start": 149.46,
+      "end": 152.53,
+      "text": "Every road bends left and right"
     },
     {
-      "time": 152.71,
-      "line": "Leading back into its sight"
+      "start": 152.71,
+      "end": 156.16,
+      "text": "Leading back into its sight"
     },
     {
-      "time": 156.34,
-      "line": "Take my hand—no, set me free"
+      "start": 156.34,
+      "end": 160.64,
+      "text": "Take my hand—no, set me free"
     },
     {
-      "time": 160.82,
-      "line": "This isn't where I chose to be"
+      "start": 160.82,
+      "end": 163.92,
+      "text": "This isn't where I chose to be"
     },
     {
-      "time": 164.1,
-      "line": "Left or right, I try, I fight"
+      "start": 164.1,
+      "end": 167.54,
+      "text": "Left or right, I try, I fight"
     },
     {
-      "time": 167.72,
-      "line": "I'm never out of sight"
+      "start": 167.72,
+      "end": 169.88,
+      "text": "I'm never out of sight"
     },
     {
-      "time": 170.06,
-      "line": "There's something strange about my hands"
+      "start": 170.06,
+      "end": 173.82,
+      "text": "There's something strange about my hands"
     },
     {
-      "time": 174.0,
-      "line": "They move before I understand"
+      "start": 174.0,
+      "end": 177.95,
+      "text": "They move before I understand"
     },
     {
-      "time": 178.13,
-      "line": "One little step, another two"
+      "start": 178.13,
+      "end": 180.63,
+      "text": "One little step, another two"
     },
     {
-      "time": 180.81,
-      "line": "I can't tell what I chose to do"
+      "start": 180.81,
+      "end": 184.37,
+      "text": "I can't tell what I chose to do"
     },
     {
-      "time": 186.68,
-      "line": "An unseen thread is pulling tight"
+      "start": 186.68,
+      "end": 189.39,
+      "text": "An unseen thread is pulling tight"
     },
     {
-      "time": 189.57,
-      "line": "It guides me farther from the light"
+      "start": 189.57,
+      "end": 193.13,
+      "text": "It guides me farther from the light"
     },
     {
-      "time": 193.31,
-      "line": "I reach for it—there's nothing there"
+      "start": 193.31,
+      "end": 196.62,
+      "text": "I reach for it—there's nothing there"
     },
     {
-      "time": 196.8,
-      "line": "Just empty fingers, empty air"
+      "start": 196.8,
+      "end": 199.44,
+      "text": "Just empty fingers, empty air"
     },
     {
-      "time": 199.62,
-      "line": "Don't turn around"
+      "start": 199.62,
+      "end": 201.51,
+      "text": "Don't turn around"
     },
     {
-      "time": 201.69,
-      "line": "Don't make a sound"
+      "start": 201.69,
+      "end": 204.55,
+      "text": "Don't make a sound"
     },
     {
-      "time": 204.73,
-      "line": "Don't let it know"
+      "start": 204.73,
+      "end": 206.99,
+      "text": "Don't let it know"
     },
     {
-      "time": 207.17,
-      "line": "I know it now"
+      "start": 207.17,
+      "end": 209.31,
+      "text": "I know it now"
     },
     {
-      "time": 209.49,
-      "line": "The pretty world"
+      "start": 209.49,
+      "end": 211.51,
+      "text": "The pretty world"
     },
     {
-      "time": 211.69,
-      "line": "The gentle light"
+      "start": 211.69,
+      "end": 213.52,
+      "text": "The gentle light"
     },
     {
-      "time": 213.7,
-      "line": "Was never there to keep me safe"
+      "start": 213.7,
+      "end": 217.65,
+      "text": "Was never there to keep me safe"
     },
     {
-      "time": 217.83,
-      "line": "It only kept me in its sight"
+      "start": 217.83,
+      "end": 221.15,
+      "text": "It only kept me in its sight"
     },
     {
-      "time": 223.11,
-      "line": "If I stand still, will it wait?"
+      "start": 223.11,
+      "end": 225.76,
+      "text": "If I stand still, will it wait?"
     },
     {
-      "time": 225.94,
-      "line": "If I close my eyes, will it fade?"
+      "start": 225.94,
+      "end": 229.03,
+      "text": "If I close my eyes, will it fade?"
     },
     {
-      "time": 229.21,
-      "line": "If I don't move, if I don't breathe"
+      "start": 229.21,
+      "end": 233.13,
+      "text": "If I don't move, if I don't breathe"
     },
     {
-      "time": 233.31,
-      "line": "Could it forget that it sees me?"
+      "start": 233.31,
+      "end": 236.88,
+      "text": "Could it forget that it sees me?"
     },
     {
-      "time": 238.35,
-      "line": "One..."
+      "start": 238.35,
+      "end": 241.09,
+      "text": "One..."
     },
     {
-      "time": 241.27,
-      "line": "Two..."
+      "start": 241.27,
+      "end": 244.42,
+      "text": "Two..."
     },
     {
-      "time": 244.6,
-      "line": "Three..."
+      "start": 244.6,
+      "end": 246.04,
+      "text": "Three..."
     },
     {
-      "time": 246.22,
-      "line": "Nothing."
+      "start": 246.22,
+      "end": 247.15,
+      "text": "Nothing."
     },
     {
-      "time": 247.33,
-      "line": "I open my eyes."
+      "start": 247.33,
+      "end": 250.3,
+      "text": "I open my eyes."
     },
     {
-      "time": 250.48,
-      "line": "The flowers are looking at me."
+      "start": 250.48,
+      "end": 253.51,
+      "text": "The flowers are looking at me."
     },
     {
-      "time": 253.69,
-      "line": "Round and round, the colors die"
+      "start": 253.69,
+      "end": 256.72,
+      "text": "Round and round, the colors die"
     },
     {
-      "time": 256.9,
-      "line": "No more stars are in the sky"
+      "start": 256.9,
+      "end": 260.08,
+      "text": "No more stars are in the sky"
     },
     {
-      "time": 260.26,
-      "line": "Every road bends left and right"
+      "start": 260.26,
+      "end": 263.21,
+      "text": "Every road bends left and right"
     },
     {
-      "time": 263.39,
-      "line": "To keep me always in its sight"
+      "start": 263.39,
+      "end": 267.34,
+      "text": "To keep me always in its sight"
     },
     {
-      "time": 267.52,
-      "line": "Cut the thread, I feel it strain"
+      "start": 267.52,
+      "end": 272.08,
+      "text": "Cut the thread, I feel it strain"
     },
     {
-      "time": 272.26,
-      "line": "I try to run, it pulls again"
+      "start": 272.26,
+      "end": 276.88,
+      "text": "I try to run, it pulls again"
     },
     {
-      "time": 277.06,
-      "line": "Every door, every turn, every night"
+      "start": 277.06,
+      "end": 281.69,
+      "text": "Every door, every turn, every night"
     },
     {
-      "time": 281.87,
-      "line": "Still it keeps me in its sight"
+      "start": 281.87,
+      "end": 285.39,
+      "text": "Still it keeps me in its sight"
     },
     {
-      "time": 285.57,
-      "line": "Never hidden"
+      "start": 285.57,
+      "end": 287.15,
+      "text": "Never hidden"
     },
     {
-      "time": 287.33,
-      "line": "Never free"
+      "start": 287.33,
+      "end": 289.14,
+      "text": "Never free"
     },
     {
-      "time": 289.32,
-      "line": "Nowhere it cannot follow me"
+      "start": 289.32,
+      "end": 291.9,
+      "text": "Nowhere it cannot follow me"
     },
     {
-      "time": 292.08,
-      "line": "I was never out of sight"
+      "start": 292.08,
+      "end": 293.66,
+      "text": "I was never out of sight"
     },
     {
-      "time": 293.84,
-      "line": "The ribbons sway"
+      "start": 293.84,
+      "end": 296.12,
+      "text": "The ribbons sway"
     },
     {
-      "time": 296.3,
-      "line": "Though all is still"
+      "start": 296.3,
+      "end": 298.97,
+      "text": "Though all is still"
     },
     {
-      "time": 299.15,
-      "line": "The flowers turn"
+      "start": 299.15,
+      "end": 301.65,
+      "text": "The flowers turn"
     },
     {
-      "time": 301.83,
-      "line": "Against my will"
+      "start": 301.83,
+      "end": 303.01,
+      "text": "Against my will"
     },
     {
-      "time": 303.19,
-      "line": "I don't know where I'm going now"
+      "start": 303.19,
+      "end": 306.99,
+      "text": "I don't know where I'm going now"
     },
     {
-      "time": 307.17,
-      "line": "Yet something knows the way somehow."
+      "start": 307.17,
+      "end": 311.02,
+      "text": "Yet something knows the way somehow."
     }
   ]
 }

@@ -329,20 +329,39 @@
     const updateLyrics = () => {
       if (!lyricLines.length || !lyricsScroll || !lyricsViewport) return;
       const time = audio.currentTime;
-      let activeIndex = 0;
+      let activeIndex = -1;
+      let focusIndex = 0;
+
       for (let i = 0; i < lyricLines.length; i++) {
-        if (time >= Number(lyricLines[i].dataset.lyricStart)) activeIndex = i;
-        else break;
+        const start = Number(lyricLines[i].dataset.lyricStart);
+        const end = Number(lyricLines[i].dataset.lyricEnd || start);
+        if (time >= start) focusIndex = i;
+        if (time >= start && time <= end) {
+          activeIndex = i;
+          focusIndex = i;
+          break;
+        }
+        if (time < start) {
+          if (i === 0) focusIndex = 0;
+          else if (activeIndex === -1) focusIndex = i - 1;
+          break;
+        }
       }
-      track.classList.toggle('has-started', time >= Number(lyricLines[0].dataset.lyricStart));
+
+      const hasStarted = time >= Number(lyricLines[0].dataset.lyricStart);
+      track.classList.toggle('has-started', hasStarted);
+      track.classList.toggle('is-vocal-active', activeIndex >= 0);
+
       lyricLines.forEach((line, i) => {
-        const distance = Math.abs(i - activeIndex);
-        line.classList.toggle('is-active', i === activeIndex && track.classList.contains('has-started'));
-        line.classList.toggle('is-near', distance === 1 && track.classList.contains('has-started'));
+        line.classList.toggle('is-active', i === activeIndex);
+        const nearActive = activeIndex >= 0 && Math.abs(i - activeIndex) === 1;
+        const nearGap = activeIndex < 0 && hasStarted && (i === focusIndex || i === focusIndex + 1);
+        line.classList.toggle('is-near', nearActive || nearGap);
       });
-      const active = lyricLines[activeIndex];
-      if (active) {
-        const target = active.offsetTop - (lyricsViewport.clientHeight - active.offsetHeight) / 2;
+
+      const focus = lyricLines[activeIndex >= 0 ? activeIndex : focusIndex];
+      if (focus) {
+        const target = focus.offsetTop - (lyricsViewport.clientHeight - focus.offsetHeight) / 2;
         lyricsScroll.style.transform = `translateY(${-Math.max(0, target)}px)`;
       }
     };

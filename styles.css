@@ -832,7 +832,8 @@ button { font: inherit; }
 .lyric-line.is-active{color:#5d4054;opacity:1;filter:none;transform:scale(1);font-weight:600}
 .music-track--butterflies .lyric-line.is-active{color:#4c334c}
 .music-track--butterflies .lyric-line.is-near{color:#c88eaa}
-[data-audio-track]:not(.has-started) .lyric-line:first-child{color:#7b596e;opacity:.72;filter:none;transform:scale(1)}
+[data-audio-track]:not(.has-started) .lyric-line:first-child{color:#d9a3ba;opacity:.44;filter:blur(1.5px);transform:scale(.985)}
+[data-audio-track].has-started:not(.is-vocal-active) .lyric-line.is-near{color:#d9a3ba;opacity:.42;filter:blur(1.6px);transform:scale(.985)}
 
 @media(max-width:1000px){
   .song-card,.song-card--featured{grid-template-columns:165px minmax(0,1fr);gap:24px}
