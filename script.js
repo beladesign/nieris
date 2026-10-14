@@ -8,7 +8,7 @@
     "nav.fanarts": "Fanarts",
     "nav.nabis": "Nabis",
     "nav.livepix": "LivePix",
-    "nav.portal": "Portal",
+    "nav.portal": "Socials",
     "home.kicker": "entre o sonho & o Mundo Desperto",
     "home.hero_line": "Quando os sonhos dos Nabis se abrem, Nieris atravessa o véu entre os mundos. Quando a passagem se fecha, o Mundo Desperto a chama de volta.",
     "home.cta": "Entre no sonho dela",
@@ -79,8 +79,8 @@
     "nabis.place_desc": "Atividades, hashtags, destaques e projetos da comunidade poderão viver aqui conforme esse universo crescer.",
     "nabis.later": "Em breve",
     "nabis.later_desc": "Este espaço cresce junto com a comunidade e só recebe conteúdo quando houver algo real para compartilhar.",
-    "portal.kicker": "portas para o mundo desperto",
-    "portal.intro": "Outros lugares onde você pode encontrar Nieris além deste sonho.",
+    "portal.kicker": "onde encontrar Nieris",
+    "portal.intro": "Os canais oficiais da Nieris em um só lugar.",
     "footer.home_left": "Nieris · the dreamy oni",
     "footer.home_right": "entre o sonho & o Mundo Desperto",
     "footer.lore_left": "Nieris · lore",
@@ -93,8 +93,8 @@
     "footer.fanarts_right": "arte da comunidade",
     "footer.nabis_left": "Nieris · Nabis",
     "footer.nabis_right": "comunidade",
-    "footer.portal_left": "Nieris · portal",
-    "footer.portal_right": "outros lugares"
+    "footer.portal_left": "Nieris · socials",
+    "footer.portal_right": "canais oficiais"
   },
   "en-US": {
     "nav.home": "Home",
@@ -104,7 +104,7 @@
     "nav.fanarts": "Fanarts",
     "nav.nabis": "Nabis",
     "nav.livepix": "LivePix",
-    "nav.portal": "Portal",
+    "nav.portal": "Socials",
     "home.kicker": "between the dream & the Waking World",
     "home.hero_line": "When the dreams of the Nabis open, Nieris crosses the veil between worlds. When the passage closes, the Waking World calls her back.",
     "home.cta": "Enter her dream",
@@ -175,8 +175,8 @@
     "nabis.place_desc": "Activities, hashtags, highlights and community projects can live here as this universe grows.",
     "nabis.later": "Coming later",
     "nabis.later_desc": "This space grows with the community and only gains content when there is something real to share.",
-    "portal.kicker": "doors to the waking world",
-    "portal.intro": "Other places where you can find Nieris beyond this dream.",
+    "portal.kicker": "where to find Nieris",
+    "portal.intro": "Nieris’ official channels in one place.",
     "footer.home_left": "Nieris · the dreamy oni",
     "footer.home_right": "between the dream & the Waking World",
     "footer.lore_left": "Nieris · lore",
@@ -189,8 +189,8 @@
     "footer.fanarts_right": "community art",
     "footer.nabis_left": "Nieris · Nabis",
     "footer.nabis_right": "community",
-    "footer.portal_left": "Nieris · portal",
-    "footer.portal_right": "elsewhere"
+    "footer.portal_left": "Nieris · socials",
+    "footer.portal_right": "official channels"
   }
 };
 
@@ -208,7 +208,7 @@
     credits: {'pt-BR':'Créditos | Nieris','en-US':'Credits | Nieris'},
     fanarts: {'pt-BR':'Fanarts | Nieris','en-US':'Fanarts | Nieris'},
     nabis: {'pt-BR':'Nabis | Nieris','en-US':'Nabis | Nieris'},
-    portal: {'pt-BR':'Portal | Nieris','en-US':'Portal | Nieris'}
+    socials: {'pt-BR':'Socials | Nieris','en-US':'Socials | Nieris'}
   };
 
   const menuBtn = document.querySelector('.menu-button');
@@ -312,11 +312,39 @@
     const toggles = [...track.querySelectorAll('[data-audio-toggle]')];
     const progress = track.querySelector('[data-audio-progress]');
     const currentTime = track.querySelector('[data-current-time]');
+    const volume = track.querySelector('[data-audio-volume]');
+    const volumeValue = track.querySelector('[data-volume-value]');
+    const lyricsViewport = track.querySelector('[data-lyrics-viewport]');
+    const lyricsScroll = track.querySelector('[data-lyrics-scroll]');
+    const lyricLines = [...track.querySelectorAll('[data-lyric-start]')];
     if (!audio || !progress) return;
+
+    audio.volume = volume ? Number(volume.value) / 100 : .82;
 
     const setState = (playing) => {
       track.classList.toggle('is-playing', playing);
       toggles.forEach(btn => btn.setAttribute('aria-pressed', String(playing)));
+    };
+
+    const updateLyrics = () => {
+      if (!lyricLines.length || !lyricsScroll || !lyricsViewport) return;
+      const time = audio.currentTime;
+      let activeIndex = 0;
+      for (let i = 0; i < lyricLines.length; i++) {
+        if (time >= Number(lyricLines[i].dataset.lyricStart)) activeIndex = i;
+        else break;
+      }
+      track.classList.toggle('has-started', time >= Number(lyricLines[0].dataset.lyricStart));
+      lyricLines.forEach((line, i) => {
+        const distance = Math.abs(i - activeIndex);
+        line.classList.toggle('is-active', i === activeIndex && track.classList.contains('has-started'));
+        line.classList.toggle('is-near', distance === 1 && track.classList.contains('has-started'));
+      });
+      const active = lyricLines[activeIndex];
+      if (active) {
+        const target = active.offsetTop - (lyricsViewport.clientHeight - active.offsetHeight) / 2;
+        lyricsScroll.style.transform = `translateY(${-Math.max(0, target)}px)`;
+      }
     };
 
     const toggleAudio = () => {
@@ -326,22 +354,48 @@
           if (otherAudio && otherAudio !== audio && !otherAudio.paused) otherAudio.pause();
         });
         audio.play().catch(() => {});
-      } else {
-        audio.pause();
-      }
+      } else audio.pause();
     };
 
     toggles.forEach(btn => btn.addEventListener('click', toggleAudio));
     audio.addEventListener('play', () => setState(true));
     audio.addEventListener('pause', () => setState(false));
-    audio.addEventListener('ended', () => { setState(false); progress.value = '0'; progress.style.setProperty('--progress','0%'); if (currentTime) currentTime.textContent = '00:00'; });
+    audio.addEventListener('ended', () => {
+      setState(false);
+      progress.value = '0';
+      progress.style.setProperty('--progress','0%');
+      if (currentTime) currentTime.textContent = '00:00';
+      audio.currentTime = 0;
+      updateLyrics();
+    });
     audio.addEventListener('timeupdate', () => {
-      if (audio.duration) { const ratio = audio.currentTime / audio.duration; progress.value = String(Math.round(ratio * 1000)); progress.style.setProperty('--progress', `${ratio * 100}%`); }
+      if (audio.duration) {
+        const ratio = audio.currentTime / audio.duration;
+        progress.value = String(Math.round(ratio * 1000));
+        progress.style.setProperty('--progress', `${ratio * 100}%`);
+      }
       if (currentTime) currentTime.textContent = formatTime(audio.currentTime);
+      updateLyrics();
     });
     progress.addEventListener('input', () => {
-      if (audio.duration) { const ratio = Number(progress.value) / 1000; audio.currentTime = ratio * audio.duration; progress.style.setProperty('--progress', `${ratio * 100}%`); }
+      if (audio.duration) {
+        const ratio = Number(progress.value) / 1000;
+        audio.currentTime = ratio * audio.duration;
+        progress.style.setProperty('--progress', `${ratio * 100}%`);
+        updateLyrics();
+      }
     });
+    if (volume) {
+      const updateVolume = () => {
+        const value = Number(volume.value);
+        audio.volume = value / 100;
+        volume.style.setProperty('--volume', `${value}%`);
+        if (volumeValue) volumeValue.textContent = `${value}%`;
+      };
+      volume.addEventListener('input', updateVolume);
+      updateVolume();
+    }
+    updateLyrics();
   });
 
 })();

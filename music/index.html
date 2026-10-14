@@ -21,16 +21,14 @@
         <a data-i18n="nav.fanarts" href="/fanarts">Fanarts</a>
         <a data-i18n="nav.nabis" href="/nabis">Nabis</a>
         <a data-i18n="nav.livepix" href="https://livepix.gg/niee" target="_blank" rel="noopener noreferrer">LivePix</a>
-        <a data-i18n="nav.portal" href="/portal">Portal</a>
+        <a data-i18n="nav.portal" href="/socials">Socials</a>
       </nav>
       <div class="header-controls">
         <div aria-label="Idioma do site" class="language-switch site-language-switch">
           <button data-language-button="pt-BR" type="button">PT-BR</button>
           <button data-language-button="en-US" type="button">EN-US</button>
         </div>
-        <button aria-expanded="false" aria-label="Abrir menu" class="menu-button" type="button">
-          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M5 8h14M5 16h14"></path></svg>
-        </button>
+        <button aria-expanded="false" aria-label="Abrir menu" class="menu-button" type="button"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M5 8h14M5 16h14"></path></svg></button>
       </div>
     </div>
   </header>
@@ -38,14 +36,8 @@
   <main class="page music-page">
     <section class="page-hero music-hero">
       <div class="shell page-hero-inner">
-        <div>
-          <div class="kicker" data-i18n="music.kicker">ecos entre mundos</div>
-          <h1 data-i18n="music.title">Músicas</h1>
-          <p data-i18n="music.intro">Músicas originais de Nieris.</p>
-        </div>
-        <div class="page-mark music-page-mark" aria-hidden="true">
-          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"></circle><circle cx="12" cy="12" r="2"></circle><path d="M12 4v2M20 12h-2M12 20v-2M4 12h2"></path></svg>
-        </div>
+        <div><div class="kicker" data-i18n="music.kicker">ecos entre mundos</div><h1 data-i18n="music.title">Músicas</h1><p data-i18n="music.intro">Músicas originais de Nieris.</p></div>
+        <div class="page-mark music-page-mark" aria-hidden="true"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"></circle><circle cx="12" cy="12" r="2"></circle><path d="M12 4v2M20 12h-2M12 20v-2M4 12h2"></path></svg></div>
       </div>
     </section>
 
@@ -59,25 +51,103 @@
             </span>
           </button>
         </div>
+
         <div class="song-info">
-          <div class="song-eyebrow">
-            <span class="song-index">01</span>
-            <span class="song-feature" data-i18n="music.main_theme">tema principal da lore</span>
-          </div>
+          <div class="song-eyebrow"><span class="song-index">01</span><span class="song-feature" data-i18n="music.main_theme">tema principal da lore</span></div>
           <h2>Where the Butterflies Turn Black</h2>
-          <div class="track-player">
-            <button class="track-play" type="button" data-audio-toggle aria-label="Tocar Where the Butterflies Turn Black">
-              <svg class="icon-play" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="m9 7 8 5-8 5V7Z"></path></svg>
-              <svg class="icon-pause" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M8 7h3v10H8zm5 0h3v10h-3z"></path></svg>
-            </button>
-            <span class="track-time" data-current-time>00:00</span>
-            <input class="track-progress" data-audio-progress type="range" min="0" max="1000" value="0" aria-label="Progresso de Where the Butterflies Turn Black"/>
-            <span class="track-time">05:33</span>
+
+          <div class="track-controls">
+            <div class="track-player">
+              <button class="track-play" type="button" data-audio-toggle aria-label="Tocar Where the Butterflies Turn Black">
+                <svg class="icon-play" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="m9 7 8 5-8 5V7Z"></path></svg>
+                <svg class="icon-pause" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M8 7h3v10H8zm5 0h3v10h-3z"></path></svg>
+              </button>
+              <span class="track-time" data-current-time>00:00</span>
+              <input class="track-progress" data-audio-progress type="range" min="0" max="1000" value="0" aria-label="Progresso de Where the Butterflies Turn Black"/>
+              <span class="track-time">05:33</span>
+            </div>
+            <label class="track-volume" aria-label="Volume de Where the Butterflies Turn Black">
+              <svg class="volume-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 10v4h3l4 3V7l-4 3H5Z"></path><path d="M15 9c1 .8 1.5 1.8 1.5 3S16 14.2 15 15"></path><path d="M17.5 6.5c1.8 1.6 2.7 3.4 2.7 5.5s-.9 3.9-2.7 5.5"></path></svg>
+              <input class="volume-slider" data-audio-volume type="range" min="0" max="100" value="82" aria-label="Volume"/>
+              <span class="volume-value" data-volume-value>82%</span>
+            </label>
           </div>
           <audio preload="metadata" src="/assets/music/where-the-butterflies-turn-black.mp3"></audio>
         </div>
-      </article>
 
+        <div class="lyrics-panel" data-lyrics-panel aria-label="Lyrics de Where the Butterflies Turn Black">
+          <div class="lyrics-label">LYRICS</div>
+          <div class="lyrics-viewport" data-lyrics-viewport>
+            <div class="lyrics-scroll" data-lyrics-scroll>
+<p class="lyric-line" data-lyric-start="15.00">Close your eyes, the night is calling</p>
+<p class="lyric-line" data-lyric-start="20.25">Through a world where stars are falling</p>
+<p class="lyric-line" data-lyric-start="25.50">Little wings of pink and gold</p>
+<p class="lyric-line" data-lyric-start="30.15">Lead me somewhere strange and old</p>
+<p class="lyric-line" data-lyric-start="34.80">Every time I fall asleep</p>
+<p class="lyric-line" data-lyric-start="38.86">There&#x27;s another world beneath</p>
+<p class="lyric-line" data-lyric-start="42.32">Strange horizons, skies unknown</p>
+<p class="lyric-line" data-lyric-start="45.79">Never a place to call my own</p>
+<p class="lyric-line" data-lyric-start="51.03">Pink-winged wishes fill the air</p>
+<p class="lyric-line" data-lyric-start="55.69">Fragile dreams are everywhere</p>
+<p class="lyric-line" data-lyric-start="59.15">I follow where the petals fly</p>
+<p class="lyric-line" data-lyric-start="63.80">Beneath a painted, sleeping sky</p>
+<p class="lyric-line" data-lyric-start="67.86">But something moves beneath the light</p>
+<p class="lyric-line" data-lyric-start="72.51">The flowers close, the stars lose sight</p>
+<p class="lyric-line" data-lyric-start="77.76">A crooked shadow stains the blue</p>
+<p class="lyric-line" data-lyric-start="82.42">And suddenly, the world feels new</p>
+<p class="lyric-line" data-lyric-start="87.07">Where the butterflies turn black</p>
+<p class="lyric-line" data-lyric-start="93.56">There&#x27;s no easy turning back</p>
+<p class="lyric-line" data-lyric-start="97.62">Velvet wings and liquid skies</p>
+<p class="lyric-line" data-lyric-start="101.68">Hide the fear behind their eyes</p>
+<p class="lyric-line" data-lyric-start="106.33">I will find where it began</p>
+<p class="lyric-line" data-lyric-start="110.98">Trace the cracks with trembling hands</p>
+<p class="lyric-line" data-lyric-start="115.64">Through the dream and through the dark</p>
+<p class="lyric-line" data-lyric-start="120.89">Where the butterflies turn black</p>
+<p class="lyric-line" data-lyric-start="124.94">The walls are breathing, trees have eyes</p>
+<p class="lyric-line" data-lyric-start="130.19">The ground rewrites its own design</p>
+<p class="lyric-line" data-lyric-start="134.84">Blackened wings begin to crawl</p>
+<p class="lyric-line" data-lyric-start="138.90">Something&#x27;s waiting past it all</p>
+<p class="lyric-line" data-lyric-start="142.96">Little footsteps by my side</p>
+<p class="lyric-line" data-lyric-start="147.02">Keep me tethered through the night</p>
+<p class="lyric-line" data-lyric-start="151.67">When the world forgets what&#x27;s real</p>
+<p class="lyric-line" data-lyric-start="156.32">You&#x27;re the one thing I can feel</p>
+<p class="lyric-line" data-lyric-start="161.57">I never asked to cross these skies</p>
+<p class="lyric-line" data-lyric-start="166.82">Or wear the fear behind their eyes</p>
+<p class="lyric-line" data-lyric-start="172.07">I only seek the breaking thread</p>
+<p class="lyric-line" data-lyric-start="176.72">Before the dream consumes what&#x27;s left</p>
+<p class="lyric-line" data-lyric-start="181.38">Where the butterflies turn black</p>
+<p class="lyric-line" data-lyric-start="187.87">There&#x27;s no easy turning back</p>
+<p class="lyric-line" data-lyric-start="191.93">Velvet wings and liquid skies</p>
+<p class="lyric-line" data-lyric-start="195.98">Hide the fear behind their eyes</p>
+<p class="lyric-line" data-lyric-start="200.64">I will find where it began</p>
+<p class="lyric-line" data-lyric-start="205.29">Trace the cracks with trembling hands</p>
+<p class="lyric-line" data-lyric-start="209.94">Through the dream and through the dark</p>
+<p class="lyric-line" data-lyric-start="215.19">Where the butterflies turn black</p>
+<p class="lyric-line" data-lyric-start="219.25">Am I awake? Am I asleep?</p>
+<p class="lyric-line" data-lyric-start="223.90">How many worlds are left to keep?</p>
+<p class="lyric-line" data-lyric-start="229.15">I&#x27;ve walked through dreams that weren&#x27;t my own</p>
+<p class="lyric-line" data-lyric-start="234.99">And still have never found my home</p>
+<p class="lyric-line" data-lyric-start="240.24">If every dream must fade away</p>
+<p class="lyric-line" data-lyric-start="244.90">What will be left of me someday?</p>
+<p class="lyric-line" data-lyric-start="250.14">A thousand doors, a thousand skies</p>
+<p class="lyric-line" data-lyric-start="254.80">And not one place where I reside</p>
+<p class="lyric-line" data-lyric-start="260.05">Where the butterflies turn black</p>
+<p class="lyric-line" data-lyric-start="264.10">I keep searching through the cracks</p>
+<p class="lyric-line" data-lyric-start="268.76">Even when the light has died</p>
+<p class="lyric-line" data-lyric-start="273.41">I won&#x27;t leave the lost behind</p>
+<p class="lyric-line" data-lyric-start="278.06">Every dream and every scar</p>
+<p class="lyric-line" data-lyric-start="282.12">Every world, no matter how far</p>
+<p class="lyric-line" data-lyric-start="286.77">I&#x27;ll keep walking through the dark</p>
+<p class="lyric-line" data-lyric-start="291.43">Where the butterflies turn black</p>
+<p class="lyric-line" data-lyric-start="295.48">Close your eyes, the night is deep</p>
+<p class="lyric-line" data-lyric-start="300.73">Someone else&#x27;s dream awaits me</p>
+<p class="lyric-line" data-lyric-start="304.79">Someone else&#x27;s dream awaits me</p>
+<p class="lyric-line" data-lyric-start="308.85">But somewhere there&#x27;s a dream unknown...</p>
+<p class="lyric-line" data-lyric-start="314.58">A dream that never calls me home.</p>
+            </div>
+          </div>
+        </div>
+      </article>
       <article class="song-card music-track--girl" data-audio-track>
         <div class="song-disc-column">
           <button class="cd-button" type="button" data-audio-toggle aria-label="Tocar The Girl Between Dreams">
@@ -87,22 +157,105 @@
             </span>
           </button>
         </div>
+
         <div class="song-info">
           <div class="song-eyebrow"><span class="song-index">02</span></div>
           <h2>The Girl Between Dreams</h2>
-          <div class="track-player">
-            <button class="track-play" type="button" data-audio-toggle aria-label="Tocar The Girl Between Dreams">
-              <svg class="icon-play" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="m9 7 8 5-8 5V7Z"></path></svg>
-              <svg class="icon-pause" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M8 7h3v10H8zm5 0h3v10h-3z"></path></svg>
-            </button>
-            <span class="track-time" data-current-time>00:00</span>
-            <input class="track-progress" data-audio-progress type="range" min="0" max="1000" value="0" aria-label="Progresso de The Girl Between Dreams"/>
-            <span class="track-time">04:47</span>
+
+          <div class="track-controls">
+            <div class="track-player">
+              <button class="track-play" type="button" data-audio-toggle aria-label="Tocar The Girl Between Dreams">
+                <svg class="icon-play" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="m9 7 8 5-8 5V7Z"></path></svg>
+                <svg class="icon-pause" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M8 7h3v10H8zm5 0h3v10h-3z"></path></svg>
+              </button>
+              <span class="track-time" data-current-time>00:00</span>
+              <input class="track-progress" data-audio-progress type="range" min="0" max="1000" value="0" aria-label="Progresso de The Girl Between Dreams"/>
+              <span class="track-time">04:47</span>
+            </div>
+            <label class="track-volume" aria-label="Volume de The Girl Between Dreams">
+              <svg class="volume-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 10v4h3l4 3V7l-4 3H5Z"></path><path d="M15 9c1 .8 1.5 1.8 1.5 3S16 14.2 15 15"></path><path d="M17.5 6.5c1.8 1.6 2.7 3.4 2.7 5.5s-.9 3.9-2.7 5.5"></path></svg>
+              <input class="volume-slider" data-audio-volume type="range" min="0" max="100" value="82" aria-label="Volume"/>
+              <span class="volume-value" data-volume-value>82%</span>
+            </label>
           </div>
           <audio preload="metadata" src="/assets/music/the-girl-between-dreams.mp3"></audio>
         </div>
-      </article>
 
+        <div class="lyrics-panel" data-lyrics-panel aria-label="Lyrics de The Girl Between Dreams">
+          <div class="lyrics-label">LYRICS</div>
+          <div class="lyrics-viewport" data-lyrics-viewport>
+            <div class="lyrics-scroll" data-lyrics-scroll>
+<p class="lyric-line" data-lyric-start="6.00">The hallway narrows, lights grow dim</p>
+<p class="lyric-line" data-lyric-start="9.99">I don&#x27;t remember entering in</p>
+<p class="lyric-line" data-lyric-start="13.48">A distant bell rings once, then twice</p>
+<p class="lyric-line" data-lyric-start="17.98">The walls blink back with borrowed eyes</p>
+<p class="lyric-line" data-lyric-start="22.49">The staircase ends against a wall</p>
+<p class="lyric-line" data-lyric-start="26.48">I hear a voice beyond it call</p>
+<p class="lyric-line" data-lyric-start="30.98">I follow it through peeling paint</p>
+<p class="lyric-line" data-lyric-start="34.98">The air grows thick, the lights grow faint</p>
+<p class="lyric-line" data-lyric-start="39.99">A doorway opens to the sea</p>
+<p class="lyric-line" data-lyric-start="43.99">The waves climb up the barren trees</p>
+<p class="lyric-line" data-lyric-start="48.49">I turn to find the way I came</p>
+<p class="lyric-line" data-lyric-start="53.51">The shore is gone, the walls have changed</p>
+<p class="lyric-line" data-lyric-start="58.52">Every turn erases where I&#x27;ve been</p>
+<p class="lyric-line" data-lyric-start="62.52">Every shadow lets another in</p>
+<p class="lyric-line" data-lyric-start="66.00">I tell myself the worst has passed</p>
+<p class="lyric-line" data-lyric-start="70.51">Then something moves behind the glass</p>
+<p class="lyric-line" data-lyric-start="74.50">Every time I turn around</p>
+<p class="lyric-line" data-lyric-start="77.98">The world has changed its face again</p>
+<p class="lyric-line" data-lyric-start="82.49">A silent scream, a shifting ground</p>
+<p class="lyric-line" data-lyric-start="86.48">A nightmare waiting round the bend</p>
+<p class="lyric-line" data-lyric-start="90.47">I run, it moves, I lose my way</p>
+<p class="lyric-line" data-lyric-start="95.49">The walls fold in, the lights decay</p>
+<p class="lyric-line" data-lyric-start="99.99">I turn around, there&#x27;s something there</p>
+<p class="lyric-line" data-lyric-start="103.99">Another nightmare, another snare</p>
+<p class="lyric-line" data-lyric-start="106.96">A nursery drowned in midnight rain</p>
+<p class="lyric-line" data-lyric-start="110.95">A hundred dolls repeat my name</p>
+<p class="lyric-line" data-lyric-start="114.95">Their little heads begin to turn</p>
+<p class="lyric-line" data-lyric-start="118.94">Their painted smiles refuse to blur</p>
+<p class="lyric-line" data-lyric-start="122.94">The ceiling sinks, the floor gives way</p>
+<p class="lyric-line" data-lyric-start="127.44">The ceiling sinks, the floor gives way</p>
+<p class="lyric-line" data-lyric-start="131.95">The stairs twist back the way they came</p>
+<p class="lyric-line" data-lyric-start="136.96">I find a window, pull the frame</p>
+<p class="lyric-line" data-lyric-start="141.47">There&#x27;s only darkness there again</p>
+<p class="lyric-line" data-lyric-start="144.95">The footsteps stop when I stand still</p>
+<p class="lyric-line" data-lyric-start="149.45">Then start again against my will</p>
+<p class="lyric-line" data-lyric-start="153.45">I hold my breath, I count to three</p>
+<p class="lyric-line" data-lyric-start="158.46">Something counts along with me</p>
+<p class="lyric-line" data-lyric-start="161.95">Every time I turn around</p>
+<p class="lyric-line" data-lyric-start="165.43">The world has changed its face again</p>
+<p class="lyric-line" data-lyric-start="169.93">A silent scream, a shifting ground</p>
+<p class="lyric-line" data-lyric-start="173.93">A nightmare waiting round the bend</p>
+<p class="lyric-line" data-lyric-start="177.92">I run, it moves, I lose my way</p>
+<p class="lyric-line" data-lyric-start="182.94">The walls fold in, the lights decay</p>
+<p class="lyric-line" data-lyric-start="187.44">I turn around, there&#x27;s something there</p>
+<p class="lyric-line" data-lyric-start="191.44">Another nightmare, another snare</p>
+<p class="lyric-line" data-lyric-start="194.41">For one still moment, nothing moves</p>
+<p class="lyric-line" data-lyric-start="198.40">No distant cries, no changing rooms</p>
+<p class="lyric-line" data-lyric-start="202.40">I almost dare to take a breath</p>
+<p class="lyric-line" data-lyric-start="206.90">To trust the quiet, welcome rest</p>
+<p class="lyric-line" data-lyric-start="210.89">A footstep sounds behind my own</p>
+<p class="lyric-line" data-lyric-start="214.89">A voice whispers in a voice I know</p>
+<p class="lyric-line" data-lyric-start="219.90">I turn before it says my name—</p>
+<p class="lyric-line" data-lyric-start="224.41">And nothing here is quite the same</p>
+<p class="lyric-line" data-lyric-start="228.91">Every time I turn around</p>
+<p class="lyric-line" data-lyric-start="232.40">Another world comes crashing in</p>
+<p class="lyric-line" data-lyric-start="235.88">The sky falls down without a sound</p>
+<p class="lyric-line" data-lyric-start="240.38">And something stirs beneath my skin</p>
+<p class="lyric-line" data-lyric-start="244.38">No path to follow, no way through</p>
+<p class="lyric-line" data-lyric-start="248.88">No time to learn what waits ahead</p>
+<p class="lyric-line" data-lyric-start="253.39">I turn, and all the walls are new</p>
+<p class="lyric-line" data-lyric-start="258.40">I turn, and find another dread</p>
+<p class="lyric-line" data-lyric-start="262.40">The bell rings once</p>
+<p class="lyric-line" data-lyric-start="265.37">The lights go out</p>
+<p class="lyric-line" data-lyric-start="268.34">I hear it breathing</p>
+<p class="lyric-line" data-lyric-start="271.31">All around</p>
+<p class="lyric-line" data-lyric-start="273.29">I turn my head—</p>
+<p class="lyric-line" data-lyric-start="276.26">Another nightmare.</p>
+            </div>
+          </div>
+        </div>
+      </article>
       <article class="song-card music-track--sight" data-audio-track>
         <div class="song-disc-column">
           <button class="cd-button" type="button" data-audio-toggle aria-label="Tocar Never Out of Sight">
@@ -112,19 +265,127 @@
             </span>
           </button>
         </div>
+
         <div class="song-info">
           <div class="song-eyebrow"><span class="song-index">03</span></div>
           <h2>Never Out of Sight</h2>
-          <div class="track-player">
-            <button class="track-play" type="button" data-audio-toggle aria-label="Tocar Never Out of Sight">
-              <svg class="icon-play" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="m9 7 8 5-8 5V7Z"></path></svg>
-              <svg class="icon-pause" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M8 7h3v10H8zm5 0h3v10h-3z"></path></svg>
-            </button>
-            <span class="track-time" data-current-time>00:00</span>
-            <input class="track-progress" data-audio-progress type="range" min="0" max="1000" value="0" aria-label="Progresso de Never Out of Sight"/>
-            <span class="track-time">05:22</span>
+
+          <div class="track-controls">
+            <div class="track-player">
+              <button class="track-play" type="button" data-audio-toggle aria-label="Tocar Never Out of Sight">
+                <svg class="icon-play" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="m9 7 8 5-8 5V7Z"></path></svg>
+                <svg class="icon-pause" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M8 7h3v10H8zm5 0h3v10h-3z"></path></svg>
+              </button>
+              <span class="track-time" data-current-time>00:00</span>
+              <input class="track-progress" data-audio-progress type="range" min="0" max="1000" value="0" aria-label="Progresso de Never Out of Sight"/>
+              <span class="track-time">05:22</span>
+            </div>
+            <label class="track-volume" aria-label="Volume de Never Out of Sight">
+              <svg class="volume-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 10v4h3l4 3V7l-4 3H5Z"></path><path d="M15 9c1 .8 1.5 1.8 1.5 3S16 14.2 15 15"></path><path d="M17.5 6.5c1.8 1.6 2.7 3.4 2.7 5.5s-.9 3.9-2.7 5.5"></path></svg>
+              <input class="volume-slider" data-audio-volume type="range" min="0" max="100" value="82" aria-label="Volume"/>
+              <span class="volume-value" data-volume-value>82%</span>
+            </label>
           </div>
           <audio preload="metadata" src="/assets/music/never-out-of-sight.mp3"></audio>
+        </div>
+
+        <div class="lyrics-panel" data-lyrics-panel aria-label="Lyrics de Never Out of Sight">
+          <div class="lyrics-label">LYRICS</div>
+          <div class="lyrics-viewport" data-lyrics-viewport>
+            <div class="lyrics-scroll" data-lyrics-scroll>
+<p class="lyric-line" data-lyric-start="7.00">Morning spills across the floor</p>
+<p class="lyric-line" data-lyric-start="10.05">Golden light beneath the door</p>
+<p class="lyric-line" data-lyric-start="13.11">Little flowers turn my way</p>
+<p class="lyric-line" data-lyric-start="16.16">Like they know I&#x27;m here to stay</p>
+<p class="lyric-line" data-lyric-start="20.11">Crystal petals fill the air</p>
+<p class="lyric-line" data-lyric-start="23.16">Tiny bells are everywhere</p>
+<p class="lyric-line" data-lyric-start="25.76">Every path is painted bright</p>
+<p class="lyric-line" data-lyric-start="28.82">Every step feels soft and light</p>
+<p class="lyric-line" data-lyric-start="32.32">I follow ribbons through the trees</p>
+<p class="lyric-line" data-lyric-start="35.82">They dance along the summer breeze</p>
+<p class="lyric-line" data-lyric-start="39.32">I don&#x27;t know where they might go</p>
+<p class="lyric-line" data-lyric-start="43.27">For once, I don&#x27;t need to know</p>
+<p class="lyric-line" data-lyric-start="47.22">Maybe I could stay awhile</p>
+<p class="lyric-line" data-lyric-start="50.27">Follow every winding mile</p>
+<p class="lyric-line" data-lyric-start="52.87">No need to wonder where I&#x27;ll be</p>
+<p class="lyric-line" data-lyric-start="56.82">I&#x27;ll follow where it carries me</p>
+<p class="lyric-line" data-lyric-start="60.32">Round and round, the colors fly</p>
+<p class="lyric-line" data-lyric-start="65.66">Little stars across the sky</p>
+<p class="lyric-line" data-lyric-start="68.71">Every road feels warm and bright</p>
+<p class="lyric-line" data-lyric-start="72.21">I&#x27;m never out of sight</p>
+<p class="lyric-line" data-lyric-start="75.26">Take my hand and lead me through</p>
+<p class="lyric-line" data-lyric-start="79.21">Every shade of pink and blue</p>
+<p class="lyric-line" data-lyric-start="82.71">I don&#x27;t need to know what&#x27;s right</p>
+<p class="lyric-line" data-lyric-start="86.66">I&#x27;m never out of sight</p>
+<p class="lyric-line" data-lyric-start="89.71">Didn&#x27;t I pass that tree before?</p>
+<p class="lyric-line" data-lyric-start="93.21">Was there always one more door?</p>
+<p class="lyric-line" data-lyric-start="96.71">I could swear the flowers stare</p>
+<p class="lyric-line" data-lyric-start="100.21">Didn&#x27;t I pass that tree before?</p>
+<p class="lyric-line" data-lyric-start="103.71">Was there always one more door?</p>
+<p class="lyric-line" data-lyric-start="107.22">I could swear the flowers stare</p>
+<p class="lyric-line" data-lyric-start="110.72">I turn around—there&#x27;s nothing there</p>
+<p class="lyric-line" data-lyric-start="114.22">The ribbons pull a little tight</p>
+<p class="lyric-line" data-lyric-start="117.72">I tell myself it&#x27;s still all right</p>
+<p class="lyric-line" data-lyric-start="121.67">I choose the left, I swear I do</p>
+<p class="lyric-line" data-lyric-start="126.06">My feet still take me somewhere new</p>
+<p class="lyric-line" data-lyric-start="130.01">Maybe I should stop awhile</p>
+<p class="lyric-line" data-lyric-start="133.06">Why have I walked another mile?</p>
+<p class="lyric-line" data-lyric-start="136.56">I know I meant to turn back there</p>
+<p class="lyric-line" data-lyric-start="140.96">...Didn&#x27;t I?</p>
+<p class="lyric-line" data-lyric-start="142.69">Round and round, the colors fly</p>
+<p class="lyric-line" data-lyric-start="146.19">I don&#x27;t know the reason why</p>
+<p class="lyric-line" data-lyric-start="149.69">Every road bends left and right</p>
+<p class="lyric-line" data-lyric-start="153.19">Leading back into its sight</p>
+<p class="lyric-line" data-lyric-start="156.24">Take my hand—no, set me free</p>
+<p class="lyric-line" data-lyric-start="160.19">This isn&#x27;t where I chose to be</p>
+<p class="lyric-line" data-lyric-start="164.14">Left or right, I try, I fight</p>
+<p class="lyric-line" data-lyric-start="168.09">I&#x27;m never out of sight</p>
+<p class="lyric-line" data-lyric-start="171.14">There&#x27;s something strange about my hands</p>
+<p class="lyric-line" data-lyric-start="174.64">They move before I understand</p>
+<p class="lyric-line" data-lyric-start="177.70">One little step, another two</p>
+<p class="lyric-line" data-lyric-start="180.75">I can&#x27;t tell what I chose to do</p>
+<p class="lyric-line" data-lyric-start="185.15">An unseen thread is pulling tight</p>
+<p class="lyric-line" data-lyric-start="188.65">It guides me farther from the light</p>
+<p class="lyric-line" data-lyric-start="192.59">I reach for it—there&#x27;s nothing there</p>
+<p class="lyric-line" data-lyric-start="196.54">Just empty fingers, empty air</p>
+<p class="lyric-line" data-lyric-start="199.60">Don&#x27;t turn around</p>
+<p class="lyric-line" data-lyric-start="201.75">Don&#x27;t make a sound</p>
+<p class="lyric-line" data-lyric-start="204.36">Don&#x27;t let it know</p>
+<p class="lyric-line" data-lyric-start="206.96">I know it now</p>
+<p class="lyric-line" data-lyric-start="209.57">The pretty world</p>
+<p class="lyric-line" data-lyric-start="211.73">The gentle light</p>
+<p class="lyric-line" data-lyric-start="213.88">Was never there to keep me safe</p>
+<p class="lyric-line" data-lyric-start="217.83">It only kept me in its sight</p>
+<p class="lyric-line" data-lyric-start="221.78">If I stand still, will it wait?</p>
+<p class="lyric-line" data-lyric-start="225.73">If I close my eyes, will it fade?</p>
+<p class="lyric-line" data-lyric-start="230.12">If I don&#x27;t move, if I don&#x27;t breathe</p>
+<p class="lyric-line" data-lyric-start="234.52">Could it forget that it sees me?</p>
+<p class="lyric-line" data-lyric-start="238.47">One...</p>
+<p class="lyric-line" data-lyric-start="241.01">Two...</p>
+<p class="lyric-line" data-lyric-start="243.56">Three...</p>
+<p class="lyric-line" data-lyric-start="246.10">Nothing.</p>
+<p class="lyric-line" data-lyric-start="247.83">I open my eyes.</p>
+<p class="lyric-line" data-lyric-start="250.44">The flowers are looking at me.</p>
+<p class="lyric-line" data-lyric-start="253.94">Round and round, the colors die</p>
+<p class="lyric-line" data-lyric-start="257.44">No more stars are in the sky</p>
+<p class="lyric-line" data-lyric-start="261.39">Every road bends left and right</p>
+<p class="lyric-line" data-lyric-start="264.89">To keep me always in its sight</p>
+<p class="lyric-line" data-lyric-start="268.83">Cut the thread, I feel it strain</p>
+<p class="lyric-line" data-lyric-start="272.78">I try to run, it pulls again</p>
+<p class="lyric-line" data-lyric-start="276.73">Every door, every turn, every night</p>
+<p class="lyric-line" data-lyric-start="280.23">Still it keeps me in its sight</p>
+<p class="lyric-line" data-lyric-start="284.18">Never hidden</p>
+<p class="lyric-line" data-lyric-start="285.91">Never free</p>
+<p class="lyric-line" data-lyric-start="287.64">Nowhere it cannot follow me</p>
+<p class="lyric-line" data-lyric-start="290.69">I was never out of sight</p>
+<p class="lyric-line" data-lyric-start="294.19">The ribbons sway</p>
+<p class="lyric-line" data-lyric-start="296.35">Though all is still</p>
+<p class="lyric-line" data-lyric-start="298.96">The flowers turn</p>
+<p class="lyric-line" data-lyric-start="301.11">Against my will</p>
+<p class="lyric-line" data-lyric-start="303.27">I don&#x27;t know where I&#x27;m going now</p>
+<p class="lyric-line" data-lyric-start="307.22">Yet something knows the way somehow.</p>
+            </div>
+          </div>
         </div>
       </article>
     </section>

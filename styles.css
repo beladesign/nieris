@@ -445,7 +445,7 @@ button { font: inherit; }
 .fan-item { min-height:360px;border-radius:24px;overflow:hidden;position:relative;border:1px solid var(--line);background:linear-gradient(135deg,rgba(255,255,255,.75),rgba(233,210,225,.5)); }
 .fan-item:nth-child(2n){min-height:440px}.fan-item:nth-child(3n){background:linear-gradient(150deg,rgba(222,215,235,.7),rgba(255,255,255,.8))}.fan-caption{position:absolute;left:16px;right:16px;bottom:16px;padding:13px 14px;border-radius:16px;background:rgba(255,250,253,.78);backdrop-filter:blur(9px);font-size:12px;display:flex;justify-content:space-between;gap:10px}.fan-caption a{text-decoration:none;color:var(--rose-deep)}
 
-/* Portal */
+/* Socials */
 .portal-list { padding:22px 0 110px; }
 .portal-link { display:grid;grid-template-columns:90px 1fr auto;gap:24px;align-items:center;padding:32px 0;border-bottom:1px solid var(--line);text-decoration:none;transition:padding .35s var(--ease),color .3s ease; }
 .portal-link:first-child{border-top:1px solid var(--line)}.portal-link:hover{padding-left:14px}.portal-link .num{color:#a78398;font-size:11px;letter-spacing:.1em}.portal-link strong{font-family:"Cormorant Garamond",serif;font-size:clamp(34px,4vw,54px);font-weight:500}.portal-link svg{width:24px;height:24px}
@@ -703,7 +703,7 @@ button { font: inherit; }
 .fan-caption-rich .fanart-number{font-size:21px}
 .fan-caption-rich span{font-size:10px}
 
-/* Portal */
+/* Socials */
 .portal-list{padding:12px 0 84px}
 .portal-link{grid-template-columns:66px 1fr auto;gap:20px;padding:24px 0}
 .portal-link strong{font-size:clamp(29px,3.2vw,43px)}
@@ -798,3 +798,54 @@ button { font: inherit; }
   .portal-link{padding:20px 0}
   .portal-link strong{font-size:32px}
 }
+
+
+/* ---------- V4.4 music player: synced lyrics + volume ---------- */
+.music-collection{gap:18px}
+.song-card,
+.song-card--featured{
+  grid-template-columns:clamp(150px,16vw,190px) minmax(250px,.86fr) minmax(290px,1.1fr);
+  gap:clamp(22px,3vw,38px);
+  align-items:center;
+  min-height:250px;
+  padding:24px clamp(22px,2.6vw,32px);
+}
+.song-card--featured{grid-template-columns:clamp(178px,18vw,215px) minmax(270px,.9fr) minmax(320px,1.12fr);min-height:280px}
+.song-info h2{font-size:clamp(31px,3.25vw,44px);line-height:1.02}
+.song-card--featured .song-info h2{font-size:clamp(35px,3.7vw,50px)}
+.cd-disc{width:min(100%,175px)}
+.song-card--featured .cd-disc{width:min(100%,205px)}
+.track-controls{margin-top:21px;display:flex;flex-direction:column;gap:13px;width:min(100%,520px)}
+.track-player{margin-top:0;width:100%;grid-template-columns:40px 36px minmax(110px,1fr) 36px;gap:8px}
+.track-volume{display:grid;grid-template-columns:18px minmax(90px,150px) 34px;gap:8px;align-items:center;width:max-content;max-width:100%;color:#9d8393}
+.volume-icon{width:16px;height:16px;stroke-width:1.45}
+.volume-slider{--volume:82%;appearance:none;width:100%;height:3px;border:0;border-radius:999px;background:linear-gradient(90deg,#d28dab 0 var(--volume),rgba(104,76,96,.14) var(--volume) 100%);cursor:pointer;outline:none}
+.volume-slider::-webkit-slider-thumb{appearance:none;width:11px;height:11px;border-radius:50%;background:#fff;border:1px solid rgba(154,100,130,.38);box-shadow:0 2px 7px rgba(86,54,76,.13)}
+.volume-slider::-moz-range-thumb{width:11px;height:11px;border-radius:50%;background:#fff;border:1px solid rgba(154,100,130,.38)}
+.volume-value{font-size:9px;font-variant-numeric:tabular-nums;text-align:right;color:#ab8e9f}
+.lyrics-panel{position:relative;z-index:1;min-width:0;padding-left:clamp(12px,2vw,24px);border-left:1px solid rgba(178,130,156,.16)}
+.lyrics-label{margin-bottom:7px;font-size:8px;letter-spacing:.18em;color:#b394a6}
+.lyrics-viewport{position:relative;height:132px;overflow:hidden;mask-image:linear-gradient(to bottom,transparent 0,#000 20%,#000 80%,transparent 100%);-webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 20%,#000 80%,transparent 100%)}
+.lyrics-scroll{position:absolute;left:0;right:0;top:0;transition:transform .48s cubic-bezier(.22,.72,.21,1);will-change:transform}
+.lyric-line{margin:0;min-height:42px;display:flex;align-items:center;font-family:"Cormorant Garamond",serif;font-size:clamp(18px,1.8vw,23px);line-height:1.12;color:#e3b8ca;opacity:.18;filter:blur(3px);transform:scale(.97);transform-origin:left center;transition:color .38s ease,opacity .38s ease,filter .38s ease,transform .38s ease}
+.lyric-line.is-near{color:#d9a3ba;opacity:.44;filter:blur(1.5px);transform:scale(.985)}
+.lyric-line.is-active{color:#5d4054;opacity:1;filter:none;transform:scale(1);font-weight:600}
+.music-track--butterflies .lyric-line.is-active{color:#4c334c}
+.music-track--butterflies .lyric-line.is-near{color:#c88eaa}
+[data-audio-track]:not(.has-started) .lyric-line:first-child{color:#7b596e;opacity:.72;filter:none;transform:scale(1)}
+
+@media(max-width:1000px){
+  .song-card,.song-card--featured{grid-template-columns:165px minmax(0,1fr);gap:24px}
+  .song-card--featured{grid-template-columns:185px minmax(0,1fr)}
+  .lyrics-panel{grid-column:2;padding-left:0;border-left:0;border-top:1px solid rgba(178,130,156,.14);padding-top:14px}
+  .lyrics-viewport{height:116px}
+  .lyric-line{min-height:38px;font-size:20px}
+}
+@media(max-width:680px){
+  .song-card,.song-card--featured{grid-template-columns:1fr;gap:16px}
+  .lyrics-panel{grid-column:1;padding-top:14px}
+  .lyrics-viewport{height:112px}
+  .lyric-line{min-height:37px;font-size:19px}
+  .track-volume{grid-template-columns:17px minmax(100px,1fr) 34px;width:min(100%,210px)}
+}
+@media(prefers-reduced-motion:reduce){.lyrics-scroll{transition:none}}
