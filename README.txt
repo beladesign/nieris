@@ -33,3 +33,5 @@ V3.7: Music page rebuilt with three local MP3 tracks, custom CD players, plural 
 V3.8 update: internal pages now use folder-based URLs for clean paths, e.g. /lore, /music, /credits, /fanarts, /nabis and /portal. Upload the contents of this folder to the repository root so GitHub Pages serves each section via section/index.html.
 
 V4.1: Credits page redesigned as a visual portfolio. Each creator card includes one or more media slots ready to receive images, GIFs, or looping videos later. Kasumi now includes Starting/Ending Screen Art and Image Reference.
+
+V4.2: Replaced the main lore theme "Where the Butterflies Turn Black" with the corrected audio version. Display duration updated to 05:33.
