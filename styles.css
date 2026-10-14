@@ -271,9 +271,174 @@ button { font: inherit; }
 .empty-state { color:#9a8393;font-size:13px;font-style:italic; }
 
 /* Credits */
-.credit-list { border-top:1px solid var(--line); }
-.credit-row { display:grid;grid-template-columns:180px 1fr 1fr auto;gap:28px;align-items:center;padding:25px 0;border-bottom:1px solid var(--line); }
-.credit-row .role{font-size:11px;text-transform:uppercase;letter-spacing:.12em;color:#9b7890}.credit-row h3{font-family:"Cormorant Garamond",serif;font-size:27px;font-weight:500;margin:0}.credit-row p{margin:0;color:var(--muted);font-size:13px}.credit-row a{text-decoration:none;width:38px;height:38px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center}.credit-row svg{width:15px;height:15px}
+.credits-showcase {
+  padding: 24px 0 110px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+.credit-card {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 30px;
+  background: linear-gradient(145deg, rgba(255,255,255,.70), rgba(248,237,243,.54));
+  box-shadow: 0 22px 62px rgba(84,51,74,.07);
+  padding: 26px;
+  transition: transform .35s var(--ease), box-shadow .35s var(--ease), border-color .35s ease;
+}
+.credit-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 32px 82px rgba(84,51,74,.12);
+  border-color: rgba(169,95,131,.34);
+}
+.credit-card-featured,
+.credit-card-wide { grid-column: span 2; }
+.credit-card-contribution {
+  background: linear-gradient(145deg, rgba(255,255,255,.64), rgba(238,224,237,.56));
+}
+.credit-card-head {
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:24px;
+  margin-bottom:22px;
+}
+.credit-card-head h2 {
+  margin: 6px 0 5px;
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(34px, 3.5vw, 48px);
+  line-height: .95;
+  font-weight: 500;
+  letter-spacing: -.025em;
+}
+.credit-card-head p {
+  margin:0;
+  color:var(--muted);
+  font-size:13px;
+  line-height:1.6;
+}
+.credit-role {
+  display:inline-block;
+  font-size:10px;
+  text-transform:uppercase;
+  letter-spacing:.16em;
+  color:#9b7890;
+}
+.credit-profile {
+  flex:0 0 auto;
+  min-height:40px;
+  padding:0 13px;
+  border:1px solid var(--line);
+  border-radius:999px;
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  text-decoration:none;
+  font-size:10px;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  background:rgba(255,255,255,.52);
+  transition:background .25s ease, transform .25s var(--ease);
+}
+.credit-profile:hover { background:rgba(255,255,255,.9); transform:translateY(-2px); }
+.credit-profile svg { width:14px;height:14px; }
+.credit-profile-static {
+  width:40px;
+  padding:0;
+  justify-content:center;
+  color:var(--rose-deep);
+}
+.credit-media-grid {
+  display:grid;
+  grid-template-columns:1fr;
+  gap:12px;
+}
+.credit-media-grid-two { grid-template-columns:repeat(2,minmax(0,1fr)); }
+.credit-media-grid-three { grid-template-columns:repeat(3,minmax(0,1fr)); }
+.credit-media-slot {
+  position:relative;
+  min-height:220px;
+  aspect-ratio:16/10;
+  overflow:hidden;
+  border-radius:22px;
+  border:1px solid rgba(169,95,131,.15);
+  isolation:isolate;
+  display:flex;
+  align-items:flex-end;
+  padding:18px;
+}
+.credit-media-slot::before,
+.credit-media-slot::after {
+  content:"";
+  position:absolute;
+  pointer-events:none;
+  z-index:-1;
+}
+.credit-media-slot::before {
+  width:190px;
+  height:190px;
+  border-radius:50%;
+  top:-72px;
+  right:-45px;
+  filter:blur(4px);
+  opacity:.66;
+}
+.credit-media-slot::after {
+  inset:0;
+  background:
+    linear-gradient(180deg, transparent 38%, rgba(46,31,48,.08)),
+    radial-gradient(circle at 20% 18%, rgba(255,255,255,.72), transparent 30%);
+}
+.credit-media-slot.tone-dream {
+  background:linear-gradient(145deg, rgba(255,250,253,.95), rgba(239,207,220,.72) 52%, rgba(221,212,235,.72));
+}
+.credit-media-slot.tone-dream::before { background:rgba(229,142,173,.32); }
+.credit-media-slot.tone-soft {
+  background:linear-gradient(145deg, rgba(255,255,255,.96), rgba(247,233,239,.86) 55%, rgba(214,232,242,.68));
+}
+.credit-media-slot.tone-soft::before { background:rgba(217,234,243,.48); }
+.credit-media-slot.tone-blue {
+  background:linear-gradient(145deg, rgba(248,246,251,.95), rgba(217,234,243,.80), rgba(226,209,230,.72));
+}
+.credit-media-slot.tone-blue::before { background:rgba(197,209,237,.42); }
+.credit-media-slot.tone-night {
+  color:#fff;
+  background:
+    radial-gradient(circle at 25% 18%, rgba(130,66,95,.52), transparent 32%),
+    linear-gradient(145deg, #50324f, #2e2037 64%, #211827);
+}
+.credit-media-slot.tone-night::before { background:rgba(130,66,95,.58); }
+.credit-media-number {
+  position:absolute;
+  top:15px;
+  left:16px;
+  font-family:"Cormorant Garamond",serif;
+  font-size:17px;
+  opacity:.55;
+}
+.credit-media-placeholder {
+  position:relative;
+  z-index:2;
+  max-width:85%;
+  font-family:"Cormorant Garamond",serif;
+  font-size:clamp(22px,2vw,31px);
+  line-height:1;
+  font-weight:500;
+}
+.credit-media-slot img,
+.credit-media-slot video {
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  z-index:1;
+}
+.credit-media-slot.media-contain img,
+.credit-media-slot.media-contain video { object-fit:contain; }
+.credit-media-slot:has(img) .credit-media-placeholder,
+.credit-media-slot:has(video) .credit-media-placeholder { display:none; }
 
 /* Fanarts */
 .fan-grid { display:grid;grid-template-columns:repeat(3,1fr);gap:18px; }
@@ -304,24 +469,17 @@ button { font: inherit; }
   .home-index-grid{grid-template-columns:repeat(2,1fr)}.home-index a{min-height:105px}
   .page-hero{padding-top:58px}.page-hero-inner{grid-template-columns:1fr}.page-mark{display:none}.page-hero h1{font-size:70px}
   .lore-layout{grid-template-columns:1fr;padding-top:14px}.lore-rail{position:static;flex-direction:row;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);padding-bottom:18px}.lore-rail::before{display:none}.lore-story .lead{font-size:31px}.world-note{grid-template-columns:1fr;gap:5px}
-  .span-4,.span-5,.span-6,.span-7,.span-8{grid-column:span 12}.fan-grid{grid-template-columns:1fr 1fr}.credit-row{grid-template-columns:1fr auto}.credit-row .role,.credit-row p{grid-column:1/-1}.credit-row a{grid-column:2;grid-row:1}.portal-link{grid-template-columns:42px 1fr auto}.footer-inner{flex-direction:column;align-items:flex-start}
+  .span-4,.span-5,.span-6,.span-7,.span-8{grid-column:span 12}.fan-grid{grid-template-columns:1fr 1fr}.credits-showcase{grid-template-columns:1fr}.credit-card-featured,.credit-card-wide{grid-column:span 1}.credit-media-grid-three{grid-template-columns:repeat(2,minmax(0,1fr))}.portal-link{grid-template-columns:42px 1fr auto}.footer-inner{flex-direction:column;align-items:flex-start}
 }
 @media (max-width: 520px){
   .header-inner{gap:10px}.brand{font-size:27px}.header-controls{gap:7px}.site-language-switch{padding:3px}.site-language-switch button{padding:6px 7px;font-size:8px;letter-spacing:.05em}.menu-button{width:38px;height:38px}
   .home-hero{padding-bottom:46px}.hero-copy .hero-line{font-size:14px;line-height:1.8}.hero-actions{align-items:stretch}.cta{justify-content:space-between}.home-index-grid{grid-template-columns:1fr}.home-index a{min-height:92px}.home-index{padding-bottom:46px}
-  .fan-grid{grid-template-columns:1fr}.fan-item,.fan-item:nth-child(2n){min-height:340px}.credit-row{gap:10px}.portal-link strong{font-size:38px}
+  .fan-grid{grid-template-columns:1fr}.fan-item,.fan-item:nth-child(2n){min-height:340px}.credit-card{padding:20px;border-radius:24px}.credit-card-head{gap:14px}.credit-profile{padding:0 10px}.credit-media-grid-two,.credit-media-grid-three{grid-template-columns:1fr}.credit-media-slot{min-height:190px}.portal-link strong{font-size:38px}
 }
 @media (prefers-reduced-motion: reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}.butterfly{display:none}}
 
 
-/* ---------- Credits / fanart content refinements ---------- */
-.credit-no-link {
-  width:38px;height:38px;border-radius:50%;border:1px solid var(--line);
-  display:grid;place-items:center;color:var(--rose-deep);font-size:12px;opacity:.72;
-}
-.contribution-row { background:linear-gradient(90deg, transparent, rgba(240,204,217,.10), transparent); }
-.credits-note { margin:24px 0 0;color:var(--muted);font-size:11px;letter-spacing:.04em; }
-
+/* ---------- Fanart content refinements ---------- */
 .fan-grid-featured {
   grid-template-columns:minmax(280px, 520px);
   justify-content:center;
