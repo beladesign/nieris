@@ -25,3 +25,9 @@ V3.5 updates:
 - Ming is used as the companion name throughout the site.
 - Uses rosa consistently in PT-BR copy.
 - Removes em dashes from public-facing copy.
+
+
+V3.7: Music page rebuilt with three local MP3 tracks, custom CD players, plural Music/Songs navigation, and future Spotify/YouTube Music debut placeholders.
+
+
+V3.8 update: internal pages now use folder-based URLs for clean paths, e.g. /lore, /music, /credits, /fanarts, /nabis and /portal. Upload the contents of this folder to the repository root so GitHub Pages serves each section via section/index.html.

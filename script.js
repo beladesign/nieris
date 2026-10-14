@@ -3,7 +3,7 @@
   "pt-BR": {
     "nav.home": "Home",
     "nav.lore": "Lore",
-    "nav.music": "Música",
+    "nav.music": "Músicas",
     "nav.credits": "Créditos",
     "nav.fanarts": "Fanarts",
     "nav.nabis": "Nabis",
@@ -26,14 +26,12 @@
     "lore.rail.distortion": "travessia",
     "lore.rail.nightmare": "mundo desperto",
     "lore.rail.return": "o próprio sonho?",
-    "music.kicker": "ecos presos entre mundos",
-    "music.intro": "Canções originais que ecoam entre os sonhos dos Nabis e o Mundo Desperto.",
-    "music.featured": "eco em destaque",
-    "music.featured_desc": "A faixa ganha seu próprio espaço com capa, player, contexto e letra, preservando a atmosfera do universo da Nieris.",
-    "music.song2_desc": "Uma nova parte desse universo contada através da música.",
-    "music.song3_desc": "Uma faixa que pode transformar sutilmente a atmosfera ao redor enquanto toca.",
-    "music.more": "Mais ecos",
-    "music.more_desc": "Novas músicas poderão surgir aqui.",
+    "music.kicker": "ecos entre mundos",
+    "music.title": "Músicas",
+    "music.intro": "As músicas originais da Nieris. Cada faixa guarda um pedaço diferente do sonho.",
+    "music.platform_kicker": "depois do debut",
+    "music.platform_note": "Spotify e YouTube Music chegam no debut.",
+    "music.at_debut": "no debut",
     "credits.kicker": "quem ajudou a dar forma ao sonho",
     "credits.intro": "Artistas e profissionais que construíram partes oficiais do universo da Nieris através de commissions e contribuições criativas.",
     "credits.role.stream_art": "Arte para stream",
@@ -76,7 +74,7 @@
     "footer.home_right": "entre o sonho & o Mundo Desperto",
     "footer.lore_left": "Nieris · lore",
     "footer.lore_right": "entre o sonho & o Mundo Desperto",
-    "footer.music_left": "Nieris · música",
+    "footer.music_left": "Nieris · músicas",
     "footer.music_right": "ecos originais",
     "footer.credits_left": "Nieris · créditos",
     "footer.credits_right": "trabalhos oficiais & contribuições",
@@ -90,7 +88,7 @@
   "en-US": {
     "nav.home": "Home",
     "nav.lore": "Lore",
-    "nav.music": "Music",
+    "nav.music": "Songs",
     "nav.credits": "Credits",
     "nav.fanarts": "Fanarts",
     "nav.nabis": "Nabis",
@@ -113,14 +111,12 @@
     "lore.rail.distortion": "crossing",
     "lore.rail.nightmare": "waking world",
     "lore.rail.return": "her own dream?",
-    "music.kicker": "echoes caught between worlds",
-    "music.intro": "Original songs echoing between the dreams of the Nabis and the Waking World.",
-    "music.featured": "featured echo",
-    "music.featured_desc": "Each track gets its own space for cover artwork, player, context and lyrics while preserving Nieris’ atmosphere.",
-    "music.song2_desc": "Another part of this universe told through music.",
-    "music.song3_desc": "A track that can subtly transform the atmosphere around it while it plays.",
-    "music.more": "More echoes",
-    "music.more_desc": "New songs can appear here over time.",
+    "music.kicker": "echoes between worlds",
+    "music.title": "Songs",
+    "music.intro": "Nieris’ original songs. Each track holds a different piece of the dream.",
+    "music.platform_kicker": "after debut",
+    "music.platform_note": "Spotify and YouTube Music arrive at debut.",
+    "music.at_debut": "at debut",
     "credits.kicker": "the people who shaped the dream",
     "credits.intro": "Artists and professionals who built official parts of Nieris’ universe through commissions and creative contributions.",
     "credits.role.stream_art": "Stream Art",
@@ -163,7 +159,7 @@
     "footer.home_right": "between the dream & the Waking World",
     "footer.lore_left": "Nieris · lore",
     "footer.lore_right": "between the dream & the Waking World",
-    "footer.music_left": "Nieris · music",
+    "footer.music_left": "Nieris · songs",
     "footer.music_right": "original echoes",
     "footer.credits_left": "Nieris · credits",
     "footer.credits_right": "official work & contributions",
@@ -177,14 +173,16 @@
 };
 
   const pageName = (() => {
-    const file = location.pathname.split('/').pop() || 'index.html';
-    return file.replace('.html', '') || 'index';
+    const segments = location.pathname.replace(/^\/+|\/+$/g, '').split('/').filter(Boolean);
+    if (!segments.length) return 'index';
+    const last = segments[segments.length - 1];
+    return last.replace('.html', '') || 'index';
   })();
 
   const titles = {
     index: {'pt-BR':'Nieris | The Dreamy Oni','en-US':'Nieris | The Dreamy Oni'},
     lore: {'pt-BR':'Lore | Nieris','en-US':'Lore | Nieris'},
-    music: {'pt-BR':'Música | Nieris','en-US':'Music | Nieris'},
+    music: {'pt-BR':'Músicas | Nieris','en-US':'Songs | Nieris'},
     credits: {'pt-BR':'Créditos | Nieris','en-US':'Credits | Nieris'},
     fanarts: {'pt-BR':'Fanarts | Nieris','en-US':'Fanarts | Nieris'},
     nabis: {'pt-BR':'Nabis | Nieris','en-US':'Nabis | Nieris'},
@@ -277,4 +275,51 @@
       stage.style.transform = `translate3d(${x}px, ${y}px, 0)`;
     }, {passive:true});
   }
+
+  // Custom music players. Only one track plays at a time.
+  const audioTracks = [...document.querySelectorAll('[data-audio-track]')];
+  const formatTime = (seconds) => {
+    if (!Number.isFinite(seconds) || seconds < 0) return '00:00';
+    const minutes = Math.floor(seconds / 60);
+    const secs = Math.floor(seconds % 60);
+    return `${String(minutes).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
+  };
+
+  audioTracks.forEach(track => {
+    const audio = track.querySelector('audio');
+    const toggles = [...track.querySelectorAll('[data-audio-toggle]')];
+    const progress = track.querySelector('[data-audio-progress]');
+    const currentTime = track.querySelector('[data-current-time]');
+    if (!audio || !progress) return;
+
+    const setState = (playing) => {
+      track.classList.toggle('is-playing', playing);
+      toggles.forEach(btn => btn.setAttribute('aria-pressed', String(playing)));
+    };
+
+    const toggleAudio = () => {
+      if (audio.paused) {
+        audioTracks.forEach(otherTrack => {
+          const otherAudio = otherTrack.querySelector('audio');
+          if (otherAudio && otherAudio !== audio && !otherAudio.paused) otherAudio.pause();
+        });
+        audio.play().catch(() => {});
+      } else {
+        audio.pause();
+      }
+    };
+
+    toggles.forEach(btn => btn.addEventListener('click', toggleAudio));
+    audio.addEventListener('play', () => setState(true));
+    audio.addEventListener('pause', () => setState(false));
+    audio.addEventListener('ended', () => { setState(false); progress.value = '0'; if (currentTime) currentTime.textContent = '00:00'; });
+    audio.addEventListener('timeupdate', () => {
+      if (audio.duration) progress.value = String(Math.round((audio.currentTime / audio.duration) * 1000));
+      if (currentTime) currentTime.textContent = formatTime(audio.currentTime);
+    });
+    progress.addEventListener('input', () => {
+      if (audio.duration) audio.currentTime = (Number(progress.value) / 1000) * audio.duration;
+    });
+  });
+
 })();
