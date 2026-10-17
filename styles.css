@@ -2384,3 +2384,33 @@ body::before{
     min-height:calc(100svh - 94px);
   }
 }
+
+
+/* =========================================================
+   V6.8 — HOME CENTERING FIX
+   The old Home grid still had two columns. The invisible card
+   was therefore centered inside the LEFT column, not the page.
+   ========================================================= */
+
+.home-hero.home-hero-open{
+  grid-template-columns: 1fr !important;
+  grid-template-rows: 1fr !important;
+  gap: 0 !important;
+  justify-items: stretch !important;
+  align-items: stretch !important;
+}
+
+.hero-invisible-card{
+  grid-column: 1 / -1 !important;
+  grid-row: 1 !important;
+  width: min(1180px, calc(100vw - 48px)) !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.hero-invisible-card .hero-copy-centered{
+  justify-self: center !important;
+  align-self: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
