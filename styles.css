@@ -1696,3 +1696,85 @@ body::before{
   .queue-cover{width:46px}
   .queue-action{display:none}
 }
+
+
+/* =========================================================
+   V5.2 — Credits UX
+   Artist profile is adjacent to the name and media previews
+   are also clickable when a public profile is available.
+   ========================================================= */
+
+.credit-card-head{
+  justify-content:flex-start;
+}
+
+.credit-card-head > div{
+  width:100%;
+}
+
+.credit-name-row{
+  display:flex;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:10px;
+  margin:5px 0 4px;
+}
+
+.credit-name-row h2{
+  margin:0;
+}
+
+.credit-profile-visible{
+  min-height:30px;
+  padding:0 11px;
+  gap:6px;
+  border:0;
+  border-radius:999px;
+  background:rgba(218,126,164,.14);
+  color:#e4a0ba;
+  font-size:9px;
+  font-weight:600;
+  letter-spacing:.07em;
+  text-transform:uppercase;
+}
+
+.credit-profile-visible:hover{
+  background:rgba(218,126,164,.24);
+  color:#f1b4ca;
+  transform:none;
+}
+
+.credit-profile-visible svg{
+  width:12px;
+  height:12px;
+}
+
+.credit-media-link{
+  color:inherit;
+  text-decoration:none;
+  cursor:pointer;
+  transition:transform .2s ease, box-shadow .2s ease, filter .2s ease;
+}
+
+.credit-media-link:hover{
+  transform:translateY(-2px);
+  box-shadow:0 14px 28px rgba(0,0,0,.16);
+  filter:brightness(1.06);
+}
+
+.credit-media-link:focus-visible,
+.credit-profile-visible:focus-visible{
+  outline:2px solid rgba(232,154,184,.8);
+  outline-offset:3px;
+}
+
+@media(max-width:700px){
+  .credit-name-row{
+    gap:8px;
+  }
+
+  .credit-profile-visible{
+    min-height:28px;
+    padding:0 10px;
+  }
+}

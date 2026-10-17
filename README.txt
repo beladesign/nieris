@@ -56,3 +56,5 @@ V4.9: whole-site visual cleanup. Dark plum background, simplified navigation wit
 V5.0: performance/atmosphere pass. Ambient glows are softer and static, global header blur was removed, decorative butterflies were reduced, Home pointer parallax was disabled, and lyric blur is now applied only to nearby lines. Music layout itself was intentionally left unchanged pending a visual reference.
 
 V5.1: Music page rebuilt as a single lightweight player with large cover area, categories, queue/up-next list, volume control, previous/next controls, and automatic playback of the next track. Synced lyrics were removed entirely for performance.
+
+V5.2: Credits UX improved. Artist social/profile buttons now sit beside artist names with stronger visibility, and each work/media preview links to the corresponding artist profile when a public link is available.
