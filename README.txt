@@ -48,3 +48,7 @@ V4.6 MUSIC SYNC
 - Timing data is also stored in assets/music/lyrics-timings.json for future fine adjustment.
 
 V4.7: lyric highlighting now uses explicit vocal start AND end times. No line remains crisp during instrumental gaps; previous/upcoming lines remain softly blurred.
+
+V4.8: Socials page updated with official Twitch, YouTube, X, Discord and TikTok links.
+
+V4.9: whole-site visual cleanup. Dark plum background, simplified navigation with pink hover only, most decorative separator lines/borders removed, cards flattened, and Waking World terminology replaced by Pesadelo/Nightmare.
