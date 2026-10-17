@@ -1188,3 +1188,122 @@ body::before{opacity:.12;mix-blend-mode:soft-light}
   .lyrics-panel{border-top:0!important;padding-top:8px}
   .footer-inner{gap:8px}
 }
+
+/* =========================================================
+   V5.0 — atmosphere + performance pass
+   Softer background glow, fewer composited effects.
+   ========================================================= */
+
+/* The ambient shapes should read as light inside the background,
+   not as separate circles. Keep them static to avoid repaint cost. */
+.orb{
+  animation:none!important;
+  opacity:.10!important;
+  filter:blur(82px)!important;
+  transform:translateZ(0);
+}
+.orb.a{
+  width:440px!important;
+  height:440px!important;
+  left:-180px!important;
+  top:20%!important;
+  background:rgba(211,107,155,.28)!important;
+}
+.orb.b{
+  width:560px!important;
+  height:560px!important;
+  right:-250px!important;
+  top:0!important;
+  background:rgba(102,83,138,.23)!important;
+}
+.orb.c{
+  width:470px!important;
+  height:470px!important;
+  left:42%!important;
+  bottom:-260px!important;
+  background:rgba(142,70,122,.19)!important;
+}
+
+/* Static CSS gradients do most of the atmospheric work now. */
+body{
+  background:
+    radial-gradient(ellipse 54% 38% at 78% 8%,rgba(106,58,93,.14),transparent 70%),
+    radial-gradient(ellipse 48% 40% at 8% 42%,rgba(68,54,88,.13),transparent 72%),
+    linear-gradient(155deg,#171019 0%,#1b121f 48%,#211525 100%)!important;
+}
+body::before{
+  opacity:.07!important;
+  mix-blend-mode:normal!important;
+}
+
+/* Header blur looked nice, but on a full viewport scroll it is expensive. */
+.site-header{
+  backdrop-filter:none!important;
+  -webkit-backdrop-filter:none!important;
+  background:linear-gradient(to bottom,rgba(20,14,23,.97),rgba(20,14,23,.72),transparent)!important;
+}
+
+/* Butterflies remain, but much lighter to composite. */
+.butterfly{
+  opacity:.26!important;
+  filter:none!important;
+  contain:layout paint style;
+}
+.butterfly::before,.butterfly::after{
+  animation-duration:1.05s!important;
+}
+
+/* No pointer-parallax until the final Home artwork exists. */
+.character-stage{
+  transform:none!important;
+}
+
+/* Lyric performance: only the two nearby lines receive blur.
+   Far lines are invisible and have no filter at all. */
+.lyric-line{
+  opacity:0!important;
+  filter:none!important;
+  transform:scale(.985)!important;
+  transition:color .28s ease,opacity .28s ease,filter .28s ease,transform .28s ease!important;
+}
+.lyric-line.is-near{
+  color:#d199b2!important;
+  opacity:.34!important;
+  filter:blur(1.35px)!important;
+  transform:scale(.99)!important;
+}
+.lyric-line.is-active,
+.music-track--butterflies .lyric-line.is-active{
+  color:#f0dbe5!important;
+  opacity:1!important;
+  filter:none!important;
+  transform:scale(1)!important;
+}
+[data-audio-track]:not(.has-started) .lyric-line:first-child{
+  opacity:.34!important;
+  filter:blur(1.35px)!important;
+}
+[data-audio-track].has-started:not(.is-vocal-active) .lyric-line.is-near{
+  opacity:.30!important;
+  filter:blur(1.35px)!important;
+}
+
+/* Avoid unnecessary layer creation. */
+.lyrics-scroll{will-change:auto!important;}
+.cd-disc{will-change:transform;}
+.cd-disc::before{mix-blend-mode:normal!important;opacity:.38!important;}
+
+/* Static dialog blur is unnecessary. */
+.fanart-dialog::backdrop{
+  backdrop-filter:none!important;
+  -webkit-backdrop-filter:none!important;
+}
+
+@media(max-width:900px){
+  .orb{filter:blur(68px)!important;opacity:.075!important;}
+}
+
+@media(max-width:680px){
+  .orb.b,.orb.c{display:none!important;}
+  .orb.a{filter:blur(64px)!important;opacity:.07!important;}
+}

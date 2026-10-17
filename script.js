@@ -262,7 +262,7 @@
 
   // Lightweight atmospheric butterflies. Decorative only.
   if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    const count = innerWidth < 700 ? 2 : 4;
+    const count = innerWidth < 700 ? 1 : 2;
     for (let i = 0; i < count; i++) {
       const b = document.createElement('span');
       b.className = 'butterfly';
@@ -288,15 +288,7 @@
     });
   }
 
-  // Gentle pointer depth on the future Nieris artwork area.
-  const stage = document.querySelector('.character-stage');
-  if (stage && matchMedia('(pointer:fine)').matches && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    window.addEventListener('pointermove', (e) => {
-      const x = (e.clientX / innerWidth - .5) * 5;
-      const y = (e.clientY / innerHeight - .5) * -4;
-      stage.style.transform = `translate3d(${x}px, ${y}px, 0)`;
-    }, {passive:true});
-  }
+  // Pointer parallax intentionally disabled for performance until the final Home artwork is defined.
 
   // Custom music players. Only one track plays at a time.
   const audioTracks = [...document.querySelectorAll('[data-audio-track]')];
