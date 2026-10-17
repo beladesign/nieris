@@ -58,3 +58,11 @@ V5.0: performance/atmosphere pass. Ambient glows are softer and static, global h
 V5.1: Music page rebuilt as a single lightweight player with large cover area, categories, queue/up-next list, volume control, previous/next controls, and automatic playback of the next track. Synced lyrics were removed entirely for performance.
 
 V5.2: Credits UX improved. Artist social/profile buttons now sit beside artist names with stronger visibility, and each work/media preview links to the corresponding artist profile when a public link is available.
+
+V5.3: Home redesigned with a centered profile, simplified structure, bottom redundant home links removed, and a dedicated hero art background area representing Nieris between dreams and nightmares.
+
+V5.4: Home CTAs reordered and improved: Meet the artists / Read the lore / Listen to the echoes. Artists is the primary CTA, lore and music are secondary.
+
+V5.5: Menu reordered with LivePix last. Added empty /moderation page (Moderação / Moderation) with site chrome only.
+
+V5.6: Menu reordered to Home · Lore · Músicas · Créditos · Fanarts · Nabis · Moderação · Socials · LivePix.

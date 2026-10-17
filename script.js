@@ -9,11 +9,13 @@
     "nav.nabis": "Nabis",
     "nav.livepix": "LivePix",
     "nav.portal": "Socials",
+    "nav.moderation": "Moderação",
     "home.kicker": "entre sonhos & pesadelos",
     "home.hero_line": "Quando os sonhos dos Nabis se abrem, Nieris atravessa o véu e viaja entre eles. Quando a passagem se fecha, ela é puxada de volta para o Pesadelo.",
-    "home.cta": "Entre no sonho dela",
-    "home.listen": "ouça os ecos",
-    "home.art_placeholder": "arte da Nieris",
+    "home.cta_artists": "Conheça os artistas",
+    "home.cta_lore": "Leia a lore",
+    "home.cta_music": "Ouça os ecos",
+    "home.art_placeholder": "arte da Nieris ao fundo",
     "home.index.story": "01 / história",
     "home.index.echoes": "02 / ecos",
     "home.index.creators": "03 / criadores",
@@ -113,11 +115,13 @@
     "nav.nabis": "Nabis",
     "nav.livepix": "LivePix",
     "nav.portal": "Socials",
+    "nav.moderation": "Moderation",
     "home.kicker": "between dreams & nightmares",
     "home.hero_line": "When the dreams of the Nabis open, Nieris crosses the veil and travels through them. When the passage closes, she is pulled back into the Nightmare.",
-    "home.cta": "Enter her dream",
-    "home.listen": "listen to the echoes",
-    "home.art_placeholder": "Nieris artwork",
+    "home.cta_artists": "Meet the artists",
+    "home.cta_lore": "Read the lore",
+    "home.cta_music": "Listen to the echoes",
+    "home.art_placeholder": "Nieris background artwork",
     "home.index.story": "01 / story",
     "home.index.echoes": "02 / echoes",
     "home.index.creators": "03 / creators",
@@ -224,7 +228,8 @@
     credits: {'pt-BR':'Créditos | Nieris','en-US':'Credits | Nieris'},
     fanarts: {'pt-BR':'Fanarts | Nieris','en-US':'Fanarts | Nieris'},
     nabis: {'pt-BR':'Nabis | Nieris','en-US':'Nabis | Nieris'},
-    socials: {'pt-BR':'Socials | Nieris','en-US':'Socials | Nieris'}
+    socials: {'pt-BR':'Socials | Nieris','en-US':'Socials | Nieris'},
+    moderation: {'pt-BR':'Moderação | Nieris','en-US':'Moderation | Nieris'}
   };
 
   const menuBtn = document.querySelector('.menu-button');
