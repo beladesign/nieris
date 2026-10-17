@@ -75,4 +75,13 @@ V6.2: Added round artist icons to the Credits page in the name row (icon · name
 
 V6.3: Corrected artist icon mapping using the uploaded filenames literally. Icons shown only for Eve, Eudora, Lady and Equidna. AdusFX asset is stored but not displayed because the credit is still unconfirmed. Hely, Rubyfilia and Kasumi remain without icons until their own files are provided.
 
-V6.4: Added the remaining artist icons in the order provided by the user: Hely, Rubyfilia, Kasumi and Infinity Void.
+V6.5: Artist icons rebuilt using literal uploaded filenames only:
+eve.jpg -> Eve
+eudora.jpg -> Eudora
+Lady.jpg -> Lady
+Equidna.jpg -> Equidna
+Hely.png -> Hely
+Rubyfilia.png -> Rubyfilia
+Kasumi.jpg -> Kasumi
+Infinity Void.png -> Infinity Void
+AdusFX.jpg stored only; not displayed because the credit is still unconfirmed.
