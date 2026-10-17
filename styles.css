@@ -2326,3 +2326,61 @@ body::before{
     flex-basis:32px;
   }
 }
+
+
+/* =========================================================
+   V6.7 — Invisible Home alignment card
+   Structural only. No visible card styling.
+   ========================================================= */
+
+.home-hero-open{
+  padding:86px 24px 30px;
+}
+
+.hero-invisible-card{
+  position:relative;
+  width:min(1180px, calc(100vw - 48px));
+  min-height:calc(100svh - 116px);
+  margin:0 auto;
+
+  display:grid;
+  place-items:center;
+
+  /* intentionally invisible */
+  background:transparent;
+  border:0;
+  box-shadow:none;
+  border-radius:0;
+}
+
+.hero-invisible-card .hero-copy-centered{
+  width:min(740px, 100%);
+  max-width:740px;
+  margin:0 auto;
+  padding:0;
+  justify-self:center;
+  align-self:center;
+  text-align:center;
+}
+
+@media(max-width:760px){
+  .home-hero-open{
+    padding:78px 18px 24px;
+  }
+
+  .hero-invisible-card{
+    width:min(100%, calc(100vw - 36px));
+    min-height:calc(100svh - 102px);
+  }
+}
+
+@media(max-width:520px){
+  .home-hero-open{
+    padding:74px 16px 20px;
+  }
+
+  .hero-invisible-card{
+    width:100%;
+    min-height:calc(100svh - 94px);
+  }
+}

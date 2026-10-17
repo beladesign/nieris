@@ -21,3 +21,5 @@ Arquivos compartilhados:
 - _config.yml
 
 As URLs públicas continuam limpas (/lore, /music, /credits etc.) porque o GitHub Pages faz o build via Jekyll.
+
+V6.7: Home now uses an invisible structural card to truly center the hero content. The card has no background, border, shadow or visible limitation and exists only for alignment.
