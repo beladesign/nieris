@@ -66,3 +66,7 @@ V5.4: Home CTAs reordered and improved: Meet the artists / Read the lore / Liste
 V5.5: Menu reordered with LivePix last. Added empty /moderation page (Moderação / Moderation) with site chrome only.
 
 V5.6: Menu reordered to Home · Lore · Músicas · Créditos · Fanarts · Nabis · Moderação · Socials · LivePix.
+
+V5.7: Home artwork card/placeholder removed completely. The hero is now an open composition so the future Nieris artwork can be placed freely across the background/scene without card boundaries.
+
+V5.8: Removed the decorative Lore artwork/background composition entirely and rebalanced the reading layout around the text.

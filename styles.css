@@ -2227,3 +2227,73 @@ body::before{
   .main-nav{gap:0;}
   .main-nav a{padding-left:7px;padding-right:7px;font-size:10.5px;}
 }
+
+
+/* =========================================================
+   V5.7 — Home without an artwork card
+   The future Nieris illustration will be a free composition
+   layer, not constrained by a card/container.
+   ========================================================= */
+
+.home-hero-open{
+  position:relative;
+  width:100%;
+  min-height:100svh;
+  padding:112px 24px 68px;
+  display:grid;
+  place-items:center;
+  overflow:hidden;
+}
+
+/* No visual panel, border, box, placeholder or artificial image frame. */
+.home-hero-open .hero-copy-centered{
+  position:relative;
+  z-index:2;
+  max-width:740px;
+  padding:0;
+}
+
+/* Future artwork hook:
+   an image can later be inserted directly inside .home-hero-open
+   and positioned absolute/full-bleed without affecting the text layout. */
+
+@media(max-width:760px){
+  .home-hero-open{
+    padding:96px 22px 52px;
+  }
+}
+
+@media(max-width:520px){
+  .home-hero-open{
+    padding:90px 18px 42px;
+  }
+}
+
+
+/* =========================================================
+   V5.8 — Lore cleanup
+   Decorative background illustration removed completely.
+   ========================================================= */
+
+.lore-layout{
+  grid-template-columns:105px minmax(0,760px);
+  justify-content:center;
+  gap:42px;
+}
+
+@media(max-width:980px){
+  .lore-layout{
+    grid-template-columns:110px minmax(0,1fr);
+    justify-content:stretch;
+  }
+}
+
+@media(max-width:700px){
+  .lore-layout{
+    grid-template-columns:1fr;
+  }
+
+  .lore-rail{
+    display:none;
+  }
+}
