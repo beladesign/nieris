@@ -280,21 +280,6 @@
   applyLanguage(savedLang === 'en-US' ? 'en-US' : 'pt-BR');
   langButtons.forEach(btn => btn.addEventListener('click', () => applyLanguage(btn.dataset.languageButton)));
 
-  // Lightweight atmospheric butterflies. Decorative only.
-  if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    const count = innerWidth < 700 ? 1 : 2;
-    for (let i = 0; i < count; i++) {
-      const b = document.createElement('span');
-      b.className = 'butterfly';
-      b.style.setProperty('--dur', `${16 + Math.random() * 12}s`);
-      b.style.setProperty('--x1', `${Math.random() * 90}vw`);
-      b.style.setProperty('--x2', `${10 + Math.random() * 80}vw`);
-      b.style.setProperty('--x3', `${Math.random() * 90}vw`);
-      b.style.animationDelay = `${-Math.random() * 20}s`;
-      document.body.appendChild(b);
-    }
-  }
-
 
   // Fanart lightbox.
   const fanartDialog = document.querySelector('[data-fanart-dialog]');
