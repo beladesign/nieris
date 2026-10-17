@@ -2297,3 +2297,60 @@ body::before{
     display:none;
   }
 }
+
+
+/* =========================================================
+   V5.9 — Lore actually centered
+   Removes the side rail and centers both the page intro and
+   the reading column in the viewport.
+   ========================================================= */
+
+.lore-page-hero .page-hero-inner{
+  width:min(760px, calc(100% - 48px));
+  margin:0 auto;
+  text-align:center;
+  justify-items:center;
+}
+
+.lore-page-hero .page-hero-inner > div:first-child{
+  width:100%;
+}
+
+.lore-page-hero .kicker{
+  text-align:center;
+}
+
+.lore-page-hero p{
+  margin-left:auto;
+  margin-right:auto;
+}
+
+.lore-layout{
+  display:block !important;
+  width:min(760px, calc(100% - 48px)) !important;
+  margin:0 auto !important;
+  padding:18px 0 110px !important;
+}
+
+.lore-story{
+  width:100%;
+  margin:0 auto;
+}
+
+.lore-story .lead,
+.lore-story p,
+.lore-story h2,
+.world-notes{
+  width:100%;
+}
+
+@media(max-width:700px){
+  .lore-page-hero .page-hero-inner,
+  .lore-layout{
+    width:min(100% - 36px, 760px) !important;
+  }
+
+  .lore-page-hero{
+    padding-top:58px;
+  }
+}

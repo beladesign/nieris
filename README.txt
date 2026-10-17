@@ -70,3 +70,5 @@ V5.6: Menu reordered to Home · Lore · Músicas · Créditos · Fanarts · Nabi
 V5.7: Home artwork card/placeholder removed completely. The hero is now an open composition so the future Nieris artwork can be placed freely across the background/scene without card boundaries.
 
 V5.8: Removed the decorative Lore artwork/background composition entirely and rebalanced the reading layout around the text.
+
+V5.9: Lore side rail removed and both the Lore header and reading column are now truly centered in the viewport.
