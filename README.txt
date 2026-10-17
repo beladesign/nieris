@@ -72,3 +72,5 @@ V5.7: Home artwork card/placeholder removed completely. The hero is now an open 
 V6.1: Lore restored to the V5.7 layout. Only the decorative Lore drawing was removed. All decorative butterflies were removed site-wide.
 
 V6.2: Added round artist icons to the Credits page in the name row (icon · name · CTA) for the current artists with provided avatars.
+
+V6.3: Corrected artist icon mapping using the uploaded filenames literally. Icons shown only for Eve, Eudora, Lady and Equidna. AdusFX asset is stored but not displayed because the credit is still unconfirmed. Hely, Rubyfilia and Kasumi remain without icons until their own files are provided.
