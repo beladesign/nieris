@@ -103,7 +103,8 @@
     "footer.nabis_left": "Nieris · Nabis",
     "footer.nabis_right": "comunidade",
     "footer.portal_left": "Nieris · socials",
-    "footer.portal_right": "canais oficiais"
+    "footer.portal_right": "canais oficiais",
+    "footer.rights": "© 2026 Nieris. Todos os direitos reservados."
   },
   "en-US": {
     "nav.home": "Home",
@@ -208,7 +209,8 @@
     "footer.nabis_left": "Nieris · Nabis",
     "footer.nabis_right": "community",
     "footer.portal_left": "Nieris · socials",
-    "footer.portal_right": "official channels"
+    "footer.portal_right": "official channels",
+    "footer.rights": "© 2026 Nieris. All rights reserved."
   }
 };
 
