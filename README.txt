@@ -54,3 +54,5 @@ V4.8: Socials page updated with official Twitch, YouTube, X, Discord and TikTok 
 V4.9: whole-site visual cleanup. Dark plum background, simplified navigation with pink hover only, most decorative separator lines/borders removed, cards flattened, and Waking World terminology replaced by Pesadelo/Nightmare.
 
 V5.0: performance/atmosphere pass. Ambient glows are softer and static, global header blur was removed, decorative butterflies were reduced, Home pointer parallax was disabled, and lyric blur is now applied only to nearby lines. Music layout itself was intentionally left unchanged pending a visual reference.
+
+V5.1: Music page rebuilt as a single lightweight player with large cover area, categories, queue/up-next list, volume control, previous/next controls, and automatic playback of the next track. Synced lyrics were removed entirely for performance.

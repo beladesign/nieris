@@ -30,6 +30,14 @@
     "music.title": "Músicas",
     "music.intro": "Músicas originais de Nieris.",
     "music.main_theme": "tema principal da lore",
+    "music.now_playing": "tocando agora",
+    "music.cover_placeholder": "capa em breve",
+    "music.collection_label": "coleção",
+    "music.up_next": "Próximas músicas",
+    "music.category.nightmare": "Pesadelo",
+    "music.category.dream": "Sonho",
+    "music.category_nightmare_note": "entre mundos que não param de mudar",
+    "music.category_dream_note": "um sonho bonito demais para ser simples",
     "credits.kicker": "quem ajudou a dar forma ao sonho",
     "credits.title": "Créditos",
     "credits.intro": "Artistas e profissionais que criaram partes oficiais do universo da Nieris.",
@@ -126,6 +134,14 @@
     "music.title": "Songs",
     "music.intro": "Nieris’ original songs.",
     "music.main_theme": "main lore theme",
+    "music.now_playing": "now playing",
+    "music.cover_placeholder": "cover coming soon",
+    "music.collection_label": "collection",
+    "music.up_next": "Up next",
+    "music.category.nightmare": "Nightmare",
+    "music.category.dream": "Dream",
+    "music.category_nightmare_note": "between worlds that never stop changing",
+    "music.category_dream_note": "a dream too beautiful to be simple",
     "credits.kicker": "the people who shaped the dream",
     "credits.title": "Credits",
     "credits.intro": "Artists and professionals who created official parts of Nieris’ universe.",
@@ -251,6 +267,7 @@
     document.querySelectorAll('.site-language-switch').forEach(sw => sw.setAttribute('aria-label', safeLang === 'en-US' ? 'Website language' : 'Idioma do site'));
 
     localStorage.setItem('nieris-site-language', safeLang);
+    document.dispatchEvent(new CustomEvent('nieris-language-changed', { detail: safeLang }));
     // Migrate the old lore-only preference if it existed.
     localStorage.removeItem('nieris-lore-language');
   };
@@ -290,123 +307,167 @@
 
   // Pointer parallax intentionally disabled for performance until the final Home artwork is defined.
 
-  // Custom music players. Only one track plays at a time.
-  const audioTracks = [...document.querySelectorAll('[data-audio-track]')];
-  const formatTime = (seconds) => {
-    if (!Number.isFinite(seconds) || seconds < 0) return '00:00';
-    const minutes = Math.floor(seconds / 60);
-    const secs = Math.floor(seconds % 60);
-    return `${String(minutes).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
-  };
 
-  audioTracks.forEach(track => {
-    const audio = track.querySelector('audio');
-    const toggles = [...track.querySelectorAll('[data-audio-toggle]')];
-    const progress = track.querySelector('[data-audio-progress]');
-    const currentTime = track.querySelector('[data-current-time]');
-    const volume = track.querySelector('[data-audio-volume]');
-    const volumeValue = track.querySelector('[data-volume-value]');
-    const lyricsViewport = track.querySelector('[data-lyrics-viewport]');
-    const lyricsScroll = track.querySelector('[data-lyrics-scroll]');
-    const lyricLines = [...track.querySelectorAll('[data-lyric-start]')];
-    if (!audio || !progress) return;
+  // Lightweight single-player music playlist.
+  const playlistItems = [...document.querySelectorAll('[data-playlist-item]')];
+  const mainAudio = document.querySelector('[data-main-audio]');
 
-    audio.volume = volume ? Number(volume.value) / 100 : .82;
+  if (mainAudio && playlistItems.length) {
+    const toggle = document.querySelector('[data-player-toggle]');
+    const prev = document.querySelector('[data-player-prev]');
+    const next = document.querySelector('[data-player-next]');
+    const progress = document.querySelector('[data-player-progress]');
+    const currentTime = document.querySelector('[data-player-current]');
+    const durationText = document.querySelector('[data-player-duration]');
+    const volume = document.querySelector('[data-player-volume]');
+    const volumeValue = document.querySelector('[data-player-volume-value]');
+    const nowTitle = document.querySelector('[data-now-title]');
+    const nowNumber = document.querySelector('[data-now-number]');
+    const nowCategory = document.querySelector('[data-now-category]');
+    const nowNote = document.querySelector('[data-now-note]');
+    const nowCover = document.querySelector('[data-now-cover]');
+    let currentIndex = 0;
 
-    const setState = (playing) => {
-      track.classList.toggle('is-playing', playing);
-      toggles.forEach(btn => btn.setAttribute('aria-pressed', String(playing)));
+    const coverClasses = ['music-cover--butterflies','music-cover--girl','music-cover--sight'];
+
+    const formatTime = (seconds) => {
+      if (!Number.isFinite(seconds) || seconds < 0) return '00:00';
+      const minutes = Math.floor(seconds / 60);
+      const secs = Math.floor(seconds % 60);
+      return `${String(minutes).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
     };
 
-    const updateLyrics = () => {
-      if (!lyricLines.length || !lyricsScroll || !lyricsViewport) return;
-      const time = audio.currentTime;
-      let activeIndex = -1;
-      let focusIndex = 0;
+    const currentLanguage = () =>
+      localStorage.getItem('nieris-site-language') === 'en-US' ? 'en-US' : 'pt-BR';
 
-      for (let i = 0; i < lyricLines.length; i++) {
-        const start = Number(lyricLines[i].dataset.lyricStart);
-        const end = Number(lyricLines[i].dataset.lyricEnd || start);
-        if (time >= start) focusIndex = i;
-        if (time >= start && time <= end) {
-          activeIndex = i;
-          focusIndex = i;
-          break;
-        }
-        if (time < start) {
-          if (i === 0) focusIndex = 0;
-          else if (activeIndex === -1) focusIndex = i - 1;
-          break;
-        }
+    const updatePlayState = () => {
+      document.body.classList.toggle('music-is-playing', !mainAudio.paused);
+      if (toggle) toggle.setAttribute('aria-pressed', String(!mainAudio.paused));
+    };
+
+    const updateTrackLanguage = () => {
+      const item = playlistItems[currentIndex];
+      if (!item) return;
+      const lang = currentLanguage();
+      if (nowCategory) {
+        nowCategory.textContent = lang === 'en-US'
+          ? item.dataset.categoryEn
+          : item.dataset.categoryPt;
+      }
+      if (nowNote) {
+        const dict = translations[lang];
+        const key = item.dataset.noteKey;
+        if (key && dict[key]) nowNote.textContent = dict[key];
+      }
+    };
+
+    const loadTrack = (index, autoplay = false) => {
+      const safeIndex = Math.max(0, Math.min(index, playlistItems.length - 1));
+      const item = playlistItems[safeIndex];
+      if (!item) return;
+
+      currentIndex = safeIndex;
+      mainAudio.src = item.dataset.src;
+      mainAudio.load();
+
+      if (nowTitle) nowTitle.textContent = item.dataset.title;
+      if (nowNumber) nowNumber.textContent = String(safeIndex + 1).padStart(2, '0');
+      if (durationText) durationText.textContent = item.dataset.duration || '00:00';
+
+      if (nowCover) {
+        coverClasses.forEach(cls => nowCover.classList.remove(cls));
+        if (item.dataset.coverClass) nowCover.classList.add(item.dataset.coverClass);
       }
 
-      const hasStarted = time >= Number(lyricLines[0].dataset.lyricStart);
-      track.classList.toggle('has-started', hasStarted);
-      track.classList.toggle('is-vocal-active', activeIndex >= 0);
-
-      lyricLines.forEach((line, i) => {
-        line.classList.toggle('is-active', i === activeIndex);
-        const nearActive = activeIndex >= 0 && Math.abs(i - activeIndex) === 1;
-        const nearGap = activeIndex < 0 && hasStarted && (i === focusIndex || i === focusIndex + 1);
-        line.classList.toggle('is-near', nearActive || nearGap);
+      playlistItems.forEach((button, i) => {
+        button.classList.toggle('is-active', i === safeIndex);
+        button.setAttribute('aria-current', i === safeIndex ? 'true' : 'false');
       });
 
-      const focus = lyricLines[activeIndex >= 0 ? activeIndex : focusIndex];
-      if (focus) {
-        const target = focus.offsetTop - (lyricsViewport.clientHeight - focus.offsetHeight) / 2;
-        lyricsScroll.style.transform = `translateY(${-Math.max(0, target)}px)`;
+      if (progress) {
+        progress.value = '0';
+        progress.style.setProperty('--progress', '0%');
+      }
+      if (currentTime) currentTime.textContent = '00:00';
+
+      updateTrackLanguage();
+
+      if (autoplay) {
+        mainAudio.play().catch(() => {});
+      } else {
+        updatePlayState();
       }
     };
 
-    const toggleAudio = () => {
-      if (audio.paused) {
-        audioTracks.forEach(otherTrack => {
-          const otherAudio = otherTrack.querySelector('audio');
-          if (otherAudio && otherAudio !== audio && !otherAudio.paused) otherAudio.pause();
-        });
-        audio.play().catch(() => {});
-      } else audio.pause();
-    };
-
-    toggles.forEach(btn => btn.addEventListener('click', toggleAudio));
-    audio.addEventListener('play', () => setState(true));
-    audio.addEventListener('pause', () => setState(false));
-    audio.addEventListener('ended', () => {
-      setState(false);
-      progress.value = '0';
-      progress.style.setProperty('--progress','0%');
-      if (currentTime) currentTime.textContent = '00:00';
-      audio.currentTime = 0;
-      updateLyrics();
+    toggle?.addEventListener('click', () => {
+      if (mainAudio.paused) mainAudio.play().catch(() => {});
+      else mainAudio.pause();
     });
-    audio.addEventListener('timeupdate', () => {
-      if (audio.duration) {
-        const ratio = audio.currentTime / audio.duration;
+
+    prev?.addEventListener('click', () => {
+      if (mainAudio.currentTime > 4) {
+        mainAudio.currentTime = 0;
+        return;
+      }
+      loadTrack(Math.max(0, currentIndex - 1), !mainAudio.paused);
+    });
+
+    next?.addEventListener('click', () => {
+      if (currentIndex < playlistItems.length - 1) {
+        loadTrack(currentIndex + 1, true);
+      }
+    });
+
+    playlistItems.forEach((item, index) => {
+      item.addEventListener('click', () => loadTrack(index, true));
+    });
+
+    mainAudio.addEventListener('play', updatePlayState);
+    mainAudio.addEventListener('pause', updatePlayState);
+
+    mainAudio.addEventListener('timeupdate', () => {
+      if (currentTime) currentTime.textContent = formatTime(mainAudio.currentTime);
+      if (progress && mainAudio.duration) {
+        const ratio = mainAudio.currentTime / mainAudio.duration;
         progress.value = String(Math.round(ratio * 1000));
         progress.style.setProperty('--progress', `${ratio * 100}%`);
       }
-      if (currentTime) currentTime.textContent = formatTime(audio.currentTime);
-      updateLyrics();
     });
-    progress.addEventListener('input', () => {
-      if (audio.duration) {
-        const ratio = Number(progress.value) / 1000;
-        audio.currentTime = ratio * audio.duration;
-        progress.style.setProperty('--progress', `${ratio * 100}%`);
-        updateLyrics();
+
+    mainAudio.addEventListener('loadedmetadata', () => {
+      if (durationText && Number.isFinite(mainAudio.duration)) {
+        durationText.textContent = formatTime(mainAudio.duration);
       }
     });
+
+    mainAudio.addEventListener('ended', () => {
+      if (currentIndex < playlistItems.length - 1) {
+        loadTrack(currentIndex + 1, true);
+      } else {
+        updatePlayState();
+      }
+    });
+
+    progress?.addEventListener('input', () => {
+      if (!mainAudio.duration) return;
+      const ratio = Number(progress.value) / 1000;
+      mainAudio.currentTime = ratio * mainAudio.duration;
+      progress.style.setProperty('--progress', `${ratio * 100}%`);
+    });
+
     if (volume) {
-      const updateVolume = () => {
+      const syncVolume = () => {
         const value = Number(volume.value);
-        audio.volume = value / 100;
+        mainAudio.volume = value / 100;
         volume.style.setProperty('--volume', `${value}%`);
         if (volumeValue) volumeValue.textContent = `${value}%`;
       };
-      volume.addEventListener('input', updateVolume);
-      updateVolume();
+      volume.addEventListener('input', syncVolume);
+      syncVolume();
     }
-    updateLyrics();
-  });
+
+    document.addEventListener('nieris-language-changed', updateTrackLanguage);
+    loadTrack(0, false);
+  }
 
 })();
