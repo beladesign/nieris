@@ -2715,3 +2715,54 @@ body.credit-gallery-open{overflow:hidden;}
   opacity: 1 !important;
   pointer-events: auto !important;
 }
+
+
+/* =========================================================
+   V7.10 — Socials moved to global footer
+   ========================================================= */
+.footer-inner-social{
+  display:flex !important;
+  flex-direction:column !important;
+  align-items:center !important;
+  justify-content:center !important;
+  gap:12px !important;
+  text-align:center;
+}
+.footer-socials{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:8px;
+}
+.footer-social-link{
+  width:34px;
+  height:34px;
+  display:grid;
+  place-items:center;
+  border-radius:50%;
+  color:#8f7d88;
+  text-decoration:none;
+  transition:color .18s ease, background .18s ease, transform .18s ease;
+}
+.footer-social-link svg{
+  width:17px;
+  height:17px;
+  display:block;
+}
+.footer-social-link:hover{
+  color:#e9a1bd;
+  background:rgba(233,161,189,.08);
+  transform:translateY(-2px);
+}
+.footer-social-link:focus-visible{
+  outline:2px solid rgba(233,161,189,.65);
+  outline-offset:3px;
+}
+.footer-inner-social .footer-brand-icon{ margin-top:2px; }
+.footer-inner-social .footer-rights{ margin-top:0; }
+@media(max-width:700px){
+  .footer-socials{ gap:6px; }
+  .footer-social-link{ width:32px;height:32px; }
+  .footer-social-link svg{ width:16px;height:16px; }
+}

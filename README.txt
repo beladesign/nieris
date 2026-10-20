@@ -35,3 +35,5 @@ V7.2: Added site-wide image download deterrence: images cannot be dragged or rig
 V7.3: Credits media updated. GIF assets remain animated via IMG, the media fills the rectangle more cleanly, and a bottom purple-to-transparent gradient was added so titles stay readable over the artwork.
 
 V7.7: Commission media cards now open an artist-specific zoom gallery. External profile CTA beside artist names remains unchanged.
+
+V7.10: Removed Socials from the menu and deleted socials.html. X, Twitch, Discord, YouTube and TikTok now appear as linked icons in the footer of every page.
