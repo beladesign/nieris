@@ -461,3 +461,28 @@
   }
 
 })();
+
+
+// V7.2 — Image download deterrence.
+// Keeps normal links clickable while blocking common right-click/drag saving.
+(() => {
+  const isProtectedMedia = (target) =>
+    target instanceof Element &&
+    Boolean(target.closest('img, .credit-media-slot, .fan-item'));
+
+  document.querySelectorAll('img').forEach((img) => {
+    img.setAttribute('draggable', 'false');
+  });
+
+  document.addEventListener('dragstart', (event) => {
+    if (isProtectedMedia(event.target)) {
+      event.preventDefault();
+    }
+  });
+
+  document.addEventListener('contextmenu', (event) => {
+    if (isProtectedMedia(event.target)) {
+      event.preventDefault();
+    }
+  });
+})();

@@ -2465,3 +2465,49 @@ body::before{
     font-size:9px;
   }
 }
+
+
+/* V7.1 — Credits media assets */
+.credit-media-slot img{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+  z-index:1;
+}
+
+.credit-card:has(h2:nth-of-type(1)) .credit-media-slot img{
+  border-radius:inherit;
+}
+
+/* Keep logo readable rather than cropping it too aggressively */
+.credit-card .credit-media-slot img[alt*="Logo da Nieris"]{
+  object-fit:contain;
+  padding:18px;
+  background:rgba(255,255,255,.025);
+}
+
+
+/* =========================================================
+   V7.2 — Image protection / download deterrence
+   Prevents common save/drag/select interactions.
+   Note: browser-displayed media cannot be made 100% impossible
+   to retrieve through developer tools or screenshots.
+   ========================================================= */
+
+img{
+  -webkit-user-select:none;
+  user-select:none;
+  -webkit-user-drag:none;
+}
+
+.credit-media-slot img,
+.fan-item img,
+.credit-artist-avatar-img,
+.footer-brand-icon{
+  -webkit-user-select:none;
+  user-select:none;
+  -webkit-user-drag:none;
+}

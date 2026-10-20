@@ -27,3 +27,7 @@ V6.7: Home now uses an invisible structural card to truly center the hero conten
 V6.8: Fixed Home centering bug. The hero was still inheriting the old two-column grid, so the content was centered inside the left column. Home now explicitly uses one full-width column.
 
 V6.9: Added Nieris brand icons. Pink SVG is now the favicon on every page. White SVG is centered in every footer. Footer is standardized with © 2026 Nieris and all-rights-reserved text in PT-BR/EN-US. Black SVG is stored in assets for future use.
+
+V7.1: Added credits media: Rubyfilia Discord Reactive GIF and Equidna Nieris logo image, each in the correct artist card.
+
+V7.2: Added site-wide image download deterrence: images cannot be dragged or right-click saved through normal browser interactions. Links on credit images remain functional. This is deterrence only; any image displayed by a browser can still technically be retrieved through developer tools or screenshots.
