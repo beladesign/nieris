@@ -486,3 +486,78 @@
     }
   });
 })();
+
+
+// V7.7 — Credits commission gallery.
+(() => {
+  const modal = document.querySelector('[data-credit-gallery]');
+  const items = [...document.querySelectorAll('.credit-gallery-item')];
+  if (!modal || !items.length) return;
+
+  const media = modal.querySelector('[data-gallery-media]');
+  const artistEl = modal.querySelector('[data-gallery-artist]');
+  const titleEl = modal.querySelector('[data-gallery-title]');
+  const countEl = modal.querySelector('[data-gallery-count]');
+  const prevBtn = modal.querySelector('[data-gallery-prev]');
+  const nextBtn = modal.querySelector('[data-gallery-next]');
+  const closeButtons = modal.querySelectorAll('[data-gallery-close]');
+
+  let gallery = [];
+  let currentIndex = 0;
+  let lastTrigger = null;
+  const pad = n => String(n).padStart(2, '0');
+
+  const render = () => {
+    const item = gallery[currentIndex];
+    if (!item) return;
+    media.src = item.dataset.gallerySrc;
+    media.alt = `${item.dataset.galleryTitle} — ${item.dataset.galleryArtist}`;
+    artistEl.textContent = item.dataset.galleryArtist;
+    titleEl.textContent = item.dataset.galleryTitle;
+    countEl.textContent = `${pad(currentIndex + 1)} / ${pad(gallery.length)}`;
+    const onlyOne = gallery.length <= 1;
+    prevBtn.hidden = onlyOne;
+    nextBtn.hidden = onlyOne;
+  };
+
+  const openGallery = trigger => {
+    const artist = trigger.dataset.galleryArtist;
+    gallery = items.filter(item => item.dataset.galleryArtist === artist);
+    currentIndex = Math.max(0, gallery.indexOf(trigger));
+    lastTrigger = trigger;
+    render();
+    modal.classList.add('is-open');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('credit-gallery-open');
+    modal.querySelector('[data-gallery-close]')?.focus();
+  };
+
+  const closeGallery = () => {
+    modal.classList.remove('is-open');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('credit-gallery-open');
+    media.removeAttribute('src');
+    media.alt = '';
+    lastTrigger?.focus();
+  };
+
+  const previous = () => {
+    currentIndex = (currentIndex - 1 + gallery.length) % gallery.length;
+    render();
+  };
+  const next = () => {
+    currentIndex = (currentIndex + 1) % gallery.length;
+    render();
+  };
+
+  items.forEach(item => item.addEventListener('click', () => openGallery(item)));
+  prevBtn?.addEventListener('click', previous);
+  nextBtn?.addEventListener('click', next);
+  closeButtons.forEach(btn => btn.addEventListener('click', closeGallery));
+  document.addEventListener('keydown', event => {
+    if (!modal.classList.contains('is-open')) return;
+    if (event.key === 'Escape') closeGallery();
+    if (event.key === 'ArrowLeft') previous();
+    if (event.key === 'ArrowRight') next();
+  });
+})();

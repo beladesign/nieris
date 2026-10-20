@@ -107,14 +107,14 @@
 </div>
 </div>
 <div class="credit-media-grid credit-media-grid-three">
-<a aria-label="Ver perfil de Lady" class="credit-media-slot tone-soft credit-media-link media-lady-panels" href="https://x.com/ladysartwork" rel="noopener noreferrer" target="_blank" title="Ver perfil de Lady"><img alt="Painéis criados por Lady" class="credit-media-asset" decoding="async" draggable="false" loading="lazy" src="/assets/credits/lady-paineis.png"/>
+<button aria-label="Abrir Painéis de Lady" class="credit-media-slot tone-soft credit-media-link media-lady-panels credit-gallery-item" data-gallery-artist="Lady" data-gallery-src="/assets/credits/lady-paineis.png" data-gallery-title="Painéis" type="button"><img alt="Painéis criados por Lady" class="credit-media-asset" decoding="async" draggable="false" loading="lazy" src="/assets/credits/lady-paineis.png"/>
 <span class="credit-media-number">01</span>
 <span class="credit-media-placeholder credit-media-caption" data-i18n="credits.work.panels">Painéis</span>
-</a>
-<a aria-label="Ver perfil de Lady" class="credit-media-slot tone-dream credit-media-link media-lady-pet" href="https://x.com/ladysartwork" rel="noopener noreferrer" target="_blank" title="Ver perfil de Lady"><img alt="Chat Pet criado por Lady" class="credit-media-asset" decoding="async" draggable="false" loading="lazy" src="/assets/credits/lady-chat-pet.png"/>
+</button>
+<button aria-label="Abrir Chat Pet de Lady" class="credit-media-slot tone-dream credit-media-link media-lady-pet credit-gallery-item" data-gallery-artist="Lady" data-gallery-src="/assets/credits/lady-chat-pet.png" data-gallery-title="Chat Pet" type="button"><img alt="Chat Pet criado por Lady" class="credit-media-asset" decoding="async" draggable="false" loading="lazy" src="/assets/credits/lady-chat-pet.png"/>
 <span class="credit-media-number">02</span>
 <span class="credit-media-placeholder credit-media-caption" data-i18n="credits.work.chat_pet">Chat Pet</span>
-</a>
+</button>
 <a aria-label="Ver perfil de Lady" class="credit-media-slot tone-night credit-media-link" href="https://x.com/ladysartwork" rel="noopener noreferrer" target="_blank" title="Ver perfil de Lady">
 <span class="credit-media-number">03</span>
 <span class="credit-media-placeholder credit-media-caption" data-i18n="credits.work.offline">Ilustração Offline</span>
@@ -132,10 +132,10 @@
 </div>
 </div>
 <div class="credit-media-grid">
-<a aria-label="Ver perfil de Equidna" class="credit-media-slot tone-soft credit-media-link media-equidna" href="https://x.com/MsEquidna" rel="noopener noreferrer" target="_blank" title="Ver perfil de Equidna"><img alt="Logo da Nieris criada por Equidna" class="credit-media-asset" decoding="async" loading="lazy" src="/assets/credits/equidna-nieris-logo.jpeg"/>
+<button aria-label="Abrir Logo Design de Equidna" class="credit-media-slot tone-soft credit-media-link media-equidna credit-gallery-item" data-gallery-artist="Equidna" data-gallery-src="/assets/credits/equidna-nieris-logo.jpeg" data-gallery-title="Logo Design" type="button"><img alt="Logo da Nieris criada por Equidna" class="credit-media-asset" decoding="async" loading="lazy" src="/assets/credits/equidna-nieris-logo.jpeg"/>
 <span class="credit-media-number">01</span>
 <span class="credit-media-placeholder credit-media-caption" data-i18n="credits.work.logo">Logo Design</span>
-</a>
+</button>
 </div>
 </article>
 <article class="credit-card">
@@ -149,10 +149,10 @@
 </div>
 </div>
 <div class="credit-media-grid">
-<a aria-label="Ver perfil de Rubyfilia" class="credit-media-slot tone-blue credit-media-link media-rubyfilia" href="https://vgen.co/rubyfilia" rel="noopener noreferrer" target="_blank" title="Ver perfil de Rubyfilia"><img alt="Discord Reactive criado por Rubyfilia" class="credit-media-asset" decoding="async" loading="eager" src="/assets/credits/rubyfilia-discord-reactive.gif?v=75"/>
+<button aria-label="Abrir Discord Reactive de Rubyfilia" class="credit-media-slot tone-blue credit-media-link media-rubyfilia credit-gallery-item" data-gallery-artist="Rubyfilia" data-gallery-src="/assets/credits/rubyfilia-discord-reactive.gif?v=75" data-gallery-title="Discord Reactive" type="button"><img alt="Discord Reactive criado por Rubyfilia" class="credit-media-asset" decoding="async" loading="eager" src="/assets/credits/rubyfilia-discord-reactive.gif?v=75"/>
 <span class="credit-media-number">01</span>
 <span class="credit-media-placeholder credit-media-caption" data-i18n="credits.work.discord_reactive">Discord Reactive</span>
-</a>
+</button>
 </div>
 </article>
 <article class="credit-card credit-card-wide">
@@ -193,7 +193,31 @@
 </article>
 </section>
 </main>
-<footer class="site-footer"><div class="shell footer-inner footer-inner-brand"><img alt="Nieris" class="footer-brand-icon" height="34" src="/assets/brand/nieris-icon-white.svg" width="34"/><p class="footer-rights" data-i18n="footer.rights">© 2026 Nieris. Todos os direitos reservados.</p></div></footer>
+<div aria-hidden="true" class="credit-gallery-modal" data-credit-gallery="">
+<div class="credit-gallery-backdrop" data-gallery-close=""></div>
+<section aria-labelledby="credit-gallery-title" aria-modal="true" class="credit-gallery-dialog" role="dialog">
+<button aria-label="Fechar galeria" class="credit-gallery-close" data-gallery-close="" type="button">
+<svg aria-hidden="true" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"></path></svg>
+</button>
+<div class="credit-gallery-media-wrap">
+<img alt="" class="credit-gallery-media" data-gallery-media="" draggable="false"/>
+<button aria-label="Commission anterior" class="credit-gallery-nav credit-gallery-prev" data-gallery-prev="" type="button">
+<svg aria-hidden="true" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="m15 6-6 6 6 6"></path></svg>
+</button>
+<button aria-label="Próxima commission" class="credit-gallery-nav credit-gallery-next" data-gallery-next="" type="button">
+<svg aria-hidden="true" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="m9 6 6 6-6 6"></path></svg>
+</button>
+</div>
+<div class="credit-gallery-info">
+<div>
+<span class="credit-gallery-kicker">commission gallery</span>
+<h2 data-gallery-artist="" id="credit-gallery-title">Artista</h2>
+<p data-gallery-title="">Commission</p>
+</div>
+<span class="credit-gallery-count" data-gallery-count="">01 / 01</span>
+</div>
+</section>
+</div><footer class="site-footer"><div class="shell footer-inner footer-inner-brand"><img alt="Nieris" class="footer-brand-icon" height="34" src="/assets/brand/nieris-icon-white.svg" width="34"/><p class="footer-rights" data-i18n="footer.rights">© 2026 Nieris. Todos os direitos reservados.</p></div></footer>
 <script src="/script.js"></script>
 </body>
 </html>
