@@ -31,3 +31,5 @@ V6.9: Added Nieris brand icons. Pink SVG is now the favicon on every page. White
 V7.1: Added credits media: Rubyfilia Discord Reactive GIF and Equidna Nieris logo image, each in the correct artist card.
 
 V7.2: Added site-wide image download deterrence: images cannot be dragged or right-click saved through normal browser interactions. Links on credit images remain functional. This is deterrence only; any image displayed by a browser can still technically be retrieved through developer tools or screenshots.
+
+V7.3: Credits media updated. GIF assets remain animated via IMG, the media fills the rectangle more cleanly, and a bottom purple-to-transparent gradient was added so titles stay readable over the artwork.
