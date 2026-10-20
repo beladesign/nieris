@@ -2513,14 +2513,14 @@ img{
 }
 
 /* =========================================================
-   V7.4 — Créditos: GIF real + degradê correto
+   V7.5 — Créditos: degradê menor + badge + enquadramento por mídia
    ========================================================= */
 .credit-media-slot {
   position: relative;
   overflow: hidden;
   padding: 0;
-  aspect-ratio: 16 / 10;
   min-height: 220px;
+  aspect-ratio: 16 / 10;
   background: var(--plum);
   isolation: isolate;
 }
@@ -2532,17 +2532,15 @@ img{
   width: 100%;
   height: 100%;
   display: block;
-  object-fit: cover;
-  object-position: center;
   z-index: 1;
   padding: 0;
   background: transparent;
 }
 
-.credit-media-slot::before {
-  display: none !important;
-}
+/* old decorative orb disabled */
+.credit-media-slot::before { display: none !important; }
 
+/* shorter gradient: only the lower part behind the caption */
 .credit-media-slot::after {
   content: "";
   display: block !important;
@@ -2552,12 +2550,35 @@ img{
   pointer-events: none;
   background: linear-gradient(
     to top,
-    rgba(58, 38, 68, .96) 0%,
-    rgba(58, 38, 68, .82) 18%,
-    rgba(58, 38, 68, .56) 34%,
-    rgba(58, 38, 68, .28) 48%,
-    rgba(58, 38, 68, 0) 68%
+    rgba(58,38,68,.94) 0%,
+    rgba(58,38,68,.72) 10%,
+    rgba(58,38,68,.42) 19%,
+    rgba(58,38,68,.16) 29%,
+    rgba(58,38,68,0) 39%
   );
+}
+
+/* number badge restored */
+.credit-media-number {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  z-index: 4;
+  width: 38px;
+  height: 38px;
+  padding: 0;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  color: #fff;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 15px;
+  line-height: 1;
+  opacity: 1;
+  background: rgba(58,38,68,.76);
+  border: 1px solid rgba(255,255,255,.16);
+  box-shadow: 0 4px 16px rgba(0,0,0,.18);
+  backdrop-filter: blur(8px);
 }
 
 .credit-media-placeholder,
@@ -2566,7 +2587,7 @@ img{
   position: absolute;
   left: 18px;
   right: 18px;
-  bottom: 16px;
+  bottom: 15px;
   z-index: 4;
   margin: 0;
   padding: 0;
@@ -2577,43 +2598,41 @@ img{
   line-height: 1.35;
   font-weight: 600;
   letter-spacing: .01em;
-  text-shadow: 0 2px 12px rgba(0,0,0,.42);
+  text-shadow: 0 2px 12px rgba(0,0,0,.5);
 }
-
-.credit-media-number {
-  z-index: 4;
-  color: rgba(255,255,255,.92);
-}
-
 .credit-media-slot:has(img) .credit-media-placeholder,
-.credit-media-slot:has(video) .credit-media-placeholder {
-  display: block !important;
+.credit-media-slot:has(video) .credit-media-placeholder { display: block !important; }
+
+/* Equidna: make the logo visibly larger while keeping the whole mark */
+.media-equidna { background: #211529; }
+.media-equidna img {
+  object-fit: contain;
+  object-position: center;
+  padding: 1.5%;
+  transform: scale(1.16);
 }
 
-img[src*="rubyfilia-discord-reactive.gif"] {
-  animation: none !important;
-  transform: none !important;
+/* Rubyfilia: show more of the GIF; no crop/zoom */
+.media-rubyfilia { background: #211529; }
+.media-rubyfilia img {
+  object-fit: contain;
+  object-position: center;
+  transform: scale(.88);
   filter: none !important;
   transition: none !important;
 }
-
-.credit-media-slot:hover img[src*="rubyfilia-discord-reactive.gif"] {
-  transform: none !important;
-}
-
-.credit-media-slot:hover img:not([src*="rubyfilia-discord-reactive.gif"]) {
-  transform: scale(1.015);
-  transition: transform .35s ease;
-}
+.media-rubyfilia:hover img { transform: scale(.88) !important; }
+.media-equidna:hover img { transform: scale(1.16) !important; }
 
 @media (max-width: 720px) {
   .credit-media-slot { min-height: 190px; }
+  .credit-media-number { top:12px; left:12px; width:34px; height:34px; font-size:14px; }
   .credit-media-placeholder,
-  .credit-media-caption {
-    left: 14px;
-    right: 14px;
-    bottom: 14px;
-    max-width: calc(100% - 28px);
-    font-size: 14px;
-  }
+  .credit-media-caption { left:14px; right:14px; bottom:13px; max-width:calc(100% - 28px); font-size:14px; }
 }
+
+
+/* V7.6 — Lady: Painéis + Chat Pet */
+.media-lady-panels img{object-fit:cover;object-position:center;}
+.media-lady-pet{background:var(--plum);}
+.media-lady-pet img{object-fit:contain;object-position:center;padding:2.5%;}
