@@ -2696,3 +2696,22 @@ body.credit-gallery-open{overflow:hidden;}
 @media(max-width:700px){
   .credit-gallery-modal{padding:12px}.credit-gallery-dialog{width:calc(100vw - 24px);max-height:calc(100svh - 24px);border-radius:20px}.credit-gallery-media{max-height:calc(100svh - 160px)}.credit-gallery-info{padding:15px 16px 17px}.credit-gallery-nav{width:40px;height:40px}.credit-gallery-prev{left:10px}.credit-gallery-next{right:10px}.credit-gallery-close{top:10px;right:10px;width:40px;height:40px}
 }
+
+
+/* V7.8 — Gallery click reliability */
+.credit-gallery-item{
+  cursor: zoom-in !important;
+  pointer-events: auto !important;
+  position: relative;
+}
+.credit-gallery-item > img{
+  pointer-events: none;
+}
+.credit-gallery-modal{
+  z-index: 2147483000 !important;
+}
+.credit-gallery-modal.is-open{
+  visibility: visible !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
+}

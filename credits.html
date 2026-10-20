@@ -219,5 +219,116 @@
 </section>
 </div><footer class="site-footer"><div class="shell footer-inner footer-inner-brand"><img alt="Nieris" class="footer-brand-icon" height="34" src="/assets/brand/nieris-icon-white.svg" width="34"/><p class="footer-rights" data-i18n="footer.rights">© 2026 Nieris. Todos os direitos reservados.</p></div></footer>
 <script src="/script.js"></script>
+
+<script id="credits-gallery-inline">
+(() => {
+  const modal = document.querySelector('[data-credit-gallery]');
+  if (!modal) return;
+
+  const media = modal.querySelector('[data-gallery-media]');
+  const artistEl = modal.querySelector('[data-gallery-artist]');
+  const titleEl = modal.querySelector('[data-gallery-title]');
+  const countEl = modal.querySelector('[data-gallery-count]');
+  const prevBtn = modal.querySelector('[data-gallery-prev]');
+  const nextBtn = modal.querySelector('[data-gallery-next]');
+
+  let gallery = [];
+  let index = 0;
+  let lastTrigger = null;
+
+  const pad = value => String(value).padStart(2, '0');
+  const allItems = () => Array.from(document.querySelectorAll('.credit-gallery-item'));
+
+  function renderGallery() {
+    const item = gallery[index];
+    if (!item) return;
+
+    media.src = item.dataset.gallerySrc || '';
+    media.alt = `${item.dataset.galleryTitle || 'Commission'} — ${item.dataset.galleryArtist || ''}`;
+    artistEl.textContent = item.dataset.galleryArtist || '';
+    titleEl.textContent = item.dataset.galleryTitle || 'Commission';
+    countEl.textContent = `${pad(index + 1)} / ${pad(gallery.length)}`;
+
+    const hasMultiple = gallery.length > 1;
+    prevBtn.hidden = !hasMultiple;
+    nextBtn.hidden = !hasMultiple;
+  }
+
+  function openGallery(trigger) {
+    const artist = trigger.dataset.galleryArtist || '';
+    gallery = allItems().filter(item => (item.dataset.galleryArtist || '') === artist);
+    index = Math.max(0, gallery.indexOf(trigger));
+    lastTrigger = trigger;
+    renderGallery();
+
+    modal.classList.add('is-open');
+    modal.setAttribute('aria-hidden', 'false');
+    modal.style.visibility = 'visible';
+    modal.style.opacity = '1';
+    modal.style.pointerEvents = 'auto';
+    document.body.classList.add('credit-gallery-open');
+  }
+
+  function closeGallery() {
+    modal.classList.remove('is-open');
+    modal.setAttribute('aria-hidden', 'true');
+    modal.style.visibility = '';
+    modal.style.opacity = '';
+    modal.style.pointerEvents = '';
+    document.body.classList.remove('credit-gallery-open');
+    media.removeAttribute('src');
+    media.alt = '';
+    if (lastTrigger) lastTrigger.focus();
+  }
+
+  function previous() {
+    if (gallery.length < 2) return;
+    index = (index - 1 + gallery.length) % gallery.length;
+    renderGallery();
+  }
+
+  function next() {
+    if (gallery.length < 2) return;
+    index = (index + 1) % gallery.length;
+    renderGallery();
+  }
+
+  // Delegated click: works even if individual cards are changed later.
+  document.addEventListener('click', event => {
+    const item = event.target.closest('.credit-gallery-item');
+    if (item) {
+      event.preventDefault();
+      event.stopPropagation();
+      openGallery(item);
+      return;
+    }
+
+    if (event.target.closest('[data-gallery-close]')) {
+      event.preventDefault();
+      closeGallery();
+      return;
+    }
+
+    if (event.target.closest('[data-gallery-prev]')) {
+      event.preventDefault();
+      previous();
+      return;
+    }
+
+    if (event.target.closest('[data-gallery-next]')) {
+      event.preventDefault();
+      next();
+    }
+  }, true);
+
+  document.addEventListener('keydown', event => {
+    if (modal.getAttribute('aria-hidden') !== 'false') return;
+    if (event.key === 'Escape') closeGallery();
+    if (event.key === 'ArrowLeft') previous();
+    if (event.key === 'ArrowRight') next();
+  });
+})();
+</script>
+
 </body>
 </html>
