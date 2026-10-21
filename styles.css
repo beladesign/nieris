@@ -4383,3 +4383,203 @@ main,.site-footer{z-index:1}
 .credits-showcase .credit-card:hover::before{
   opacity:1 !important;
 }
+
+
+/* =====================================================================
+   V8.9 — DARK ORGANIC / BIOTECH / ALIEN SYMBIOTE DIRECTION
+   Living symbiote layer + coded sparkling-star frames.
+   ===================================================================== */
+
+/* Previous static ambient layers are replaced by the living SVG below. */
+body::before,
+body::after,
+.ambient-scene{
+  display:none !important;
+}
+body{
+  background:#0a0710 !important;
+}
+
+.symbiote-living-bg{
+  position:fixed;
+  inset:0;
+  z-index:0;
+  overflow:hidden;
+  pointer-events:none;
+  background:
+    radial-gradient(circle at 50% 12%,rgba(86,42,92,.065),transparent 36%),
+    linear-gradient(180deg,#0b0710 0%,#0d0912 52%,#09070d 100%);
+}
+.symbiote-living-bg::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  background:
+    radial-gradient(ellipse at center,transparent 48%,rgba(5,4,8,.18) 78%,rgba(5,4,8,.58) 100%),
+    linear-gradient(180deg,rgba(255,255,255,.008),transparent 22%,rgba(0,0,0,.10));
+}
+.symbiote-svg{
+  position:absolute;
+  inset:-3%;
+  width:106%;
+  height:106%;
+  opacity:.94;
+  overflow:visible;
+}
+.symbiote-svg .goo-mass{
+  filter:url(#nieris-organic-displace);
+}
+.symbiote-svg .goo-main{
+  fill:url(#nieris-goo-gradient);
+}
+.symbiote-svg .goo-deep{
+  fill:#08060b;
+  opacity:.90;
+}
+.symbiote-svg .tendril-core{
+  fill:none;
+  stroke:#09070c;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+  filter:url(#nieris-organic-displace-soft);
+}
+.symbiote-svg .tendril-sheen{
+  fill:none;
+  stroke:url(#nieris-wet-gradient);
+  stroke-linecap:round;
+  opacity:.52;
+  filter:url(#nieris-organic-displace-soft);
+}
+.symbiote-svg .wet-ridge{
+  fill:none;
+  stroke:rgba(232,145,201,.16);
+  stroke-linecap:round;
+  filter:url(#nieris-soft-gloss);
+}
+
+/* Coded sparkle based on the user's frame sequence. */
+.bio-star{
+  position:absolute;
+  width:42px;
+  height:42px;
+  opacity:0;
+  transform:translate(-50%,-50%) scale(.22) rotate(0deg);
+  animation:nieris-star-twinkle 4.8s ease-in-out infinite;
+  filter:drop-shadow(0 0 4px rgba(255,220,240,.30));
+}
+.bio-star svg{
+  width:100%;
+  height:100%;
+  display:block;
+  overflow:visible;
+}
+.bio-star .star-main{
+  fill:#fff8fc;
+  transform-origin:32px 32px;
+}
+.bio-star .star-diagonal{
+  fill:#f2b9d2;
+  opacity:0;
+  transform-origin:32px 32px;
+  animation:nieris-star-diagonal 4.8s ease-in-out infinite;
+}
+.bio-star .star-core{
+  fill:#fff;
+  opacity:.92;
+}
+.bio-star.s1{left:14%;top:22%;animation-delay:-.6s}
+.bio-star.s1 .star-diagonal{animation-delay:-.6s}
+.bio-star.s2{right:12%;top:34%;width:30px;height:30px;animation-delay:-2.7s}
+.bio-star.s2 .star-diagonal{animation-delay:-2.7s}
+.bio-star.s3{left:27%;bottom:16%;width:26px;height:26px;animation-delay:-4.1s}
+.bio-star.s3 .star-diagonal{animation-delay:-4.1s}
+.bio-star.s4{right:28%;bottom:21%;width:34px;height:34px;animation-delay:-1.55s}
+.bio-star.s4 .star-diagonal{animation-delay:-1.55s}
+
+@keyframes nieris-star-twinkle{
+  0%,100%{opacity:.05;transform:translate(-50%,-50%) scale(.18) rotate(-3deg);filter:drop-shadow(0 0 1px rgba(255,220,240,.08))}
+  28%{opacity:.24;transform:translate(-50%,-50%) scale(.42) rotate(-1deg)}
+  45%{opacity:.78;transform:translate(-50%,-50%) scale(.80) rotate(0deg);filter:drop-shadow(0 0 5px rgba(255,213,238,.35))}
+  55%{opacity:1;transform:translate(-50%,-50%) scale(1.08) rotate(1deg);filter:drop-shadow(0 0 10px rgba(255,223,242,.58))}
+  68%{opacity:.54;transform:translate(-50%,-50%) scale(.65) rotate(2deg)}
+  82%{opacity:.10;transform:translate(-50%,-50%) scale(.28) rotate(3deg)}
+}
+@keyframes nieris-star-diagonal{
+  0%,37%,100%{opacity:0;transform:scale(.25) rotate(45deg)}
+  48%{opacity:.18;transform:scale(.50) rotate(45deg)}
+  56%{opacity:.92;transform:scale(.76) rotate(45deg)}
+  69%{opacity:.18;transform:scale(.42) rotate(45deg)}
+  78%{opacity:0;transform:scale(.28) rotate(45deg)}
+}
+
+/* The design language: dark organic glass instead of generic glow. */
+.page-hero,
+.editorial-section,
+.credits-showcase,
+.music-player-shell,
+.lore-layout,
+.fan-grid,
+.home-index{
+  position:relative;
+  z-index:1;
+}
+.credit-card,
+.editorial-card,
+.music-player-top,
+.music-controls,
+.fan-art-button{
+  background:
+    linear-gradient(145deg,rgba(39,24,45,.78),rgba(18,13,23,.82)) !important;
+  border-color:rgba(219,132,175,.11) !important;
+}
+.credit-card,
+.music-player-top,
+.music-controls{
+  backdrop-filter:blur(12px) saturate(.92);
+}
+
+/* Wet biotech hairline, deliberately static — not another hover effect. */
+.credit-card,
+.music-player-top,
+.fan-art-button{
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.025) !important;
+}
+
+/* Preserve card-only Credits hover from V8.8. */
+.credits-showcase .credit-card:hover{
+  transform:none !important;
+  filter:none !important;
+}
+.credits-showcase .credit-card .credit-media-slot:hover,
+.credits-showcase .credit-card .credit-media-link:hover,
+.credits-showcase .credit-card .credit-profile:hover,
+.credits-showcase .credit-card .credit-artist-avatar:hover,
+.credits-showcase .credit-card .credit-gallery-item:hover,
+.credits-showcase .credit-card .credit-gallery-item:hover img,
+.credits-showcase .credit-card .credit-media-slot:hover img{
+  transform:none !important;
+  filter:none !important;
+  box-shadow:none !important;
+}
+
+main,.site-footer,.site-header{position:relative}
+main,.site-footer{z-index:1}
+.site-header{z-index:40}
+
+@media(max-width:700px){
+  .bio-star.s1{left:8%;top:20%}
+  .bio-star.s2{right:7%;top:38%}
+  .bio-star.s3{left:18%;bottom:12%}
+  .bio-star.s4{right:18%;bottom:18%}
+  .symbiote-svg{inset:-5%;width:110%;height:110%}
+}
+@media(prefers-reduced-motion:reduce){
+  .symbiote-svg animate,
+  .symbiote-svg animateTransform{display:none}
+  .bio-star,.bio-star .star-diagonal{animation:none !important;opacity:.24}
+}
+
+/* V8.9 stacking correction */
+main,.site-footer{position:relative;z-index:1}
+.site-header{position:fixed !important;z-index:40}
