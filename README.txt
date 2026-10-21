@@ -51,3 +51,5 @@ V8.2: Hover glow moved from inside cards to a subtle lower-edge halo/inset effec
 V8.3: Replaced the generic ambient background with a nightmare symbiote look: dark living mass, veins/tendrils and infection nodes around edges, inspired by the symbiote look the user described. No mouse glow or cursor interaction.
 
 V8.4: Simplified hover interaction so cards no longer lift or glow. Hover now uses only an animated pink border flowing around the card.
+
+V8.6: Organic SVG symbiote background, all Lore hover removed, Credits hover reduced to animated pink border only, and Home Nieris title clipping fixed.

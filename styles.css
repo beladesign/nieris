@@ -3984,3 +3984,171 @@ body::after{
   0%{transform:translate3d(0,0,0) scale(1)}
   100%{transform:translate3d(.6%,-.8%,0) scale(1.05)}
 }
+
+
+/* =====================================================================
+   V8.6 — requested corrections
+   ===================================================================== */
+
+/* TRUE ORGANIC SYMBIOTE BACKGROUND */
+body{
+  background:#0d0911 !important;
+}
+body::before{
+  content:"" !important;
+  display:block !important;
+  position:fixed !important;
+  inset:-1.5% !important;
+  z-index:0 !important;
+  pointer-events:none !important;
+  opacity:.82 !important;
+  filter:none !important;
+  background-image:url('/assets/backgrounds/nightmare-symbiote.svg') !important;
+  background-repeat:no-repeat !important;
+  background-position:center !important;
+  background-size:cover !important;
+  animation:nz-symbiote-breathe-v86 16s ease-in-out infinite alternate !important;
+  transform-origin:center center;
+}
+body::after{
+  display:none !important;
+}
+.ambient-scene{
+  display:none !important;
+}
+@keyframes nz-symbiote-breathe-v86{
+  0%{transform:scale(1) translate3d(0,0,0);opacity:.78}
+  100%{transform:scale(1.018) translate3d(0,-.35%,0);opacity:.88}
+}
+main,.site-footer,.site-header{
+  position:relative;
+}
+main,.site-footer{z-index:1}
+.site-header{z-index:40}
+
+/* HOME: guarantee the whole word NIERIS is visible. */
+.hero-copy-centered{
+  width:min(780px,100%) !important;
+  max-width:780px !important;
+  overflow:visible !important;
+}
+.hero-copy-centered h1,
+.home-main .hero-copy h1{
+  display:block !important;
+  width:100% !important;
+  margin:12px auto 0 !important;
+  padding:.04em .12em .10em !important;
+  overflow:visible !important;
+  white-space:nowrap !important;
+  text-align:center !important;
+  font-size:clamp(78px,9vw,142px) !important;
+  line-height:.92 !important;
+  letter-spacing:-.045em !important;
+  background:none !important;
+  color:#f3e6ed !important;
+  -webkit-text-fill-color:#f3e6ed !important;
+  -webkit-background-clip:border-box !important;
+  background-clip:border-box !important;
+}
+
+/* LORE: absolutely no hover interaction. */
+.lore-story .turn,
+.world-note,
+.lore-story p,
+.lore-story h2,
+.lore-story .lead{
+  transition:none !important;
+  transform:none !important;
+  box-shadow:none !important;
+  filter:none !important;
+}
+.lore-story .turn:hover,
+.world-note:hover,
+.lore-story p:hover,
+.lore-story h2:hover,
+.lore-story .lead:hover{
+  transform:none !important;
+  box-shadow:none !important;
+  filter:none !important;
+  background:transparent !important;
+  border-color:var(--line) !important;
+}
+.lore-story .turn::after,
+.world-note::after,
+.lore-story .turn::before,
+.world-note::before{
+  display:none !important;
+  content:none !important;
+  animation:none !important;
+}
+
+/* CREDITS: card stays still. ONLY the pink border moves. */
+.credit-card{
+  position:relative !important;
+  isolation:isolate !important;
+  transform:none !important;
+  box-shadow:none !important;
+  filter:none !important;
+  border:1px solid rgba(255,255,255,.065) !important;
+  transition:none !important;
+}
+.credit-card:hover{
+  transform:none !important;
+  box-shadow:none !important;
+  filter:none !important;
+  border-color:transparent !important;
+}
+.credit-card::after{
+  display:none !important;
+  content:none !important;
+}
+.credit-card::before{
+  content:"" !important;
+  display:block !important;
+  position:absolute !important;
+  inset:-1px !important;
+  z-index:8 !important;
+  border-radius:inherit !important;
+  padding:1.5px !important;
+  pointer-events:none !important;
+  opacity:0 !important;
+  background:linear-gradient(
+    115deg,
+    #d4779c 0%,
+    #f3aec8 18%,
+    #df8eae 36%,
+    #ffd2e1 52%,
+    #e383a8 68%,
+    #f4b8ce 84%,
+    #d4779c 100%
+  ) !important;
+  background-size:320% 320% !important;
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0) !important;
+  -webkit-mask-composite:xor !important;
+  mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0) !important;
+  mask-composite:exclude !important;
+  transition:opacity .18s ease !important;
+}
+.credit-card:hover::before{
+  opacity:1 !important;
+  animation:nz-credit-pink-border-v86 2.1s linear infinite !important;
+}
+@keyframes nz-credit-pink-border-v86{
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
+.credit-card .credit-media-slot:hover,
+.credit-card .credit-gallery-item:hover{
+  transform:none !important;
+  box-shadow:none !important;
+  filter:none !important;
+}
+
+@media(max-width:760px){
+  .hero-copy-centered h1,
+  .home-main .hero-copy h1{
+    font-size:clamp(64px,17vw,94px) !important;
+    padding-inline:.14em !important;
+  }
+}
