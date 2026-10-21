@@ -37,3 +37,5 @@ V7.3: Credits media updated. GIF assets remain animated via IMG, the media fills
 V7.7: Commission media cards now open an artist-specific zoom gallery. External profile CTA beside artist names remains unchanged.
 
 V7.10: Removed Socials from the menu and deleted socials.html. X, Twitch, Discord, YouTube and TikTok now appear as linked icons in the footer of every page.
+
+V7.11: Language selector redesigned as a visible pink segmented switch. The active language appears on a light pill, clearly separating the control from the main navigation.
