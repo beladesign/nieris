@@ -703,3 +703,6 @@
 
 /* V8.2 — remove obsolete inner hover layers. */
 document.querySelectorAll('.nz-rise-light').forEach(el => el.remove());
+
+
+/* V8.3 background is CSS-only: no cursor tracking or JS glow. */

@@ -47,3 +47,5 @@ V7.12: Performance/package optimization. Music re-encoded to 128 kbps MP3; heavy
 V8.1: Removed cursor-follow glow, spotlight and luminous click ripple. Hover light now rises subtly from the bottom of content surfaces. Background changed from bright glow to slow dark organic symbiosis independent of mouse movement.
 
 V8.2: Hover glow moved from inside cards to a subtle lower-edge halo/inset effect. Fanart previews reduced and numbering removed. Lore now has subtle hover on narrative transition/world-note blocks. Music player redesigned into a compact stable panel with inline controls; queue hover no longer shifts/distorts.
+
+V8.3: Replaced the generic ambient background with a nightmare symbiote look: dark living mass, veins/tendrils and infection nodes around edges, inspired by the symbiote look the user described. No mouse glow or cursor interaction.
