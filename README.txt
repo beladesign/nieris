@@ -49,3 +49,5 @@ V8.1: Removed cursor-follow glow, spotlight and luminous click ripple. Hover lig
 V8.2: Hover glow moved from inside cards to a subtle lower-edge halo/inset effect. Fanart previews reduced and numbering removed. Lore now has subtle hover on narrative transition/world-note blocks. Music player redesigned into a compact stable panel with inline controls; queue hover no longer shifts/distorts.
 
 V8.3: Replaced the generic ambient background with a nightmare symbiote look: dark living mass, veins/tendrils and infection nodes around edges, inspired by the symbiote look the user described. No mouse glow or cursor interaction.
+
+V8.4: Simplified hover interaction so cards no longer lift or glow. Hover now uses only an animated pink border flowing around the card.

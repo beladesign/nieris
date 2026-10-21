@@ -3726,3 +3726,261 @@ main,.site-footer{
   position:relative;
   z-index:1;
 }
+
+
+
+/* =====================================================================
+   V8.4 — Hover simplificado
+   Apenas borda animada em tons de rosa.
+   Sem glow, sem levantar, sem sombra.
+   ===================================================================== */
+
+@keyframes nz-rose-border-flow{
+  0%   { background-position:   0% 50%; }
+  100% { background-position: 200% 50%; }
+}
+
+:where(
+  .credit-card,
+  .editorial-card,
+  .world-note,
+  .lore-story .turn,
+  .home-index a,
+  .fan-art-button,
+  .music-player-top,
+  .music-queue-item,
+  .song-card
+){
+  position:relative;
+  isolation:isolate;
+  transform:none !important;
+  box-shadow:none !important;
+  filter:none !important;
+  transition:
+    border-color .25s ease,
+    background-color .25s ease,
+    color .25s ease !important;
+}
+
+:where(
+  .credit-card,
+  .editorial-card,
+  .world-note,
+  .lore-story .turn,
+  .home-index a,
+  .fan-art-button,
+  .music-player-top,
+  .music-queue-item,
+  .song-card
+):hover{
+  transform:none !important;
+  box-shadow:none !important;
+  filter:none !important;
+}
+
+/* camada da borda animada */
+:where(
+  .credit-card,
+  .editorial-card,
+  .world-note,
+  .lore-story .turn,
+  .home-index a,
+  .fan-art-button,
+  .music-player-top,
+  .music-queue-item,
+  .song-card
+)::after{
+  content:"";
+  position:absolute;
+  inset:-1px;
+  border-radius:inherit;
+  padding:1px;
+  pointer-events:none;
+  opacity:0;
+  background:
+    linear-gradient(
+      115deg,
+      rgba(228,154,183,0) 0%,
+      rgba(228,154,183,.55) 15%,
+      rgba(244,190,212,.95) 30%,
+      rgba(227,136,171,.95) 45%,
+      rgba(245,203,222,.9) 60%,
+      rgba(228,154,183,.55) 75%,
+      rgba(228,154,183,0) 100%
+    );
+  background-size:220% 100%;
+  background-position:0% 50%;
+  transition:opacity .26s ease;
+  animation:none;
+
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite:xor;
+  mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  mask-composite:exclude;
+}
+
+:where(
+  .credit-card,
+  .editorial-card,
+  .world-note,
+  .lore-story .turn,
+  .home-index a,
+  .fan-art-button,
+  .music-player-top,
+  .music-queue-item,
+  .song-card
+):hover::after{
+  opacity:1;
+  animation:nz-rose-border-flow 1.9s linear infinite;
+}
+
+/* estados específicos que estavam com hover forte */
+.credit-card:hover,
+.editorial-card:hover,
+.world-note:hover,
+.lore-story .turn:hover,
+.home-index a:hover,
+.fan-art-button:hover,
+.music-player-top:hover,
+.music-queue-item:hover,
+.song-card:hover{
+  background-clip:padding-box;
+}
+
+/* nada de efeito separado nas imagens internas */
+.credit-media-slot:hover,
+.credit-gallery-item:hover,
+.fan-art-button img:hover{
+  box-shadow:none !important;
+  filter:none !important;
+}
+
+/* queue item ativo continua destacado, mas sem salto */
+.music-queue-item.is-active{
+  transform:none !important;
+  box-shadow:none !important;
+}
+.music-queue-item.is-active::before{
+  display:none !important;
+}
+
+
+
+/* =====================================================================
+   V8.5 — Symbiote BG stronger / clearly visible
+   ===================================================================== */
+
+/* Hide weaker previous ambient blobs so the new layer reads clearly. */
+.ambient-scene .orb{
+  display:none !important;
+}
+
+/* Stronger symbiote mass in the background */
+body{
+  background:
+    radial-gradient(1200px 520px at -8% -5%, rgba(38,18,48,.92) 0%, rgba(24,11,31,.88) 26%, rgba(12,8,16,0) 62%),
+    radial-gradient(1050px 440px at 108% 0%, rgba(42,20,52,.88) 0%, rgba(22,11,30,.84) 25%, rgba(12,8,16,0) 60%),
+    radial-gradient(980px 480px at 102% 100%, rgba(34,17,45,.84) 0%, rgba(18,10,24,.80) 24%, rgba(12,8,16,0) 58%),
+    radial-gradient(980px 480px at -2% 100%, rgba(34,17,45,.84) 0%, rgba(18,10,24,.80) 24%, rgba(12,8,16,0) 58%),
+    linear-gradient(180deg, #0d0911 0%, #100b14 100%) !important;
+  background-attachment: fixed !important;
+}
+
+body::before{
+  opacity:1 !important;
+  filter:blur(5px) saturate(1.08) contrast(1.06) !important;
+  background:
+    radial-gradient(40% 28% at -4% 10%, rgba(17,9,23,.98) 0 26%, rgba(44,20,54,.84) 31%, transparent 63%),
+    radial-gradient(42% 29% at 104% 14%, rgba(17,9,23,.98) 0 26%, rgba(44,20,54,.84) 31%, transparent 63%),
+    radial-gradient(50% 34% at 104% 100%, rgba(15,8,21,.98) 0 24%, rgba(53,24,62,.76) 30%, transparent 62%),
+    radial-gradient(50% 34% at -4% 100%, rgba(15,8,21,.98) 0 24%, rgba(53,24,62,.76) 30%, transparent 62%),
+
+    radial-gradient(16% 12% at 9% 18%, rgba(13,8,18,.98) 0 40%, rgba(73,34,83,.34) 48%, transparent 74%),
+    radial-gradient(18% 12% at 15% 28%, rgba(13,8,18,.98) 0 38%, rgba(73,34,83,.30) 46%, transparent 74%),
+    radial-gradient(14% 10% at 89% 16%, rgba(13,8,18,.98) 0 40%, rgba(73,34,83,.34) 48%, transparent 74%),
+    radial-gradient(18% 12% at 84% 26%, rgba(13,8,18,.98) 0 38%, rgba(73,34,83,.30) 46%, transparent 74%),
+    radial-gradient(18% 13% at 8% 88%, rgba(13,8,18,.98) 0 40%, rgba(73,34,83,.32) 48%, transparent 74%),
+    radial-gradient(18% 13% at 92% 88%, rgba(13,8,18,.98) 0 40%, rgba(73,34,83,.32) 48%, transparent 74%);
+  animation:nz-symbiote-mass-v85 18s ease-in-out infinite alternate !important;
+}
+
+body::after{
+  opacity:.92 !important;
+  filter:blur(3.5px) saturate(1.05) !important;
+  background:
+    /* top-left tendrils */
+    radial-gradient(28% 2.2% at 10% 14%, rgba(12,8,16,.98), transparent 82%),
+    radial-gradient(24% 1.8% at 13% 18%, rgba(67,31,79,.88), transparent 82%),
+    radial-gradient(22% 1.8% at 16% 22%, rgba(12,8,16,.98), transparent 82%),
+    radial-gradient(20% 1.7% at 18% 28%, rgba(49,24,58,.84), transparent 82%),
+    radial-gradient(16% 1.6% at 20% 34%, rgba(12,8,16,.98), transparent 82%),
+
+    /* top-right tendrils */
+    radial-gradient(28% 2.2% at 90% 12%, rgba(12,8,16,.98), transparent 82%),
+    radial-gradient(24% 1.8% at 87% 17%, rgba(67,31,79,.88), transparent 82%),
+    radial-gradient(22% 1.8% at 84% 22%, rgba(12,8,16,.98), transparent 82%),
+    radial-gradient(18% 1.6% at 82% 28%, rgba(49,24,58,.84), transparent 82%),
+
+    /* bottom masses / veins */
+    radial-gradient(30% 2.4% at 12% 84%, rgba(12,8,16,.98), transparent 82%),
+    radial-gradient(26% 2.0% at 17% 79%, rgba(61,29,71,.86), transparent 82%),
+    radial-gradient(28% 2.4% at 88% 86%, rgba(12,8,16,.98), transparent 82%),
+    radial-gradient(24% 2.0% at 84% 80%, rgba(61,29,71,.86), transparent 82%),
+
+    /* center invasion threads */
+    radial-gradient(18% 1.4% at 48% 8%, rgba(12,8,16,.90), transparent 84%),
+    radial-gradient(16% 1.3% at 52% 92%, rgba(12,8,16,.90), transparent 84%);
+  animation:nz-symbiote-veins-v85 22s ease-in-out infinite alternate !important;
+}
+
+/* extra visible tendril web */
+.ambient-scene{
+  opacity:1 !important;
+}
+.ambient-scene::before{
+  opacity:.78 !important;
+  filter:blur(2px) !important;
+  background:
+    radial-gradient(18% 1.2% at 6% 30%, rgba(17,10,22,.98), transparent 86%),
+    radial-gradient(20% 1.3% at 10% 36%, rgba(80,37,93,.74), transparent 86%),
+    radial-gradient(22% 1.2% at 94% 32%, rgba(17,10,22,.98), transparent 86%),
+    radial-gradient(20% 1.3% at 89% 39%, rgba(80,37,93,.74), transparent 86%),
+    radial-gradient(24% 1.5% at 10% 72%, rgba(17,10,22,.98), transparent 86%),
+    radial-gradient(24% 1.5% at 90% 74%, rgba(17,10,22,.98), transparent 86%),
+    radial-gradient(26% 1.4% at 50% 11%, rgba(17,10,22,.90), transparent 86%),
+    radial-gradient(22% 1.3% at 50% 89%, rgba(17,10,22,.90), transparent 86%);
+  animation:nz-symbiote-web-v85 27s ease-in-out infinite alternate !important;
+}
+.ambient-scene::after{
+  opacity:.66 !important;
+  filter:blur(4px) !important;
+  background:
+    radial-gradient(10% 9% at 5% 12%, rgba(14,8,18,.98) 0 46%, rgba(91,46,107,.26) 54%, transparent 78%),
+    radial-gradient(8% 7% at 15% 23%, rgba(14,8,18,.98) 0 48%, rgba(91,46,107,.24) 56%, transparent 80%),
+    radial-gradient(10% 9% at 94% 15%, rgba(14,8,18,.98) 0 46%, rgba(91,46,107,.26) 54%, transparent 78%),
+    radial-gradient(8% 7% at 84% 24%, rgba(14,8,18,.98) 0 48%, rgba(91,46,107,.24) 56%, transparent 80%),
+    radial-gradient(13% 10% at 92% 90%, rgba(14,8,18,.98) 0 44%, rgba(91,46,107,.22) 54%, transparent 80%),
+    radial-gradient(13% 10% at 8% 90%, rgba(14,8,18,.98) 0 44%, rgba(91,46,107,.22) 54%, transparent 80%);
+  animation:nz-symbiote-nodes-v85 15s ease-in-out infinite alternate !important;
+}
+
+@keyframes nz-symbiote-mass-v85{
+  0%{transform:translate3d(0,0,0) scale(1)}
+  100%{transform:translate3d(0,-1.2%,0) scale(1.03)}
+}
+@keyframes nz-symbiote-veins-v85{
+  0%{transform:translate3d(0,0,0)}
+  100%{transform:translate3d(.8%,-1.2%,0)}
+}
+@keyframes nz-symbiote-web-v85{
+  0%{transform:translate3d(0,0,0) scaleX(1)}
+  100%{transform:translate3d(-.6%,.8%,0) scaleX(1.04)}
+}
+@keyframes nz-symbiote-nodes-v85{
+  0%{transform:translate3d(0,0,0) scale(1)}
+  100%{transform:translate3d(.6%,-.8%,0) scale(1.05)}
+}
