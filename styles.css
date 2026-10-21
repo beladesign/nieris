@@ -156,3 +156,164 @@ body{
 @media(max-width:980px){.main-nav{top:70px !important;border-radius:0 !important;background:rgba(18,13,36,.98) !important}.main-nav a{padding:12px 10px !important}.hero-data{display:none}.hero-actions{grid-template-columns:1fr !important}.action-link{border-right:0 !important;border-bottom:1px solid var(--tech-line) !important}.action-link:last-child{border-bottom:0 !important}.actions-system-label{display:none}}
 @media(max-width:700px){.neo-grid{background-size:42px 42px}.neo-coord{display:none}.home-hero::before,.home-hero::after{display:none}.hero-astro{width:104vw}.hero-copy h1{font-size:clamp(84px,25vw,128px) !important}.hero-caption{display:none}.page-system-label{margin-bottom:-24px}.site-header{backdrop-filter:blur(7px) !important}}
 @media(prefers-reduced-motion:reduce){.hero-astro,.neo-ring,.neo-star{animation:none !important}}
+
+
+/* =====================================================================
+   V11.2 — Tech + Watercolor direction
+   Technology stays crisp; watercolor stays soft and atmospheric.
+   ===================================================================== */
+:root{
+  --wc-pink:#ffd7ff;
+  --wc-rose:#ffb5e0;
+  --wc-hot:#ff7ba5;
+  --wc-purple:#442a88;
+  --wc-violet:#dbd4fe;
+  --wc-gold:#ffec94;
+}
+
+/* Soft watercolor wash behind the entire interface */
+body::before{
+  content:"";
+  position:fixed;
+  inset:-12%;
+  z-index:-3;
+  pointer-events:none;
+  opacity:.56;
+  filter:blur(52px) saturate(1.08);
+  background:
+    radial-gradient(ellipse 28% 20% at 16% 18%, rgba(255,183,225,.26) 0%, rgba(255,183,225,.12) 36%, transparent 72%),
+    radial-gradient(ellipse 34% 24% at 82% 15%, rgba(68,42,136,.26) 0%, rgba(68,42,136,.12) 38%, transparent 74%),
+    radial-gradient(ellipse 32% 20% at 72% 74%, rgba(219,212,254,.20) 0%, rgba(219,212,254,.08) 42%, transparent 76%),
+    radial-gradient(ellipse 30% 22% at 20% 80%, rgba(177,81,139,.18) 0%, rgba(177,81,139,.08) 40%, transparent 74%);
+  animation:nz-watercolor-drift 24s ease-in-out infinite alternate;
+  transform:translate3d(0,0,0);
+}
+
+/* Fine pigment edges / paper-like tonal variation, still very subtle */
+body::after{
+  content:"";
+  position:fixed;
+  inset:0;
+  z-index:-2;
+  pointer-events:none;
+  opacity:.12;
+  background:
+    radial-gradient(circle at 14% 26%, rgba(255,215,255,.40) 0 1px, transparent 1.6px),
+    radial-gradient(circle at 77% 68%, rgba(219,212,254,.36) 0 1px, transparent 1.7px),
+    radial-gradient(circle at 60% 18%, rgba(255,236,148,.28) 0 .8px, transparent 1.5px);
+  background-size:38px 38px,46px 46px,52px 52px;
+  mix-blend-mode:screen;
+}
+
+@keyframes nz-watercolor-drift{
+  0%{transform:translate3d(-1.2%,-.8%,0) scale(1)}
+  50%{transform:translate3d(.8%,.4%,0) scale(1.025)}
+  100%{transform:translate3d(1.4%,-.4%,0) scale(1.01)}
+}
+
+/* Watercolor halos behind major page headers, while text/lines stay sharp */
+.page-hero,
+.home-hero,
+.music-page-v2 .music-player-shell,
+.credits-showcase{
+  position:relative;
+  isolation:isolate;
+}
+
+.page-hero::before,
+.home-hero::before,
+.music-page-v2 .music-player-shell::before,
+.credits-showcase::before{
+  content:"";
+  position:absolute;
+  pointer-events:none;
+  z-index:-1;
+  width:clamp(260px,34vw,540px);
+  aspect-ratio:1.45/1;
+  border-radius:48% 52% 58% 42% / 46% 40% 60% 54%;
+  background:
+    radial-gradient(ellipse at 34% 42%, rgba(255,183,224,.18), transparent 62%),
+    radial-gradient(ellipse at 70% 58%, rgba(68,42,136,.16), transparent 64%);
+  filter:blur(30px);
+  opacity:.72;
+}
+
+.page-hero::before{right:6%;top:4%;transform:rotate(-8deg)}
+.home-hero::before{left:50%;top:44%;transform:translate(-50%,-50%) rotate(5deg);width:min(64vw,760px);opacity:.55}
+.music-page-v2 .music-player-shell::before{left:6%;top:9%;transform:rotate(8deg);opacity:.48}
+.credits-showcase::before{right:2%;top:8%;transform:rotate(-4deg);opacity:.44}
+
+/* Thin technical lines remain crisp */
+.tech-grid,
+.tech-orbit,
+.tech-axis,
+.tech-line,
+.orbit,
+.axis-line{
+  filter:none !important;
+}
+
+/* Cards/surfaces get a wash, not a glow */
+.credit-card,
+.music-player-top,
+.music-controls,
+.fan-art-button,
+.editorial-card{
+  background-color:rgba(27,17,63,.54) !important;
+  background-image:
+    radial-gradient(ellipse at 18% 16%, rgba(255,215,255,.045), transparent 44%),
+    radial-gradient(ellipse at 88% 84%, rgba(177,81,139,.045), transparent 46%) !important;
+}
+
+/* Watercolor edge accents on sections without turning everything into cards */
+.section-watercolor-accent{
+  position:absolute;
+  pointer-events:none;
+  width:180px;
+  height:110px;
+  border-radius:58% 42% 52% 48% / 45% 54% 46% 55%;
+  filter:blur(22px);
+  opacity:.24;
+  background:linear-gradient(120deg,rgba(255,181,224,.8),rgba(68,42,136,.35));
+}
+
+/* Stars gain a faint watercolor bloom only at peak brightness */
+.tech-star,
+.star-frame,
+.celestial-star{
+  position:relative;
+}
+.tech-star::after,
+.star-frame::after,
+.celestial-star::after{
+  content:"";
+  position:absolute;
+  inset:-18px;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(255,215,255,.16),transparent 68%);
+  opacity:0;
+  animation:nz-star-wash 4.8s ease-in-out infinite;
+  pointer-events:none;
+}
+@keyframes nz-star-wash{
+  0%,74%,100%{opacity:0;transform:scale(.7)}
+  82%{opacity:.42;transform:scale(1)}
+  90%{opacity:.14;transform:scale(1.12)}
+}
+
+/* Keep text legible and the look restrained */
+.home-hero h1,
+.page-hero h1,
+.music-now h1{
+  text-shadow:none !important;
+}
+
+@media(max-width:760px){
+  body::before{opacity:.44;filter:blur(46px)}
+  .page-hero::before,.home-hero::before,.music-page-v2 .music-player-shell::before,.credits-showcase::before{opacity:.38}
+}
+
+@media(prefers-reduced-motion:reduce){
+  body::before{animation:none !important}
+  .tech-star::after,.star-frame::after,.celestial-star::after{animation:none !important}
+}
