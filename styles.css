@@ -317,3 +317,89 @@ body::after{
   body::before{animation:none !important}
   .tech-star::after,.star-frame::after,.celestial-star::after{animation:none !important}
 }
+
+
+/* V11.3 — Music: remove redundant track metadata block */
+.page-music .player-bar{
+  margin-top:8px !important;
+}
+.page-music .coverflow{
+  margin-bottom:6px !important;
+}
+
+
+/* V11.4 — header logo cleanup: remove circular N and use nieris. */
+.brand{gap:0 !important}
+.brand-word-logo{
+  display:inline-flex !important;
+  align-items:baseline;
+  font-family:var(--display);
+  text-transform:none !important;
+  font-size:1.08rem;
+  letter-spacing:.10em !important;
+  font-weight:700 !important;
+  color:#efdae1;
+  line-height:1;
+}
+.brand-dot{
+  color:var(--pink);
+  margin-left:.02em;
+}
+@media(max-width:700px){
+  .brand-word,.brand-word-logo{display:inline-flex !important;font-size:1rem}
+}
+
+
+/* V11.5 — credits gallery cleanup and lighter performance */
+.gallery-dialog{
+  width:min(1180px,100%) !important;
+  height:min(88vh,920px) !important;
+  grid-template-rows:minmax(0,1fr) auto !important;
+}
+.gallery-media{
+  padding:18px 18px 0 !important;
+  background:#0d0917 !important;
+}
+.gallery-media img{
+  width:auto !important;
+  height:auto !important;
+  max-width:100% !important;
+  max-height:100% !important;
+  object-fit:contain !important;
+  border-radius:10px;
+}
+.gallery-caption{
+  padding:14px 20px 18px !important;
+  background:rgba(17,11,32,.96) !important;
+}
+.gallery-caption .role{display:none !important}
+.gallery-caption h2{margin:0 !important;font-size:30px !important}
+.gallery-caption p{margin:4px 0 0 !important;font-size:12px !important}
+.gallery-backdrop{background:rgba(8,5,17,.92) !important;backdrop-filter:none !important}
+.gallery-close,.gallery-nav{background:rgba(41,28,67,.92) !important}
+
+/* Credits previews load lighter media and stay clean */
+.page-credits .work-tile.has-media img{
+  object-fit:contain !important;
+  object-position:center center !important;
+  background:rgba(255,255,255,.015);
+}
+
+/* Reduce heavy visual processing across the site */
+body::before{
+  animation:none !important;
+  filter:blur(34px) saturate(1.02) !important;
+  opacity:.38 !important;
+}
+body::after{opacity:.06 !important}
+.neo-ring,.neo-star,.sparkle,.membrane-a,.membrane-b,.membrane-c,
+.tech-star::after,.star-frame::after,.celestial-star::after,
+.hero-astro{animation:none !important}
+.site-header{backdrop-filter:none !important}
+.fan-dialog::backdrop{backdrop-filter:none !important}
+
+@media(max-width:780px){
+  .gallery-dialog{height:min(84vh,860px) !important}
+  .gallery-media{padding:10px 10px 0 !important}
+  .gallery-caption h2{font-size:24px !important}
+}

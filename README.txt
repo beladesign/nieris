@@ -24,3 +24,5 @@ V11.0: Phase 1 visual refactor inspired by Korean futuristic editorial reference
 V11.1: Removed Nabis from the global navigation and removed nabis.html. Lore left unchanged pending reformulation.
 
 V11.2: Added watercolor atmosphere over the Korean tech/celestial system. Grids/orbits remain crisp; watercolor washes stay soft, restrained and behind content.
+
+V11.3: Removed redundant now-playing metadata block below the music coverflow; player now sits directly below the cards.
