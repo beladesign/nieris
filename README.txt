@@ -53,3 +53,6 @@ V8.3: Replaced the generic ambient background with a nightmare symbiote look: da
 V8.4: Simplified hover interaction so cards no longer lift or glow. Hover now uses only an animated pink border flowing around the card.
 
 V8.6: Organic SVG symbiote background, all Lore hover removed, Credits hover reduced to animated pink border only, and Home Nieris title clipping fixed.
+
+V8.7: music page changed to a centered coverflow player (active music sharp, side musics softly blurred), and credits hover was restricted to the cards only.
+V8.8: fixed the music coverflow state logic in script.js so the centered/blurred card positions update correctly when changing tracks.

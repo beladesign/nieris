@@ -351,6 +351,20 @@
       }
     };
 
+    const applyCarouselState = () => {
+      const total = playlistItems.length;
+      const prevIndex = (currentIndex - 1 + total) % total;
+      const nextIndex = (currentIndex + 1) % total;
+      playlistItems.forEach((button, i) => {
+        button.classList.remove('is-center','is-prev','is-next','is-hidden-left','is-hidden-right');
+        if (i === currentIndex) button.classList.add('is-center');
+        else if (i === prevIndex) button.classList.add('is-prev');
+        else if (i === nextIndex) button.classList.add('is-next');
+        else if (i < currentIndex) button.classList.add('is-hidden-left');
+        else button.classList.add('is-hidden-right');
+      });
+    };
+
     const loadTrack = (index, autoplay = false) => {
       const safeIndex = Math.max(0, Math.min(index, playlistItems.length - 1));
       const item = playlistItems[safeIndex];
@@ -381,6 +395,7 @@
       if (currentTime) currentTime.textContent = '00:00';
 
       updateTrackLanguage();
+      applyCarouselState();
 
       if (autoplay) {
         mainAudio.play().catch(() => {});
