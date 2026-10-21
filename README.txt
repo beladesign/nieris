@@ -43,3 +43,5 @@ V7.11: Language selector redesigned as a visible pink segmented switch. The acti
 V8.0: Polish layer — Plus Jakarta Sans body font, soft glow hovers, cursor-reactive background, click ripples, scroll reveals, smoother galleries with swipe, better focus states.
 
 V7.12: Performance/package optimization. Music re-encoded to 128 kbps MP3; heavy PNG artwork converted to WebP quality 90. GIF remains unchanged. Visual layout and behavior preserved.
+
+V8.1: Removed cursor-follow glow, spotlight and luminous click ripple. Hover light now rises subtly from the bottom of content surfaces. Background changed from bright glow to slow dark organic symbiosis independent of mouse movement.

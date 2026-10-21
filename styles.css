@@ -2838,107 +2838,375 @@ body.credit-gallery-open{overflow:hidden;}
 }
 
 
+
 /* =====================================================================
-   V8.0 — Polish layer: typography, glow hovers, symbiotic background,
-   tactile clicks, gallery transitions, focus & accessibility.
+   V8.1 — Polish correction
+   Discrete bottom-up hover glow, organic symbiosis background,
+   no cursor-follow glow and no luminous click ripple.
    ===================================================================== */
 :root{
   --font-display:"Cormorant Garamond", Georgia, serif;
   --font-body:"Plus Jakarta Sans", Manrope, system-ui, sans-serif;
-  --glow-soft:0 0 0 1px rgba(217,154,179,.28), 0 10px 34px -10px rgba(217,154,179,.55), 0 0 26px -6px rgba(240,204,217,.65);
-  --glow-strong:0 0 0 1px rgba(217,154,179,.4), 0 18px 48px -14px rgba(169,95,131,.55), 0 0 38px -4px rgba(240,204,217,.8);
   --ease-out:cubic-bezier(.16,1,.3,1);
   --ease-spring:cubic-bezier(.34,1.56,.64,1);
-  --mx:50%; --my:30%;
 }
-body{font-family:var(--font-body);font-feature-settings:"ss01","cv11";-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;line-height:1.65;letter-spacing:.005em}
-h1,h2,h3,.brand,.subtitle{font-family:var(--font-display);text-wrap:balance}
+body{
+  font-family:var(--font-body);
+  font-feature-settings:"ss01","cv11";
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+  line-height:1.65;
+  letter-spacing:.005em;
+}
+h1,h2,h3,.brand,.subtitle{
+  font-family:var(--font-display);
+  text-wrap:balance;
+}
 p{text-wrap:pretty}
 ::selection{background:rgba(217,154,179,.38);color:var(--ink)}
 
-/* Symbiotic background: orbs breathe and drift toward the cursor */
-.ambient-scene{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
-.ambient-scene::before{content:"";position:absolute;inset:-20%;
-  background:radial-gradient(520px circle at var(--mx) var(--my), rgba(240,204,217,.55), transparent 60%),
-             radial-gradient(700px circle at calc(100% - var(--mx)) calc(100% - var(--my)), rgba(217,234,243,.45), transparent 62%),
-             radial-gradient(600px circle at 50% 110%, rgba(222,215,235,.5), transparent 60%);
-  transition:background .6s linear; filter:blur(10px);opacity:.4; animation:nz-breathe 14s ease-in-out infinite alternate}
-.ambient-scene .orb{mix-blend-mode:screen;transition:transform 1.2s var(--ease-out)}
-@keyframes nz-breathe{0%{opacity:.28;transform:scale(1)}100%{opacity:.45;transform:scale(1.06) rotate(1.5deg)}}
+/* ---------------------------------------------------------------------
+   Background symbiosis
+   Dark, organic, slow-moving shapes. No cursor tracking and no glow.
+   --------------------------------------------------------------------- */
+.ambient-scene{
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:0;
+  overflow:hidden;
+}
+
+/* broad organic mass */
+.ambient-scene::before{
+  content:"";
+  position:absolute;
+  inset:-18%;
+  opacity:.34;
+  filter:blur(34px);
+  background:
+    radial-gradient(ellipse at 8% 28%, rgba(39,17,48,.86) 0 10%, transparent 31%),
+    radial-gradient(ellipse at 92% 18%, rgba(48,22,58,.72) 0 12%, transparent 34%),
+    radial-gradient(ellipse at 72% 78%, rgba(31,14,39,.82) 0 11%, transparent 33%),
+    radial-gradient(ellipse at 30% 95%, rgba(55,24,62,.58) 0 13%, transparent 36%);
+  transform:rotate(-4deg) scale(1.05);
+  animation:nz-symbiosis-mass 22s ease-in-out infinite alternate;
+}
+
+/* thin, connected "veins" / symbiotic trails */
+.ambient-scene::after{
+  content:"";
+  position:absolute;
+  inset:-12%;
+  opacity:.20;
+  filter:blur(18px);
+  background:
+    radial-gradient(ellipse 26% 8% at 14% 54%, rgba(76,38,82,.78), transparent 72%),
+    radial-gradient(ellipse 34% 7% at 50% 42%, rgba(62,30,72,.68), transparent 74%),
+    radial-gradient(ellipse 30% 8% at 82% 58%, rgba(69,32,76,.66), transparent 74%);
+  transform:rotate(7deg);
+  animation:nz-symbiosis-veins 28s ease-in-out infinite alternate;
+}
+
+.ambient-scene .orb{
+  mix-blend-mode:normal !important;
+  filter:blur(34px) !important;
+  opacity:.14 !important;
+  animation:nz-symbiosis-node 18s ease-in-out infinite alternate !important;
+  border-radius:46% 54% 61% 39% / 38% 42% 58% 62% !important;
+}
+.ambient-scene .orb.a{
+  background:#321b39 !important;
+}
+.ambient-scene .orb.b{
+  background:#24172e !important;
+  animation-delay:-7s !important;
+}
+.ambient-scene .orb.c{
+  background:#432043 !important;
+  animation-delay:-12s !important;
+}
+
+@keyframes nz-symbiosis-mass{
+  0%{transform:rotate(-4deg) scale(1.04) translate3d(-1.5%,0,0)}
+  100%{transform:rotate(2deg) scale(1.09) translate3d(1.5%,-1%,0)}
+}
+@keyframes nz-symbiosis-veins{
+  0%{transform:rotate(7deg) scaleX(1)}
+  100%{transform:rotate(2deg) scaleX(1.08) translateY(-2%)}
+}
+@keyframes nz-symbiosis-node{
+  0%{transform:translate3d(0,0,0) scale(1)}
+  100%{transform:translate3d(18px,-12px,0) scale(1.06)}
+}
 main,.site-footer{position:relative;z-index:1}
 
-/* Header & nav */
-.site-header{transition:background .4s ease, box-shadow .4s ease, height .4s var(--ease-out)}
-body.nz-scrolled .site-header{background:color-mix(in srgb,var(--night) 82%,transparent);box-shadow:0 1px 0 var(--line),0 12px 30px -20px rgba(169,95,131,.4);height:70px}
-.main-nav a{border-radius:999px;transition:color .25s ease, background .3s ease, box-shadow .3s ease, transform .25s var(--ease-out);font-weight:500}
-.main-nav a:hover{background:rgba(255,255,255,.08);box-shadow:var(--glow-soft);transform:translateY(-1px)}
+/* ---------------------------------------------------------------------
+   Header / navigation: no glow.
+   --------------------------------------------------------------------- */
+.site-header{
+  transition:background .4s ease, box-shadow .4s ease, height .4s var(--ease-out);
+}
+body.nz-scrolled .site-header{
+  background:color-mix(in srgb,var(--night) 82%,transparent);
+  box-shadow:0 1px 0 var(--line);
+  height:70px;
+}
+.main-nav a{
+  border-radius:999px;
+  transition:color .25s ease, background .25s ease, transform .25s var(--ease-out);
+  font-weight:500;
+}
+.main-nav a:hover{
+  color:var(--rose-deep) !important;
+  background:rgba(255,255,255,.045);
+  box-shadow:none !important;
+  filter:none !important;
+  transform:none;
+}
 .main-nav a[aria-current="page"]{color:var(--rose-deep)}
-.brand{transition:text-shadow .4s ease, letter-spacing .4s var(--ease-out)}
-.brand:hover{text-shadow:0 0 18px rgba(217,154,179,.75);letter-spacing:.07em}
+.brand{
+  transition:letter-spacing .3s var(--ease-out), color .25s ease;
+}
+.brand:hover{
+  text-shadow:none !important;
+  color:var(--rose-deep);
+  letter-spacing:.055em;
+}
 
-/* Shared glow + tactile press for interactive surfaces */
-.cta,.credit-card,.credit-profile,.credit-media-slot,.fan-art-button,.fan-item,.world-note,.editorial-card,.home-index a,.portal-link,.track-play,.cd-button,.music-queue-item,.music-icon-button,.footer-social-link,.language-switch button,.menu-button,.fanart-dialog-close{
-  transition:transform .35s var(--ease-out), box-shadow .4s ease, filter .4s ease, background-color .3s ease, border-color .3s ease, color .25s ease;
-  will-change:transform}
-.cta:hover,.credit-profile:hover,.portal-link:hover,.home-index a:hover,.music-queue-item:hover,.track-play:hover{box-shadow:var(--glow-soft);filter:brightness(1.04) saturate(1.05);transform:translateY(-2px)}
-.world-note:hover,.editorial-card:hover,.fan-item:hover{box-shadow:var(--glow-strong);transform:translateY(-4px)}
-.credit-media-slot:hover,.fan-art-button:hover{box-shadow:var(--glow-strong);filter:brightness(1.05)}
-.footer-social-link:hover,.music-icon-button:hover,.menu-button:hover{box-shadow:var(--glow-soft);transform:translateY(-2px) scale(1.06);color:var(--rose-deep)}
-.cta:active,.credit-profile:active,.portal-link:active,.track-play:active,.cd-button:active,.music-queue-item:active,.music-icon-button:active,.footer-social-link:active,.language-switch button:active,.menu-button:active,.fan-art-button:active,.credit-media-slot:active,.home-index a:active{transform:translateY(0) scale(.97);transition-duration:.08s}
-.cta-primary{position:relative;overflow:hidden;isolation:isolate}
-.cta-primary::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.45) 50%,transparent 70%);transform:translateX(-120%);transition:transform .9s var(--ease-out)}
-.cta-primary:hover::after{transform:translateX(120%)}
-.cta .arrow svg{transition:transform .35s var(--ease-spring)}
-.cta:hover .arrow svg{transform:translateX(4px)}
+/* ---------------------------------------------------------------------
+   Bottom-up hover light.
+   The light stays anchored to the bottom, like the credit image gradient,
+   but is much softer and only rises a short distance.
+   --------------------------------------------------------------------- */
+.nz-rise{
+  position:relative;
+  isolation:isolate;
+}
+.nz-rise-light{
+  position:absolute;
+  z-index:1;
+  left:0;
+  right:0;
+  bottom:0;
+  height:48%;
+  pointer-events:none;
+  opacity:0;
+  transform:translateY(22%);
+  background:linear-gradient(
+    to top,
+    rgba(228,154,183,.16) 0%,
+    rgba(217,154,179,.10) 26%,
+    rgba(217,154,179,.035) 54%,
+    transparent 82%
+  );
+  transition:opacity .38s ease, transform .5s var(--ease-out);
+}
+.nz-rise:hover > .nz-rise-light{
+  opacity:1;
+  transform:translateY(0);
+}
 
-/* Cursor-follow light inside cards */
-.nz-spot{position:relative}
-.nz-spot::before{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;z-index:2;opacity:0;transition:opacity .4s ease;
-  background:radial-gradient(260px circle at var(--sx,50%) var(--sy,50%), rgba(255,255,255,.32), transparent 65%)}
-.nz-spot:hover::before{opacity:1}
+/* Keep actual content above the hover light. */
+.nz-rise > :not(.nz-rise-light){
+  position:relative;
+  z-index:2;
+}
 
-/* Click ripple */
-.nz-ripple{position:absolute;border-radius:50%;pointer-events:none;transform:scale(0);background:radial-gradient(circle,rgba(255,255,255,.7),rgba(240,204,217,.25) 60%,transparent 70%);animation:nz-ripple .65s var(--ease-out) forwards;z-index:3}
-@keyframes nz-ripple{to{transform:scale(1);opacity:0}}
+/* Surfaces move very slightly; no bloom/shadow glow. */
+.credit-card,
+.world-note,
+.editorial-card,
+.fan-item,
+.home-index a,
+.music-queue-item,
+.song-card,
+.cta,
+.credit-profile,
+.track-play,
+.music-icon-button,
+.footer-social-link,
+.language-switch button,
+.menu-button,
+.fan-art-button{
+  transition:
+    transform .3s var(--ease-out),
+    background-color .25s ease,
+    border-color .25s ease,
+    color .25s ease,
+    filter .25s ease;
+}
+
+.credit-card:hover,
+.world-note:hover,
+.editorial-card:hover,
+.fan-item:hover,
+.home-index a:hover,
+.music-queue-item:hover,
+.song-card:hover{
+  transform:translateY(-2px);
+  box-shadow:none !important;
+  filter:none !important;
+}
+
+.cta:hover,
+.credit-profile:hover,
+.track-play:hover,
+.music-icon-button:hover,
+.footer-social-link:hover,
+.menu-button:hover,
+.fan-art-button:hover{
+  box-shadow:none !important;
+  filter:none !important;
+}
+
+.footer-social-link:hover,
+.music-icon-button:hover,
+.menu-button:hover{
+  color:var(--rose-deep);
+  transform:translateY(-1px);
+}
+
+.cta:active,
+.credit-profile:active,
+.track-play:active,
+.music-queue-item:active,
+.music-icon-button:active,
+.footer-social-link:active,
+.language-switch button:active,
+.menu-button:active,
+.fan-art-button:active,
+.home-index a:active{
+  transform:scale(.98);
+  transition-duration:.08s;
+}
+
+/* No luminous shimmer on the primary CTA. */
+.cta-primary::after{
+  display:none !important;
+}
+.cta .arrow svg{transition:transform .3s var(--ease-spring)}
+.cta:hover .arrow svg{transform:translateX(3px)}
+
+/* No spotlight / mouse-follow pseudo effect. */
+.nz-spot::before{
+  display:none !important;
+}
+
+/* No luminous click ripple. */
+.nz-ripple{
+  display:none !important;
+}
 
 /* Icons */
 svg{shape-rendering:geometricPrecision}
-.main-nav svg,.cta svg,.credit-profile svg,.footer-social-link svg,.music-icon-button svg,.track-play svg{stroke-linecap:round;stroke-linejoin:round}
+.main-nav svg,.cta svg,.credit-profile svg,.footer-social-link svg,.music-icon-button svg,.track-play svg{
+  stroke-linecap:round;
+  stroke-linejoin:round;
+}
 .footer-social-link svg{width:18px;height:18px}
-.page-mark svg{filter:drop-shadow(0 0 14px rgba(217,154,179,.55));animation:nz-float 6s ease-in-out infinite}
-@keyframes nz-float{50%{transform:translateY(-6px) rotate(-3deg)}}
+
+/* Remove icon glow. Keep only subtle floating motion where applicable. */
+.page-mark svg{
+  filter:none !important;
+  animation:nz-float 6s ease-in-out infinite;
+}
+@keyframes nz-float{50%{transform:translateY(-5px) rotate(-2deg)}}
 
 /* Text harmony */
 .kicker{font-weight:600;letter-spacing:.26em}
-.page-hero p,.hero-copy .hero-line{font-size:clamp(15px,1.1vw,17px);line-height:1.85;max-width:62ch}
+.page-hero p,.hero-copy .hero-line{
+  font-size:clamp(15px,1.1vw,17px);
+  line-height:1.85;
+  max-width:62ch;
+}
 .lore-story p{font-size:17px;line-height:1.9;max-width:66ch}
-.hero-copy h1,.page-hero h1{background:linear-gradient(180deg,var(--ink) 30%,var(--wine) 120%);-webkit-background-clip:text;background-clip:text;color:transparent;text-shadow:none}
+.hero-copy h1,.page-hero h1{
+  background:linear-gradient(180deg,var(--ink) 30%,var(--wine) 120%);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+  text-shadow:none;
+}
 .hero-copy h1{animation:nz-title 1.4s var(--ease-out) both}
-@keyframes nz-title{from{opacity:0;letter-spacing:.02em;filter:blur(8px)}to{opacity:1;filter:blur(0)}}
+@keyframes nz-title{
+  from{opacity:0;letter-spacing:.02em;filter:blur(8px)}
+  to{opacity:1;filter:blur(0)}
+}
 
 /* Scroll reveal */
-.nz-reveal{opacity:0;transform:translateY(22px);transition:opacity .9s var(--ease-out), transform .9s var(--ease-out)}
+.nz-reveal{
+  opacity:0;
+  transform:translateY(22px);
+  transition:opacity .9s var(--ease-out), transform .9s var(--ease-out);
+}
 .nz-reveal.is-in{opacity:1;transform:none}
 
-/* Galleries */
-.fan-art-button img,.credit-media-slot img,.credit-gallery-item img{transition:transform .7s var(--ease-out), filter .5s ease}
-.fan-art-button:hover img{transform:scale(1.04)}
+/* Galleries: smooth, but no hover glow. */
+.fan-art-button img,.credit-media-slot img,.credit-gallery-item img{
+  transition:transform .7s var(--ease-out), filter .5s ease;
+}
+.fan-art-button:hover img{transform:scale(1.03)}
 .fanart-dialog[open]{animation:nz-pop .45s var(--ease-out)}
-.fanart-dialog::backdrop{backdrop-filter:blur(10px) saturate(1.1);background:rgba(33,24,39,.55)}
-@keyframes nz-pop{from{opacity:0;transform:scale(.94) translateY(12px)}to{opacity:1;transform:none}}
+.fanart-dialog::backdrop{
+  backdrop-filter:blur(10px) saturate(1.1);
+  background:rgba(33,24,39,.55);
+}
+@keyframes nz-pop{
+  from{opacity:0;transform:scale(.94) translateY(12px)}
+  to{opacity:1;transform:none}
+}
 .credit-gallery-modal{backdrop-filter:blur(10px)}
-.credit-gallery-modal [data-gallery-media]{transition:opacity .3s ease, transform .45s var(--ease-out)}
-.credit-gallery-modal [data-gallery-media].nz-swap{opacity:0;transform:scale(.97)}
-.credit-gallery-modal.is-open [data-gallery-media]{animation:nz-pop .5s var(--ease-out)}
-[data-gallery-prev],[data-gallery-next],[data-gallery-close]{transition:transform .3s var(--ease-spring), box-shadow .3s ease}
-[data-gallery-prev]:hover,[data-gallery-next]:hover,[data-gallery-close]:hover{box-shadow:var(--glow-soft);transform:scale(1.08)}
+.credit-gallery-modal [data-gallery-media]{
+  transition:opacity .3s ease, transform .45s var(--ease-out);
+}
+.credit-gallery-modal [data-gallery-media].nz-swap{
+  opacity:0;
+  transform:scale(.97);
+}
+.credit-gallery-modal.is-open [data-gallery-media]{
+  animation:nz-pop .5s var(--ease-out);
+}
+[data-gallery-prev],[data-gallery-next],[data-gallery-close]{
+  transition:transform .25s var(--ease-spring), background .25s ease, color .25s ease;
+}
+[data-gallery-prev]:hover,[data-gallery-next]:hover,[data-gallery-close]:hover{
+  box-shadow:none !important;
+  transform:scale(1.04);
+  color:var(--rose-deep);
+}
 
-/* Focus */
-:focus-visible{outline:2px solid var(--rose);outline-offset:3px;border-radius:12px;box-shadow:0 0 0 6px rgba(240,204,217,.45)}
+/* Focus stays visible for accessibility, but without glow bloom. */
+:focus-visible{
+  outline:2px solid var(--rose);
+  outline-offset:3px;
+  border-radius:12px;
+  box-shadow:none !important;
+}
 
 /* Scrollbar */
 html{scrollbar-color:var(--rose) transparent}
-::-webkit-scrollbar{width:10px}::-webkit-scrollbar-thumb{background:linear-gradient(var(--blush),var(--rose));border-radius:10px;border:2px solid var(--paper)}
+::-webkit-scrollbar{width:10px}
+::-webkit-scrollbar-thumb{
+  background:linear-gradient(var(--blush),var(--rose));
+  border-radius:10px;
+  border:2px solid var(--paper);
+}
 
-@media (hover:none){.world-note:hover,.fan-item:hover{transform:none}}
-@media (prefers-reduced-motion:reduce){.nz-reveal{opacity:1;transform:none}.ambient-scene::before,.page-mark svg,.hero-copy h1{animation:none}*{transition-duration:.01ms!important}}
+@media (hover:none){
+  .nz-rise-light{display:none}
+  .credit-card:hover,.world-note:hover,.editorial-card:hover,.fan-item:hover,.song-card:hover{
+    transform:none;
+  }
+}
+@media (prefers-reduced-motion:reduce){
+  .nz-reveal{opacity:1;transform:none}
+  .ambient-scene::before,
+  .ambient-scene::after,
+  .ambient-scene .orb,
+  .page-mark svg,
+  .hero-copy h1{
+    animation:none !important;
+  }
+  *{transition-duration:.01ms!important}
+}

@@ -614,3 +614,87 @@
     modal.addEventListener('touchend', e => { if (sx == null) return; const dx = e.changedTouches[0].clientX - sx; sx = null; if (Math.abs(dx) > 50) modal.querySelector(dx < 0 ? '[data-gallery-next]' : '[data-gallery-prev]')?.click(); });
   }
 })();
+
+
+
+/* V8.1 — Polish correction: no cursor-follow glow, no luminous ripple. */
+(() => {
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  const onScroll = () => {
+    document.body.classList.toggle('nz-scrolled', scrollY > 12);
+  };
+  addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  /* Add one fixed bottom-up hover light layer.
+     It does NOT track the mouse. */
+  const riseSel = [
+    '.credit-card',
+    '.world-note',
+    '.editorial-card',
+    '.fan-item',
+    '.home-index a',
+    '.music-queue-item',
+    '.song-card'
+  ].join(',');
+
+  document.querySelectorAll(riseSel).forEach(el => {
+    if (el.querySelector(':scope > .nz-rise-light')) return;
+    el.classList.add('nz-rise');
+    const light = document.createElement('span');
+    light.className = 'nz-rise-light';
+    light.setAttribute('aria-hidden', 'true');
+    el.appendChild(light);
+  });
+
+  /* Scroll reveal stays, but has no pointer relation. */
+  if ('IntersectionObserver' in window && !reduce) {
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('is-in');
+        io.unobserve(entry.target);
+      });
+    }, { threshold: .12, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll(
+      '.page-hero-inner,.credit-card,.world-note,.editorial-card,.fan-item,.song-card,.music-queue-item,.lore-story > *'
+    ).forEach((el, i) => {
+      el.classList.add('nz-reveal');
+      el.style.transitionDelay = Math.min(i % 6, 5) * 70 + 'ms';
+      io.observe(el);
+    });
+  }
+
+  /* Gallery swap animation stays independent of the mouse. */
+  const media = document.querySelector('[data-credit-gallery] [data-gallery-media]');
+  if (media) {
+    const mo = new MutationObserver(() => {
+      media.classList.add('nz-swap');
+      const done = () => media.classList.remove('nz-swap');
+      media.complete
+        ? requestAnimationFrame(() => requestAnimationFrame(done))
+        : media.addEventListener('load', done, { once: true });
+    });
+
+    mo.observe(media, { attributes: true, attributeFilter: ['src'] });
+
+    let sx = null;
+    const modal = media.closest('[data-credit-gallery]');
+    if (modal) {
+      modal.addEventListener('touchstart', e => {
+        sx = e.touches[0].clientX;
+      }, { passive: true });
+
+      modal.addEventListener('touchend', e => {
+        if (sx == null) return;
+        const dx = e.changedTouches[0].clientX - sx;
+        sx = null;
+        if (Math.abs(dx) > 50) {
+          modal.querySelector(dx < 0 ? '[data-gallery-next]' : '[data-gallery-prev]')?.click();
+        }
+      });
+    }
+  }
+})();
