@@ -561,3 +561,56 @@
     if (event.key === 'ArrowRight') next();
   });
 })();
+
+
+// V8.0 — Polish layer: symbiotic background, header state, reveal, spotlight, ripple, gallery swap.
+(() => {
+  const root = document.documentElement;
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let raf = 0, tx = 50, ty = 30, cx = 50, cy = 30;
+  if (!reduce) {
+    addEventListener('pointermove', e => { tx = e.clientX / innerWidth * 100; ty = e.clientY / innerHeight * 100; if (!raf) raf = requestAnimationFrame(tick); }, { passive: true });
+  }
+  function tick() {
+    cx += (tx - cx) * .08; cy += (ty - cy) * .08;
+    root.style.setProperty('--mx', cx.toFixed(2) + '%'); root.style.setProperty('--my', cy.toFixed(2) + '%');
+    document.querySelectorAll('.ambient-scene .orb').forEach((o, i) => { const k = (i + 1) * 6; o.style.transform = `translate(${(cx - 50) / 50 * k}px, ${(cy - 50) / 50 * k}px)`; });
+    raf = (Math.abs(tx - cx) + Math.abs(ty - cy) > .05) ? requestAnimationFrame(tick) : 0;
+  }
+  const onScroll = () => document.body.classList.toggle('nz-scrolled', scrollY > 12);
+  addEventListener('scroll', onScroll, { passive: true }); onScroll();
+
+  const spotSel = '.credit-card,.world-note,.editorial-card,.fan-item,.cta,.portal-link,.home-index a,.music-queue-item,.credit-media-slot';
+  document.querySelectorAll(spotSel).forEach(el => {
+    el.classList.add('nz-spot');
+    el.addEventListener('pointermove', e => { const r = el.getBoundingClientRect(); el.style.setProperty('--sx', e.clientX - r.left + 'px'); el.style.setProperty('--sy', e.clientY - r.top + 'px'); });
+  });
+
+  const rippleSel = '.cta,.track-play,.credit-profile,.portal-link,.music-queue-item,.language-switch button,.fan-art-button,.music-icon-button';
+  document.addEventListener('pointerdown', e => {
+    const el = e.target.closest(rippleSel); if (!el || reduce) return;
+    const r = el.getBoundingClientRect(), d = Math.max(r.width, r.height) * 2.2;
+    if (getComputedStyle(el).position === 'static') el.style.position = 'relative';
+    el.style.overflow = 'hidden';
+    const s = document.createElement('span'); s.className = 'nz-ripple';
+    s.style.cssText = `width:${d}px;height:${d}px;left:${e.clientX - r.left - d / 2}px;top:${e.clientY - r.top - d / 2}px`;
+    el.appendChild(s); setTimeout(() => s.remove(), 700);
+  });
+
+  if ('IntersectionObserver' in window && !reduce) {
+    const io = new IntersectionObserver(es => es.forEach(en => { if (en.isIntersecting) { en.target.classList.add('is-in'); io.unobserve(en.target); } }), { threshold: .12, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.page-hero-inner,.credit-card,.world-note,.editorial-card,.fan-item,.song-card,.music-queue-item,.lore-story > *,.portal-link').forEach((el, i) => {
+      el.classList.add('nz-reveal'); el.style.transitionDelay = Math.min(i % 6, 5) * 70 + 'ms'; io.observe(el);
+    });
+  }
+
+  const media = document.querySelector('[data-credit-gallery] [data-gallery-media]');
+  if (media) {
+    const mo = new MutationObserver(() => { media.classList.add('nz-swap'); const done = () => media.classList.remove('nz-swap'); media.complete ? requestAnimationFrame(() => requestAnimationFrame(done)) : media.addEventListener('load', done, { once: true }); });
+    mo.observe(media, { attributes: true, attributeFilter: ['src'] });
+    let sx = null;
+    const modal = media.closest('[data-credit-gallery]');
+    modal.addEventListener('touchstart', e => sx = e.touches[0].clientX, { passive: true });
+    modal.addEventListener('touchend', e => { if (sx == null) return; const dx = e.changedTouches[0].clientX - sx; sx = null; if (Math.abs(dx) > 50) modal.querySelector(dx < 0 ? '[data-gallery-next]' : '[data-gallery-prev]')?.click(); });
+  }
+})();

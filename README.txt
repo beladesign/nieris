@@ -39,3 +39,7 @@ V7.7: Commission media cards now open an artist-specific zoom gallery. External 
 V7.10: Removed Socials from the menu and deleted socials.html. X, Twitch, Discord, YouTube and TikTok now appear as linked icons in the footer of every page.
 
 V7.11: Language selector redesigned as a visible pink segmented switch. The active language appears on a light pill, clearly separating the control from the main navigation.
+
+V8.0: Polish layer — Plus Jakarta Sans body font, soft glow hovers, cursor-reactive background, click ripples, scroll reveals, smoother galleries with swipe, better focus states.
+
+V7.12: Performance/package optimization. Music re-encoded to 128 kbps MP3; heavy PNG artwork converted to WebP quality 90. GIF remains unchanged. Visual layout and behavior preserved.
