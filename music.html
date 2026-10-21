@@ -12,12 +12,88 @@
 <link href="/assets/brand/nieris-icon-black.svg" media="(prefers-color-scheme: light)" rel="icon" type="image/svg+xml"/>
 <link href="/assets/brand/nieris-icon-white.svg" rel="icon" type="image/svg+xml"/>
 </head>
-<body>
-<div aria-hidden="true" class="ambient-scene">
-<span class="orb a"></span>
-<span class="orb b"></span>
-<span class="orb c"></span>
+<body><div aria-hidden="true" class="symbiote-stage">
+<svg preserveaspectratio="xMidYMid slice" role="presentation" viewbox="0 0 1920 1080">
+<defs>
+<lineargradient id="bio-mass" x1="0" x2="1" y1="0" y2="1">
+<stop offset="0" stop-color="#050407"></stop><stop offset=".36" stop-color="#0f0913"></stop><stop offset=".69" stop-color="#2c1331"></stop><stop offset="1" stop-color="#070509"></stop>
+</lineargradient>
+<lineargradient id="bio-wet" x1="0" x2="1" y1="0" y2="0">
+<stop offset="0" stop-color="#f4b0d0" stop-opacity="0"></stop><stop offset=".34" stop-color="#bd5eaa" stop-opacity=".20"></stop><stop offset=".52" stop-color="#ffd9eb" stop-opacity=".55"></stop><stop offset=".70" stop-color="#9a438f" stop-opacity=".20"></stop><stop offset="1" stop-color="#9a438f" stop-opacity="0"></stop>
+</lineargradient>
+<filter height="124%" id="bio-soft-warp" width="124%" x="-12%" y="-12%">
+<feturbulence basefrequency=".004 .010" numoctaves="1" result="n" seed="21" type="fractalNoise"></feturbulence>
+<fedisplacementmap in="SourceGraphic" in2="n" scale="10" xchannelselector="R" ychannelselector="G"></fedisplacementmap>
+</filter>
+<lineargradient id="bio-left-mask-grad"><stop offset="0" stop-color="white"></stop><stop offset=".72" stop-color="white"></stop><stop offset="1" stop-color="black"></stop></lineargradient>
+<lineargradient id="bio-right-mask-grad" x1="1" x2="0"><stop offset="0" stop-color="white"></stop><stop offset=".72" stop-color="white"></stop><stop offset="1" stop-color="black"></stop></lineargradient>
+<mask id="bio-left-mask"><rect fill="url(#bio-left-mask-grad)" height="1080" width="880"></rect></mask>
+<mask id="bio-right-mask"><rect fill="url(#bio-right-mask-grad)" height="1080" width="880" x="1040"></rect></mask>
+</defs>
+<g class="symbiote-organism symbiote-left symbiote-fade-left">
+<path class="symbiote-mass" d="M-140-80H340C295 15 351 84 305 147C269 197 304 238 263 285C220 334 257 382 205 431C159 474 183 526 137 579C94 628 120 691 70 746C28 793 44 872-18 918L-140 980Z">
+<animate attributename="d" dur="18s" repeatcount="indefinite" values="M-140-80H340C295 15 351 84 305 147C269 197 304 238 263 285C220 334 257 382 205 431C159 474 183 526 137 579C94 628 120 691 70 746C28 793 44 872-18 918L-140 980Z;M-140-80H366C307 22 363 91 314 159C277 210 315 253 267 302C218 353 266 397 210 449C158 497 192 544 139 601C90 653 128 710 72 770C24 821 42 889-20 938L-140 990Z;M-140-80H326C304 7 342 73 296 137C262 184 292 229 254 273C213 321 246 368 197 414C149 459 172 514 126 565C84 612 108 678 60 731C17 779 34 854-18 903L-140 972Z;M-140-80H340C295 15 351 84 305 147C269 197 304 238 263 285C220 334 257 382 205 431C159 474 183 526 137 579C94 628 120 691 70 746C28 793 44 872-18 918L-140 980Z"></animate>
+</path>
+<path class="symbiote-deep" d="M-80 62C90 4 252 52 322 177C251 145 187 164 145 224C100 289 56 326-30 344L-80 344Z"></path>
+<g>
+<path class="symbiote-under" d="M70 120C194 79 266 137 330 218S467 330 610 247" stroke-width="52"></path>
+<path class="symbiote-core" d="M70 120C194 79 266 137 330 218S467 330 610 247" stroke-width="42"></path>
+<path class="symbiote-ridge" d="M70 115C194 78 266 137 330 218S467 330 610 247" stroke-width="5.5"></path>
+<path class="symbiote-under" d="M108 250C232 224 283 330 374 391S538 476 657 419" stroke-width="40"></path>
+<path class="symbiote-core" d="M108 250C232 224 283 330 374 391S538 476 657 419" stroke-width="31"></path>
+<path class="symbiote-ridge secondary" d="M110 247C232 224 283 330 374 391S538 476 657 419" stroke-width="4.5"></path>
+<path class="symbiote-under" d="M84 448C207 399 278 488 345 565S484 671 602 612" stroke-width="34"></path>
+<path class="symbiote-core" d="M84 448C207 399 278 488 345 565S484 671 602 612" stroke-width="26"></path>
+<path class="symbiote-ridge" d="M87 445C207 399 278 488 345 565S484 671 602 612" stroke-width="4"></path>
+<path class="symbiote-under" d="M52 664C171 616 232 696 292 768S424 855 520 803" stroke-width="25"></path>
+<path class="symbiote-core" d="M52 664C171 616 232 696 292 768S424 855 520 803" stroke-width="18"></path>
+<path class="symbiote-under" d="M230 278C315 251 373 213 421 148" stroke-width="18"></path>
+<path class="symbiote-core" d="M230 278C315 251 373 213 421 148" stroke-width="12"></path>
+<path class="symbiote-under" d="M323 390C403 362 455 310 493 255" stroke-width="16"></path>
+<path class="symbiote-core" d="M323 390C403 362 455 310 493 255" stroke-width="10"></path>
+<path class="symbiote-under" d="M347 566C428 537 480 493 519 450" stroke-width="15"></path>
+<path class="symbiote-core" d="M347 566C428 537 480 493 519 450" stroke-width="9"></path>
+<path class="symbiote-under" d="M291 768C361 741 404 699 438 653" stroke-width="13"></path>
+<path class="symbiote-core" d="M291 768C361 741 404 699 438 653" stroke-width="8"></path>
+</g>
+</g>
+<g class="symbiote-organism symbiote-right symbiote-fade-right">
+<g transform="translate(1920 0) scale(-1 1)">
+<path class="symbiote-mass" d="M-140-80H340C295 15 351 84 305 147C269 197 304 238 263 285C220 334 257 382 205 431C159 474 183 526 137 579C94 628 120 691 70 746C28 793 44 872-18 918L-140 980Z">
+<animate attributename="d" dur="21s" repeatcount="indefinite" values="M-140-80H340C295 15 351 84 305 147C269 197 304 238 263 285C220 334 257 382 205 431C159 474 183 526 137 579C94 628 120 691 70 746C28 793 44 872-18 918L-140 980Z;M-140-80H359C302 19 365 91 315 156C275 207 313 250 270 300C223 354 264 402 209 454C155 504 190 551 136 608C85 661 125 714 69 776C22 827 39 891-21 940L-140 992Z;M-140-80H330C301 9 345 77 299 140C263 188 296 231 257 277C215 326 249 373 198 419C152 462 174 516 129 568C87 617 112 681 64 735C21 782 36 856-18 906L-140 973Z;M-140-80H340C295 15 351 84 305 147C269 197 304 238 263 285C220 334 257 382 205 431C159 474 183 526 137 579C94 628 120 691 70 746C28 793 44 872-18 918L-140 980Z"></animate>
+</path>
+<path class="symbiote-deep" d="M-80 62C90 4 252 52 322 177C251 145 187 164 145 224C100 289 56 326-30 344L-80 344Z"></path>
+<path class="symbiote-under" d="M72 172C192 115 270 166 345 249S478 354 620 286" stroke-width="50"></path>
+<path class="symbiote-core" d="M72 172C192 115 270 166 345 249S478 354 620 286" stroke-width="40"></path>
+<path class="symbiote-ridge" d="M74 168C192 115 270 166 345 249S478 354 620 286" stroke-width="5.5"></path>
+<path class="symbiote-under" d="M96 365C214 319 289 407 361 481S502 578 626 516" stroke-width="37"></path>
+<path class="symbiote-core" d="M96 365C214 319 289 407 361 481S502 578 626 516" stroke-width="29"></path>
+<path class="symbiote-ridge secondary" d="M99 362C214 319 289 407 361 481S502 578 626 516" stroke-width="4"></path>
+<path class="symbiote-under" d="M66 585C180 534 250 618 315 693S454 791 568 732" stroke-width="30"></path>
+<path class="symbiote-core" d="M66 585C180 534 250 618 315 693S454 791 568 732" stroke-width="22"></path>
+<path class="symbiote-ridge" d="M70 581C180 534 250 618 315 693S454 791 568 732" stroke-width="3.8"></path>
+<path class="symbiote-under" d="M338 248C416 218 466 176 505 118" stroke-width="18"></path>
+<path class="symbiote-core" d="M338 248C416 218 466 176 505 118" stroke-width="11"></path>
+<path class="symbiote-under" d="M361 481C438 446 492 399 532 348" stroke-width="16"></path>
+<path class="symbiote-core" d="M361 481C438 446 492 399 532 348" stroke-width="10"></path>
+<path class="symbiote-under" d="M315 693C389 665 435 622 470 575" stroke-width="14"></path>
+<path class="symbiote-core" d="M315 693C389 665 435 622 470 575" stroke-width="8"></path>
+</g>
+</g>
+<g class="symbiote-organism symbiote-bottom">
+<path class="symbiote-mass" d="M0 1015C156 945 292 953 410 1010C530 1067 650 1050 759 1005C866 961 976 961 1086 1008C1193 1054 1320 1058 1445 1003C1582 944 1740 951 1920 1019V1160H0Z"></path>
+<path class="symbiote-under" d="M85 1050C210 922 330 927 431 1020M596 1065C698 955 810 946 907 1031M1084 1058C1190 950 1301 946 1408 1024M1545 1060C1650 961 1740 960 1841 1024" stroke-width="32"></path>
+<path class="symbiote-core" d="M85 1050C210 922 330 927 431 1020M596 1065C698 955 810 946 907 1031M1084 1058C1190 950 1301 946 1408 1024M1545 1060C1650 961 1740 960 1841 1024" stroke-width="23"></path>
+<path class="symbiote-ridge secondary" d="M85 1045C210 922 330 927 431 1020M596 1060C698 955 810 946 907 1031M1084 1053C1190 950 1301 946 1408 1024M1545 1055C1650 961 1740 960 1841 1024" stroke-width="4"></path>
+</g>
+</svg>
+<span class="bio-spark spark-1"><i class="spark-cardinal"></i><i class="spark-diagonal"></i><i class="spark-core"></i></span>
+<span class="bio-spark spark-2"><i class="spark-cardinal"></i><i class="spark-diagonal"></i><i class="spark-core"></i></span>
+<span class="bio-spark spark-3"><i class="spark-cardinal"></i><i class="spark-diagonal"></i><i class="spark-core"></i></span>
+<span class="bio-spark spark-4"><i class="spark-cardinal"></i><i class="spark-diagonal"></i><i class="spark-core"></i></span>
+<span class="bio-spark spark-5"><i class="spark-cardinal"></i><i class="spark-diagonal"></i><i class="spark-core"></i></span>
 </div>
+
 <header class="site-header">
 <div class="shell header-inner">
 <a class="brand" href="/">nieris<span class="brand-dot">.</span></a>
