@@ -16,3 +16,7 @@ Palette:
 #FFD7FF #FFB5E0 #881E5E #FF7BA5 #31242B #EFDAE1 #442A88 #B1518B #F394AD #FFEC94 #1B113F #FFCAFB #DBD4FE
 
 Public technical references studied: Vercel Store, Bill Guo portfolio review, DesignCode, easing.dev, Torph (MIT). No proprietary source code was copied from closed-source sites.
+
+V10.1: Credits media tiles now use each source file's real aspect ratio and object-fit: contain, preventing commission artwork/GIFs from being cropped.
+
+V11.0: Phase 1 visual refactor inspired by Korean futuristic editorial references. Added subtle technical grid, celestial orbit system, microdata labels, cleaner line-based navigation, flatter surfaces and a redesigned Home observatory composition. Content preserved.
