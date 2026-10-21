@@ -403,3 +403,100 @@ body::after{opacity:.06 !important}
   .gallery-media{padding:10px 10px 0 !important}
   .gallery-caption h2{font-size:24px !important}
 }
+
+
+/* =====================================================================
+   V11.6 — performance-first + true full-image gallery
+   ===================================================================== */
+
+/* Full credit image, no crop under any circumstance. */
+.gallery-dialog{
+  width:min(1180px,calc(100vw - 32px)) !important;
+  height:auto !important;
+  max-height:calc(100svh - 28px) !important;
+  display:flex !important;
+  flex-direction:column !important;
+  overflow:hidden !important;
+}
+.gallery-media{
+  flex:1 1 auto !important;
+  min-height:0 !important;
+  height:auto !important;
+  padding:14px !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  overflow:auto !important;
+  background:#0d0917 !important;
+}
+.gallery-media img{
+  display:block !important;
+  width:auto !important;
+  height:auto !important;
+  max-width:100% !important;
+  max-height:calc(100svh - 150px) !important;
+  object-fit:contain !important;
+  object-position:center center !important;
+  flex:0 0 auto !important;
+}
+.gallery-caption{
+  flex:0 0 auto !important;
+  min-height:74px !important;
+}
+
+/* Performance-first: no full-screen animated blurs or continuously animated decor. */
+body::before{
+  animation:none !important;
+  filter:none !important;
+  opacity:.22 !important;
+  inset:0 !important;
+  background:
+    radial-gradient(ellipse 34% 24% at 18% 20%, rgba(255,183,225,.11), transparent 72%),
+    radial-gradient(ellipse 38% 26% at 82% 18%, rgba(68,42,136,.13), transparent 74%),
+    radial-gradient(ellipse 34% 24% at 72% 76%, rgba(219,212,254,.08), transparent 76%) !important;
+}
+body::after{display:none !important}
+
+.membrane,.membrane-a,.membrane-b,.membrane-c,
+.sparkle,.neo-ring,.neo-star,
+.hero-orbit,.hero-astro,
+.tech-star::after,.star-frame::after,.celestial-star::after{
+  animation:none !important;
+}
+
+/* Keep geometry static and cheap. */
+.neo-ring,.hero-astro,.hero-orbit{will-change:auto !important}
+.site-header,.gallery-backdrop,.fan-dialog::backdrop{backdrop-filter:none !important}
+
+/* Coverflow: remove GPU-heavy blur; side cards use opacity/scale only. */
+.album-card,
+.album-card:nth-child(1),
+.album-card:nth-child(2),
+.album-card:nth-child(3),
+.album-card.is-active{
+  filter:none !important;
+  will-change:auto !important;
+}
+.album-card:nth-child(1),.album-card:nth-child(3){opacity:.52 !important}
+.album-surface{box-shadow:0 12px 28px rgba(5,3,18,.16) !important}
+
+/* Reduce large shadows / expensive composites. */
+.nav-shell,.credit-card,.player-bar,.gallery-dialog,.fan-dialog,.action-link{
+  box-shadow:none !important;
+}
+
+/* Render sections only when near viewport. */
+.credits-section,.fan-gallery,.lore-layout,.music-experience,.site-footer{
+  content-visibility:auto;
+  contain-intrinsic-size:1px 900px;
+}
+
+/* Make animations opt-in only; ordinary UI uses short transitions. */
+*{scroll-behavior:auto !important}
+.credit-card:hover::before{animation-duration:3.2s !important}
+
+@media(max-width:700px){
+  .gallery-dialog{width:calc(100vw - 16px) !important;max-height:calc(100svh - 16px) !important}
+  .gallery-media{padding:8px !important}
+  .gallery-media img{max-height:calc(100svh - 132px) !important}
+}

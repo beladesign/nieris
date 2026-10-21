@@ -26,3 +26,5 @@ V11.1: Removed Nabis from the global navigation and removed nabis.html. Lore lef
 V11.2: Added watercolor atmosphere over the Korean tech/celestial system. Grids/orbits remain crisp; watercolor washes stay soft, restrained and behind content.
 
 V11.3: Removed redundant now-playing metadata block below the music coverflow; player now sits directly below the cards.
+
+V11.6: gallery now always shows full uncropped images; continuous full-screen blur/animations disabled; coverflow blur removed; offscreen sections use content-visibility for performance.
