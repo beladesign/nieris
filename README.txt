@@ -60,3 +60,5 @@ V8.8: fixed the music coverflow state logic in script.js so the centered/blurred
 V8.9: site visual direction refined toward Dark Organic / Biotech / Alien Symbiote. Static symbiote background replaced by an animated inline SVG with morphing masses, tendrils, turbulence/displacement and wet highlights. Added coded four-point star twinkle animation based on the user-provided frame reference.
 
 V9.0: visual system rebuilt from the supplied references: guaranteed HTML symbiote layer with dense wet branching roots, slow organic movement, coded frame-like sparkling stars, darker biotech surfaces, Credits hover only on the outer card border, Lore content with zero hover, and coverflow music preserved with sharp center / softly blurred sides.
+
+V9.1: Performance optimization. Removed mouse-tracking/ripple legacy JS, SVG turbulence/displacement and path morph animation, reduced backdrop-filter usage and animated spark count, kept transform-only symbiote breathing, added content-visibility/contain optimizations.

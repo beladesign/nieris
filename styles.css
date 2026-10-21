@@ -4666,3 +4666,126 @@ body.nz-scrolled .site-header{background:rgba(8,6,10,.91) !important;}
   .symbiote-organism,.symbiote-ridge,.bio-spark,.bio-spark *{animation:none !important;}
   .bio-spark{display:none !important;}
 }
+
+
+/* =====================================================================
+   V9.1 — PERFORMANCE PASS
+   Preserve the dark-organic visual while reducing paint/compositor cost.
+   ===================================================================== */
+
+/* The organism still breathes, but the paths are static shapes now.
+   Remove procedural SVG filters and moving dash highlights. */
+.symbiote-mass,
+.symbiote-under,
+.symbiote-core,
+.symbiote-ridge{
+  filter:none !important;
+}
+.symbiote-ridge,
+.symbiote-ridge.secondary{
+  animation:none !important;
+  stroke-dasharray:none !important;
+  opacity:.34 !important;
+}
+
+/* Transform-only organism motion: cheap and compositor-friendly. */
+.symbiote-organism{
+  will-change:transform;
+  contain:paint;
+}
+.symbiote-left{animation-duration:18s !important;}
+.symbiote-right{animation-duration:21s !important;}
+.symbiote-bottom{animation-duration:24s !important;}
+
+/* Fewer stars, simplified composite-only animation. */
+.bio-spark{
+  will-change:transform,opacity;
+  animation-timing-function:linear !important;
+}
+.bio-spark .spark-cardinal,
+.bio-spark .spark-diagonal,
+.bio-spark .spark-core{
+  will-change:transform,opacity;
+}
+
+/* Remove costly backdrop filtering. Darker opaque fills preserve the look. */
+.site-header,
+.language-switch,
+.site-language-switch,
+.cta,
+.credit-card,
+.credit-gallery-backdrop,
+.credit-gallery-close,
+.credit-gallery-nav,
+.fanart-dialog::backdrop,
+.fanart-dialog-close,
+.music-page-v2 .music-controls,
+.main-nav{
+  backdrop-filter:none !important;
+  -webkit-backdrop-filter:none !important;
+}
+.site-header{background:rgba(9,7,12,.90) !important;}
+.site-language-switch{background:#d98eae !important;}
+.music-page-v2 .music-controls{background:rgba(20,13,23,.97) !important;}
+.credit-gallery-backdrop{background:rgba(8,5,10,.92) !important;}
+.credit-gallery-close,
+.credit-gallery-nav{background:rgba(23,16,25,.95) !important;}
+
+/* Stop obsolete hover layers from participating in paint. */
+.nz-spot::before,
+.nz-ripple,
+.nz-rise-light{display:none !important;}
+
+/* Reduce filter area on coverflow: keep the requested blur, but cheaper. */
+.music-page-v2 .music-queue-item.is-prev,
+.music-page-v2 .music-queue-item.is-next{
+  filter:blur(1px) saturate(.84) brightness(.80) !important;
+}
+.music-page-v2 .music-queue-item.is-hidden-left,
+.music-page-v2 .music-queue-item.is-hidden-right{
+  filter:none !important;
+  opacity:.10 !important;
+}
+
+/* Prevent offscreen sections/cards from painting until needed. */
+.credits-showcase .credit-card,
+.editorial-section,
+.world-notes,
+.music-queue,
+.site-footer{
+  content-visibility:auto;
+  contain-intrinsic-size:1px 420px;
+}
+
+/* Isolate large interactive surfaces so hover changes don't repaint the page. */
+.credit-card,
+.music-queue-item,
+.fan-art-button,
+.music-controls{
+  contain:layout paint style;
+}
+
+/* Keep transitions short and limited to properties that don't trigger layout. */
+.credit-card,
+.music-queue-item,
+.cta,
+.footer-social-link{
+  transition-property:opacity,color,background-color,border-color,transform !important;
+  transition-duration:.20s !important;
+}
+
+/* Mobile/tablet: animation density drops further. */
+@media(max-width:900px){
+  .symbiote-bottom{display:none !important;}
+  .bio-spark.spark-3{display:none !important;}
+  .symbiote-left,.symbiote-right{animation-duration:26s !important;}
+}
+@media(max-width:640px){
+  .symbiote-organism{animation:none !important;}
+  .bio-spark{display:none !important;}
+}
+
+/* Browser-level reduced motion stays fully respected. */
+@media(prefers-reduced-motion:reduce){
+  .symbiote-organism,.bio-spark,.bio-spark *{animation:none !important;}
+}
