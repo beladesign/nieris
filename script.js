@@ -698,3 +698,8 @@
     }
   }
 })();
+
+
+
+/* V8.2 — remove obsolete inner hover layers. */
+document.querySelectorAll('.nz-rise-light').forEach(el => el.remove());

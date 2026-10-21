@@ -45,3 +45,5 @@ V8.0: Polish layer — Plus Jakarta Sans body font, soft glow hovers, cursor-rea
 V7.12: Performance/package optimization. Music re-encoded to 128 kbps MP3; heavy PNG artwork converted to WebP quality 90. GIF remains unchanged. Visual layout and behavior preserved.
 
 V8.1: Removed cursor-follow glow, spotlight and luminous click ripple. Hover light now rises subtly from the bottom of content surfaces. Background changed from bright glow to slow dark organic symbiosis independent of mouse movement.
+
+V8.2: Hover glow moved from inside cards to a subtle lower-edge halo/inset effect. Fanart previews reduced and numbering removed. Lore now has subtle hover on narrative transition/world-note blocks. Music player redesigned into a compact stable panel with inline controls; queue hover no longer shifts/distorts.
