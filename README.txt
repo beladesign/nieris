@@ -20,15 +20,3 @@ Public technical references studied: Vercel Store, Bill Guo portfolio review, De
 V10.1: Credits media tiles now use each source file's real aspect ratio and object-fit: contain, preventing commission artwork/GIFs from being cropped.
 
 V11.0: Phase 1 visual refactor inspired by Korean futuristic editorial references. Added subtle technical grid, celestial orbit system, microdata labels, cleaner line-based navigation, flatter surfaces and a redesigned Home observatory composition. Content preserved.
-
-V11.1: Removed Nabis from the global navigation and removed nabis.html. Lore left unchanged pending reformulation.
-
-V11.2: Added watercolor atmosphere over the Korean tech/celestial system. Grids/orbits remain crisp; watercolor washes stay soft, restrained and behind content.
-
-V11.3: Removed redundant now-playing metadata block below the music coverflow; player now sits directly below the cards.
-
-V11.6: gallery now always shows full uncropped images; continuous full-screen blur/animations disabled; coverflow blur removed; offscreen sections use content-visibility for performance.
-
-V11.8: restored menu and music layout/behavior from V11.6; removed watercolor only with isolated overrides.
-
-V11.9: fixed broken music cards with explicit center/left/right coverflow states and null-safe player updates after metadata removal.
