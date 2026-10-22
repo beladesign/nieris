@@ -30,3 +30,4 @@ V12.0 — interaction architecture rebuilt using Emotion Agency as reference: fi
 V12.1: Music page restored to the previously approved V11.5 layout: coverflow cards, track info, and a simple player below with time/progress/volume. Removed the V12 track tick pagination.
 
 V12.2: Replaced Lore with the new official Nieris lore in PT-BR and EN-US, including Dream/Nightmare Butterflies, Distortions, Waking World, Ming, Central Mystery and Summary panel.
+V12.3: Music page now uses a dedicated final stylesheet loaded after the global V12 styles, restoring the approved V11.5 cards + metadata + player/time/volume layout while preserving the V12.2 official lore update.
