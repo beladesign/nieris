@@ -29,4 +29,4 @@ V11.3: Removed redundant now-playing metadata block below the music coverflow; p
 
 V11.6: gallery now always shows full uncropped images; continuous full-screen blur/animations disabled; coverflow blur removed; offscreen sections use content-visibility for performance.
 
-V11.7: Removed watercolor direction completely. Disabled continuous decorative motion and blur/backdrop-filter effects for performance. Credits previews and gallery now use normal-flow, full-ratio images with contain-only scaling and no cropping.
+V11.8: restored menu and music layout/behavior from V11.6; removed watercolor only with isolated overrides.
