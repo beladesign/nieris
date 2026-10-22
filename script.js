@@ -61,19 +61,58 @@
   const steps=qsa('.lore-progress li'),progressBar=qs('.lore-progress-line i');
   if(steps.length&&'IntersectionObserver'in window){const chapterIo=new IntersectionObserver(es=>{const visible=es.filter(e=>e.isIntersecting).sort((a,b)=>b.intersectionRatio-a.intersectionRatio)[0];if(!visible)return;const active=qsa('.lore-language-panel.active .lore-chapter');const idx=active.indexOf(visible.target);if(idx<0)return;steps.forEach((s,i)=>s.classList.toggle('is-active',i===idx));if(progressBar)progressBar.style.transform=`translateY(${idx*100}%)`},{rootMargin:'-28% 0px -55% 0px',threshold:[0,.1,.4,.7]});qsa('.lore-chapter').forEach(ch=>chapterIo.observe(ch));document.addEventListener('nieris-language-changed',()=>{steps.forEach((s,i)=>s.classList.toggle('is-active',i===0));if(progressBar)progressBar.style.transform='translateY(0)'})}
 
-  // Music
+  // Music — animated three-card coverflow.
   const audio=qs('[data-main-audio]'), cards=qsa('[data-track-card]');
   if(audio&&cards.length){
-    const toggle=qs('[data-player-toggle]'),prev=qs('[data-player-prev]'),next=qs('[data-player-next]'),range=qs('[data-player-progress]'),current=qs('[data-player-current]'),duration=qs('[data-player-duration]'),volume=qs('[data-player-volume]'),volumeValue=qs('[data-player-volume-value]'),title=qs('[data-now-title]'),cat=qs('[data-now-category]'),note=qs('[data-now-note]'),idxText=qs('[data-now-index]');
+    const toggle=qs('[data-player-toggle]'),prev=qs('[data-player-prev]'),next=qs('[data-player-next]'),range=qs('[data-player-progress]'),current=qs('[data-player-current]'),duration=qs('[data-player-duration]'),volume=qs('[data-player-volume]'),volumeValue=qs('[data-player-volume-value]');
     let index=0;
     const format=s=>{if(!Number.isFinite(s))return'00:00';const m=Math.floor(s/60),ss=Math.floor(s%60);return`${String(m).padStart(2,'0')}:${String(ss).padStart(2,'0')}`};
-    const currentLang=()=>localStorage.getItem('nieris-site-language')==='en-US'?'en-US':'pt-BR';
-    const morphText=(el,text)=>{if(!el||el.textContent===text)return;el.classList.add('is-morphing');setTimeout(()=>{el.textContent='';[...text].forEach((c,i)=>{const s=document.createElement('span');s.className='morph-piece';s.textContent=c===' '?'\u00a0':c;s.style.transitionDelay=`${Math.min(i,16)*8}ms`;el.appendChild(s)});requestAnimationFrame(()=>el.classList.remove('is-morphing'));},170)};
-    const positionCards=()=>{const n=cards.length;cards.forEach((card,i)=>{const d=((i-index+n)%n);let x=0,rot=0,scale=1,blur=0,opacity=1,z=4;if(d===0){}else if(d===1){x=88;rot=-20;scale=.82;blur=2;opacity=.52;z=2}else if(d===n-1){x=-88;rot=20;scale=.82;blur=2;opacity=.52;z=2}else{opacity=.12;scale=.7;blur=4;z=1;x=d<n/2?130:-130}card.style.transform=`translate(-50%,-50%) translateX(${x}%) rotateY(${rot}deg) scale(${scale})`;card.style.filter=blur?`blur(${blur}px) saturate(.72)`:'none';card.style.opacity=opacity;card.style.zIndex=z;card.classList.toggle('is-active',d===0)})};
-    const updateLanguage=()=>{const c=cards[index];cat.textContent=currentLang()==='en-US'?c.dataset.categoryEn:c.dataset.categoryPt;const k=c.dataset.noteKey;note.textContent=translations[currentLang()][k]||''};
-    const load=(i,autoplay=false)=>{index=(i+cards.length)%cards.length;const c=cards[index];audio.src=c.dataset.src;audio.load();morphText(title,c.dataset.title);idxText.textContent=String(index+1).padStart(2,'0');duration.textContent=c.dataset.duration;updateLanguage();positionCards();range.value=0;range.style.setProperty('--progress','0%');current.textContent='00:00';if(autoplay)audio.play().catch(()=>{})};
-    cards.forEach((c,i)=>c.addEventListener('click',()=>load(i,true)));toggle?.addEventListener('click',()=>audio.paused?audio.play().catch(()=>{}):audio.pause());prev?.addEventListener('click',()=>load(index-1,!audio.paused));next?.addEventListener('click',()=>load(index+1,true));audio.addEventListener('play',()=>document.body.classList.add('music-playing'));audio.addEventListener('pause',()=>document.body.classList.remove('music-playing'));audio.addEventListener('ended',()=>load(index+1,true));audio.addEventListener('loadedmetadata',()=>duration.textContent=format(audio.duration));audio.addEventListener('timeupdate',()=>{current.textContent=format(audio.currentTime);if(audio.duration){const p=audio.currentTime/audio.duration*100;range.value=Math.round(p*10);range.style.setProperty('--progress',`${p}%`)}});range?.addEventListener('input',()=>{if(audio.duration){const p=Number(range.value)/1000;audio.currentTime=p*audio.duration;range.style.setProperty('--progress',`${p*100}%`)}});volume?.addEventListener('input',()=>{const v=Number(volume.value);audio.volume=v/100;volume.style.setProperty('--progress',`${v}%`);volumeValue.textContent=`${v}%`});if(volume){audio.volume=.82;volume.style.setProperty('--progress','82%')}document.addEventListener('nieris-language-changed',updateLanguage);positionCards();
-    let touchX=null;qs('[data-coverflow]')?.addEventListener('touchstart',e=>touchX=e.touches[0].clientX,{passive:true});qs('[data-coverflow]')?.addEventListener('touchend',e=>{if(touchX==null)return;const d=e.changedTouches[0].clientX-touchX;touchX=null;if(Math.abs(d)>45)load(index+(d<0?1:-1),!audio.paused)},{passive:true});
+    const positionCards=()=>{
+      const n=cards.length;
+      cards.forEach((card,i)=>{
+        const d=(i-index+n)%n;
+        let x=0,rot=0,scale=1.06,blur=0,opacity=1,z=5;
+        if(d===1){x=92;rot=-19;scale=.82;blur=4.4;opacity=.46;z=2}
+        else if(d===n-1){x=-92;rot=19;scale=.82;blur=4.4;opacity=.46;z=2}
+        else if(d!==0){x=d<n/2?138:-138;rot=d<n/2?-23:23;scale=.72;blur=6;opacity=.12;z=1}
+        card.style.transform=`translate(-50%,-50%) translateX(${x}%) rotateY(${rot}deg) scale(${scale})`;
+        card.style.filter=blur?`blur(${blur}px) saturate(.72)`:'none';
+        card.style.opacity=opacity;
+        card.style.zIndex=z;
+        card.classList.toggle('is-active',d===0);
+        card.setAttribute('aria-current',d===0?'true':'false');
+      });
+    };
+    const load=(i,autoplay=false)=>{
+      index=(i+cards.length)%cards.length;
+      const c=cards[index];
+      positionCards();
+      audio.src=c.dataset.src;
+      audio.load();
+      if(duration) duration.textContent=c.dataset.duration||'00:00';
+      if(range){range.value=0;range.style.setProperty('--progress','0%')}
+      if(current) current.textContent='00:00';
+      if(autoplay) audio.play().catch(()=>{});
+    };
+    cards.forEach((c,i)=>c.addEventListener('click',()=>{ if(i!==index) load(i,true); else if(audio.paused) audio.play().catch(()=>{}); }));
+    toggle?.addEventListener('click',()=>audio.paused?audio.play().catch(()=>{}):audio.pause());
+    prev?.addEventListener('click',()=>load(index-1,true));
+    next?.addEventListener('click',()=>load(index+1,true));
+    audio.addEventListener('play',()=>document.body.classList.add('music-playing'));
+    audio.addEventListener('pause',()=>document.body.classList.remove('music-playing'));
+    audio.addEventListener('ended',()=>load(index+1,true));
+    audio.addEventListener('loadedmetadata',()=>{if(duration)duration.textContent=format(audio.duration)});
+    audio.addEventListener('timeupdate',()=>{
+      if(current)current.textContent=format(audio.currentTime);
+      if(audio.duration&&range){const p=audio.currentTime/audio.duration*100;range.value=Math.round(p*10);range.style.setProperty('--progress',`${p}%`)}
+    });
+    range?.addEventListener('input',()=>{if(audio.duration){const p=Number(range.value)/1000;audio.currentTime=p*audio.duration;range.style.setProperty('--progress',`${p*100}%`)}});
+    volume?.addEventListener('input',()=>{const v=Number(volume.value);audio.volume=v/100;volume.style.setProperty('--progress',`${v}%`);if(volumeValue)volumeValue.textContent=`${v}%`});
+    if(volume){audio.volume=.82;volume.style.setProperty('--progress','82%')}
+    positionCards();
+    let touchX=null;
+    qs('[data-coverflow]')?.addEventListener('touchstart',e=>touchX=e.touches[0].clientX,{passive:true});
+    qs('[data-coverflow]')?.addEventListener('touchend',e=>{if(touchX==null)return;const d=e.changedTouches[0].clientX-touchX;touchX=null;if(Math.abs(d)>45)load(index+(d<0?1:-1),true)},{passive:true});
   }
 
   // Credits filters and synchronized meta panel, inspired by active project metadata.
