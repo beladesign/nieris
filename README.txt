@@ -22,3 +22,5 @@ V10.1: Credits media tiles now use each source file's real aspect ratio and obje
 V11.0: Phase 1 visual refactor inspired by Korean futuristic editorial references. Added subtle technical grid, celestial orbit system, microdata labels, cleaner line-based navigation, flatter surfaces and a redesigned Home observatory composition. Content preserved.
 
 V11.3: Removed Nabis from the primary navigation on all pages. The /nabis page remains in the package but is no longer linked from the main menu.
+
+V11.4: Home receives the first Dream Panel identity pass: light irregular dream fragment, dotted inner border, Korean-tech/celestial line art, dotted access-point separators, while preserving the dark technical observatory background.
