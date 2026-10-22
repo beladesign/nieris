@@ -24,3 +24,5 @@ V11.0: Phase 1 visual refactor inspired by Korean futuristic editorial reference
 V11.3: Removed Nabis from the primary navigation on all pages. The /nabis page remains in the package but is no longer linked from the main menu.
 
 V11.5: removed the V11.4 light dream panel treatment; retained only subtle dotted technical dividers on the Home.
+
+V12.0 — interaction architecture rebuilt using Emotion Agency as reference: fixed stateful header, loader, 12-col design grid, consistent easing, project-style active metadata, track pagination, lightweight motion.
