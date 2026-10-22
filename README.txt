@@ -33,3 +33,5 @@ V12.2: Replaced Lore with the new official Nieris lore in PT-BR and EN-US, inclu
 V12.3: Music page now uses a dedicated final stylesheet loaded after the global V12 styles, restoring the approved V11.5 cards + metadata + player/time/volume layout while preserving the V12.2 official lore update.
 
 V12.4: Music coverflow fixed: clicked track animates to center, side cards use stronger blur, redundant metadata block removed, and player restyled as dark glass with lavender progress/volume.
+
+V12.5: Removed all em/en dashes from Lore in PT-BR and EN-US, replacing them with natural punctuation.
