@@ -26,3 +26,7 @@ V11.3: Removed Nabis from the primary navigation on all pages. The /nabis page r
 V11.5: removed the V11.4 light dream panel treatment; retained only subtle dotted technical dividers on the Home.
 
 V12.0 — interaction architecture rebuilt using Emotion Agency as reference: fixed stateful header, loader, 12-col design grid, consistent easing, project-style active metadata, track pagination, lightweight motion.
+
+V12.1: Music page restored to the previously approved V11.5 layout: coverflow cards, track info, and a simple player below with time/progress/volume. Removed the V12 track tick pagination.
+
+V12.2: Replaced Lore with the new official Nieris lore in PT-BR and EN-US, including Dream/Nightmare Butterflies, Distortions, Waking World, Ming, Central Mystery and Summary panel.
