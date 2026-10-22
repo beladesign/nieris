@@ -30,3 +30,5 @@ V11.3: Removed redundant now-playing metadata block below the music coverflow; p
 V11.6: gallery now always shows full uncropped images; continuous full-screen blur/animations disabled; coverflow blur removed; offscreen sections use content-visibility for performance.
 
 V11.8: restored menu and music layout/behavior from V11.6; removed watercolor only with isolated overrides.
+
+V11.9: fixed broken music cards with explicit center/left/right coverflow states and null-safe player updates after metadata removal.

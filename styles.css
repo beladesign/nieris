@@ -542,3 +542,86 @@ body::after{
     display:flex !important;
   }
 }
+
+
+/* V11.9 — stable music coverflow repair */
+.page-music .music-experience{
+  overflow:visible !important;
+}
+.page-music .coverflow{
+  position:relative !important;
+  display:block !important;
+  width:min(100%,980px) !important;
+  height:clamp(350px,40vw,500px) !important;
+  margin:0 auto 8px !important;
+  overflow:visible !important;
+  perspective:1400px !important;
+}
+.page-music .album-card{
+  position:absolute !important;
+  left:50% !important;
+  top:50% !important;
+  width:clamp(220px,25vw,315px) !important;
+  aspect-ratio:.78/1 !important;
+  padding:0 !important;
+  margin:0 !important;
+  border:0 !important;
+  background:transparent !important;
+  transform-origin:center !important;
+  transition:transform .46s cubic-bezier(.22,.61,.36,1),opacity .28s ease,filter .28s ease !important;
+}
+.page-music .album-surface{
+  position:absolute !important;
+  inset:0 !important;
+  width:100% !important;
+  height:100% !important;
+  display:flex !important;
+  overflow:hidden !important;
+  border-radius:26px !important;
+}
+/* remove old nth-child positioning completely */
+.page-music .album-card:nth-child(1),
+.page-music .album-card:nth-child(2),
+.page-music .album-card:nth-child(3){
+  transform:none;
+  opacity:0;
+  z-index:1;
+  filter:none;
+}
+.page-music .album-card.pos-center{
+  transform:translate(-50%,-50%) scale(1.03) !important;
+  opacity:1 !important;
+  z-index:5 !important;
+  filter:none !important;
+  pointer-events:auto !important;
+}
+.page-music .album-card.pos-left{
+  transform:translate(-50%,-50%) translateX(-88%) rotateY(18deg) scale(.82) !important;
+  opacity:.50 !important;
+  z-index:2 !important;
+  filter:blur(1.5px) saturate(.78) !important;
+  pointer-events:auto !important;
+}
+.page-music .album-card.pos-right{
+  transform:translate(-50%,-50%) translateX(88%) rotateY(-18deg) scale(.82) !important;
+  opacity:.50 !important;
+  z-index:2 !important;
+  filter:blur(1.5px) saturate(.78) !important;
+  pointer-events:auto !important;
+}
+.page-music .album-card.pos-hidden{
+  transform:translate(-50%,-50%) scale(.72) !important;
+  opacity:0 !important;
+  pointer-events:none !important;
+}
+.page-music .player-bar{
+  position:relative !important;
+  z-index:8 !important;
+  margin-top:8px !important;
+}
+@media(max-width:700px){
+  .page-music .coverflow{height:320px !important;margin-inline:auto !important}
+  .page-music .album-card{width:190px !important}
+  .page-music .album-card.pos-left{transform:translate(-50%,-50%) translateX(-65%) rotateY(14deg) scale(.76) !important}
+  .page-music .album-card.pos-right{transform:translate(-50%,-50%) translateX(65%) rotateY(-14deg) scale(.76) !important}
+}
