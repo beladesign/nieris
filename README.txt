@@ -23,4 +23,4 @@ V11.0: Phase 1 visual refactor inspired by Korean futuristic editorial reference
 
 V11.3: Removed Nabis from the primary navigation on all pages. The /nabis page remains in the package but is no longer linked from the main menu.
 
-V11.4: Home receives the first Dream Panel identity pass: light irregular dream fragment, dotted inner border, Korean-tech/celestial line art, dotted access-point separators, while preserving the dark technical observatory background.
+V11.5: removed the V11.4 light dream panel treatment; retained only subtle dotted technical dividers on the Home.
