@@ -35,3 +35,5 @@ V12.3: Music page now uses a dedicated final stylesheet loaded after the global 
 V12.4: Music coverflow fixed: clicked track animates to center, side cards use stronger blur, redundant metadata block removed, and player restyled as dark glass with lavender progress/volume.
 
 V12.5: Removed all em/en dashes from Lore in PT-BR and EN-US, replacing them with natural punctuation.
+
+V12.6: Lore replaced with the reorganized official PT-BR source and faithful EN-US translation. Lore rail simplified to 4 source-aligned sections. Home summary updated to match the new canon.
