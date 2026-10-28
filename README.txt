@@ -29,3 +29,22 @@ Somente fanarts.html, styles.css, script.js e README.txt foram alterados;
 3 imagens foram adicionadas em assets/fanarts/. Outras páginas permanecem intactas.
 
 NIERIS v12.12: fanarts em uma unica fileira (4 por linha em desktop; arraste horizontal em mobile/tablet); espaco entre artista e categoria. Apenas styles.css foi alterado.
+
+
+NIERIS v12.13 — reforço de segurança em código (base v12.12)
+- Content-Security-Policy adicionada diretamente ao HTML das 7 páginas:
+  scripts, imagens e áudios limitados à própria origem; bloqueio de objects,
+  iframes incorporados e formulários; sem execução de scripts inline ou eval.
+- Trusted Types ativado onde disponível. Os quatro usos de innerHTML no JS
+  foram trocados por criação segura de elementos, sem mudar sua aparência.
+- Referrer-Policy: no-referrer nas páginas, para não revelar a URL de origem
+  quando um visitante segue links externos. Links externos já eram seguros.
+- Proteção existente contra arrastar / menu de contexto de imagens PRESERVADA.
+- Fanarts otimizadas WebP preservadas; todas as músicas em qualidade original.
+- O layout, player, efeitos, textos e navegação não foram redesenhados.
+
+AVISO: Estas medidas protegem contra certas injeções e exposições involuntárias
+de navegação; NÃO bloqueiam downloads ou cópias de arquivos públicos.
+Para proteção de hotlink, cabeçalhos HTTP, desafios de bots e controle de acesso,
+é necessária configuração de hospedagem/CDN (não possível só com HTML/JS
+estático no GitHub Pages).

@@ -28,7 +28,16 @@
   if(!sessionStorage.getItem('nieris-loaded')){
     document.body.classList.add('is-loading');
     const loader=document.createElement('div'); loader.className='site-loader';
-    loader.innerHTML=`<div class="loader-inner"><div class="loader-mark">Nieris.</div><div class="loader-meta"><span>dream interface</span><span class="loader-percent">000%</span></div><div class="loader-track"><i class="loader-fill"></i></div></div>`;
+    // Build the fixed loader with safe DOM APIs rather than an HTML injection sink.
+    const loaderInner=document.createElement('div'); loaderInner.className='loader-inner';
+    const loaderMark=document.createElement('div'); loaderMark.className='loader-mark'; loaderMark.textContent='Nieris.';
+    const loaderMeta=document.createElement('div'); loaderMeta.className='loader-meta';
+    const loaderDescription=document.createElement('span'); loaderDescription.textContent='dream interface';
+    const loaderPercent=document.createElement('span'); loaderPercent.className='loader-percent'; loaderPercent.textContent='000%';
+    loaderMeta.append(loaderDescription,loaderPercent);
+    const loaderTrack=document.createElement('div'); loaderTrack.className='loader-track';
+    const loaderFill=document.createElement('i'); loaderFill.className='loader-fill'; loaderTrack.append(loaderFill);
+    loaderInner.append(loaderMark,loaderMeta,loaderTrack); loader.append(loaderInner);
     document.body.prepend(loader); const fill=qs('.loader-fill',loader),pct=qs('.loader-percent',loader); let p=0;
     const tick=setInterval(()=>{p=Math.min(92,p+Math.max(1,Math.round((94-p)*.11)));fill.style.transform=`scaleX(${p/100})`;pct.textContent=String(p).padStart(3,'0')+'%';},55);
     const finish=()=>{clearInterval(tick);fill.style.transform='scaleX(1)';pct.textContent='100%';setTimeout(()=>{loader.classList.add('is-done');document.body.classList.remove('is-loading');sessionStorage.setItem('nieris-loaded','1');setTimeout(()=>loader.remove(),650)},180)};
@@ -36,7 +45,7 @@
   }
 
   // Fixed structural grid; visual only.
-  const grid=document.createElement('div');grid.className='motion-grid';grid.setAttribute('aria-hidden','true');grid.innerHTML='<span></span>'.repeat(12);document.body.prepend(grid);
+  const grid=document.createElement('div');grid.className='motion-grid';grid.setAttribute('aria-hidden','true');grid.append(...Array.from({length:12},()=>document.createElement('span')));document.body.prepend(grid);
 
   // Header state: hide on scroll down, reveal on up, activate surface after leaving top.
   const header=qs('.site-header'); let lastY=scrollY,ticking=false;
@@ -117,7 +126,11 @@
 
   // Credits filters and synchronized meta panel, inspired by active project metadata.
   const filters=qsa('[data-credit-filter]'),creditCards=qsa('[data-credit-category]');filters.forEach(btn=>btn.addEventListener('click',()=>{const f=btn.dataset.creditFilter;filters.forEach(b=>b.classList.toggle('is-active',b===btn));creditCards.forEach(c=>c.classList.toggle('is-filtered',f!=='all'&&c.dataset.creditCategory!==f))}));
-  if(creditCards.length){const dl=document.createElement('dl');dl.className='credits-live-info';dl.innerHTML='<dt>ARTIST</dt><dd data-ci-artist>—</dd><dt>ROLE</dt><dd data-ci-role>—</dd><dt>WORKS</dt><dd data-ci-works>—</dd>';document.body.appendChild(dl);const sync=c=>{qs('[data-ci-artist]',dl).textContent=qs('h2',c)?.textContent||'—';qs('[data-ci-role]',dl).textContent=qs('.role',c)?.textContent||'—';qs('[data-ci-works]',dl).textContent=qsa('.work-tile span',c).map(x=>x.textContent.trim()).join(' / ')||'—'};creditCards.forEach(c=>{c.addEventListener('mouseenter',()=>sync(c));c.addEventListener('focusin',()=>sync(c))});sync(creditCards[0])}
+  if(creditCards.length){const dl=document.createElement('dl');dl.className='credits-live-info';for(const [name,attr] of [['ARTIST','data-ci-artist'],['ROLE','data-ci-role'],['WORKS','data-ci-works']]){
+    const dt=document.createElement('dt');dt.textContent=name;
+    const dd=document.createElement('dd');dd.setAttribute(attr,'');dd.textContent='—';
+    dl.append(dt,dd);
+  }document.body.appendChild(dl);const sync=c=>{qs('[data-ci-artist]',dl).textContent=qs('h2',c)?.textContent||'—';qs('[data-ci-role]',dl).textContent=qs('.role',c)?.textContent||'—';qs('[data-ci-works]',dl).textContent=qsa('.work-tile span',c).map(x=>x.textContent.trim()).join(' / ')||'—'};creditCards.forEach(c=>{c.addEventListener('mouseenter',()=>sync(c));c.addEventListener('focusin',()=>sync(c))});sync(creditCards[0])}
 
   // Credits gallery.
   const modal=qs('[data-gallery-modal]'),items=qsa('[data-gallery-item]');if(modal&&items.length){const media=qs('[data-gallery-media]',modal),artist=qs('[data-gallery-artist]',modal),label=qs('[data-gallery-label]',modal),count=qs('[data-gallery-count]',modal),prev=qs('[data-gallery-prev]',modal),next=qs('[data-gallery-next]',modal);let group=[],gi=0,last=null;const render=()=>{const item=group[gi];media.src=item.dataset.gallerySrc;media.alt=`${item.dataset.galleryArtist} — ${item.dataset.galleryLabel}`;artist.textContent=item.dataset.galleryArtist;const key=item.dataset.galleryLabel;label.textContent=translations[localStorage.getItem('nieris-site-language')||'pt-BR'][key]||key;count.textContent=`${String(gi+1).padStart(2,'0')} / ${String(group.length).padStart(2,'0')}`;prev.hidden=next.hidden=group.length<2};const open=item=>{group=items.filter(x=>x.dataset.galleryArtist===item.dataset.galleryArtist);gi=group.indexOf(item);last=item;render();modal.classList.add('is-open');modal.setAttribute('aria-hidden','false');document.body.style.overflow='hidden'};const close=()=>{modal.classList.remove('is-open');modal.setAttribute('aria-hidden','true');document.body.style.overflow='';media.removeAttribute('src');last?.focus()};items.forEach(i=>i.addEventListener('click',()=>open(i)));qsa('[data-gallery-close]',modal).forEach(b=>b.addEventListener('click',close));prev.addEventListener('click',()=>{gi=(gi-1+group.length)%group.length;render()});next.addEventListener('click',()=>{gi=(gi+1)%group.length;render()});document.addEventListener('keydown',e=>{if(!modal.classList.contains('is-open'))return;if(e.key==='Escape')close();if(e.key==='ArrowLeft')prev.click();if(e.key==='ArrowRight')next.click()})}

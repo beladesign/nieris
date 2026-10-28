@@ -68,7 +68,9 @@
     signal.dataset.state='paused';
     signal.setAttribute('role','status');
     signal.setAttribute('aria-live','polite');
-    signal.innerHTML='<span class="music-signal__lamp" aria-hidden="true"></span><span class="music-signal__text"></span>';
+    const lamp=document.createElement('span');lamp.className='music-signal__lamp';lamp.setAttribute('aria-hidden','true');
+    const statusText=document.createElement('span');statusText.className='music-signal__text';
+    signal.append(lamp,statusText);
     kicker.appendChild(signal);
     const text=signal.querySelector('.music-signal__text');
     const sync=()=>{
