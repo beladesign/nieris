@@ -1,101 +1,61 @@
-/* NIЕRIS 12.7 | Supplemental ambient layer.
-   Preserves all original v12.6 CSS, layout, typography and palettes.
-   Not loaded on the Music page. */
+/* Nieris v12.9 — just one understated liquid mouse-follow layer.
+   The v12.6 identity, editorial layout and v12.8 signal effects stay unchanged.
+   Only non-music pages load this stylesheet. */
 
-/* Three transparent liquid gradients, always BELOW the existing site content. */
-.liquid-scene {
-  position:fixed; inset:0; z-index:1; pointer-events:none; overflow:hidden;
-  isolation:isolate; contain:strict;
-  --follow-x: 50vw; --follow-y: 48vh;
-}
-.liquid-scene__halo {
-  position:absolute; width:min(85vw,1000px); aspect-ratio:1;
-  left:var(--follow-x); top:var(--follow-y);
-  transform:translate(-50%,-50%);
-  border-radius:50%;
-  background:radial-gradient(ellipse at center,
-    rgba(136,30,94,.21) 0%, rgba(68,42,136,.18) 31%,
-    rgba(255,123,165,.075) 49%, transparent 73%);
-  filter:blur(30px);
-  opacity:.85;
-}
-.liquid-scene__blob {
-  position:absolute;
-  display:block;
-  border-radius:46% 54% 62% 38% / 55% 39% 61% 45%;
-  filter:blur(clamp(38px,6vw,90px));
-  mix-blend-mode:screen;
-  will-change:transform;
-  transform:translate3d(-50%,-50%,0);
-  animation:liquidMorph 17s ease-in-out infinite alternate;
-}
-.liquid-scene__blob--pink {
-  width:min(47vw,610px); aspect-ratio:1;
-  top:calc(var(--follow-y) - 14vh); left:calc(var(--follow-x) - 13vw);
-  background:radial-gradient(ellipse at 30% 35%,rgba(255,181,224,.14),rgba(255,123,165,.085) 44%,rgba(136,30,94,.015) 72%,transparent);
-  opacity:.75;
-}
-.liquid-scene__blob--violet {
-  width:min(43vw,560px); aspect-ratio:1;
-  top:calc(var(--follow-y) + 22vh); left:calc(var(--follow-x) + 22vw);
-  background:radial-gradient(ellipse at 45% 40%,rgba(111,76,198,.2),rgba(68,42,136,.11) 54%,transparent 79%);
-  opacity:.85;
-  animation-duration:22s; animation-direction:alternate-reverse;
-}
-.liquid-scene__blob--pearl {
-  width:min(27vw,350px); aspect-ratio:1;
-  top:calc(var(--follow-y) + 5vh); left:calc(var(--follow-x) + 7vw);
-  background:radial-gradient(ellipse at center,rgba(255,236,148,.12),rgba(255,202,251,.09) 36%,transparent 72%);
-  opacity:.7;
-  animation-duration:14s;
-}
-@keyframes liquidMorph {
-  0% {border-radius:46% 54% 62% 38% / 55% 39% 61% 45%;transform:translate3d(-50%,-50%,0) rotate(-8deg) scale(.93)}
-  50% {border-radius:64% 36% 44% 56% / 37% 56% 44% 63%;transform:translate3d(-50%,-50%,0) rotate(11deg) scale(1.08)}
-  100% {border-radius:37% 63% 57% 43% / 63% 40% 60% 37%;transform:translate3d(-50%,-50%,0) rotate(-14deg) scale(.97)}
+.liquid-follow {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 1;
+  pointer-events: none;
+  width: clamp(220px, 27vw, 350px);
+  aspect-ratio: 1;
+  border-radius: 54% 46% 59% 41% / 43% 61% 39% 57%;
+  background:
+    radial-gradient(ellipse 47% 52% at 36% 39%, rgba(255,181,224,.24) 0%, rgba(255,123,165,.08) 37%, transparent 100%),
+    radial-gradient(ellipse 53% 47% at 64% 62%, rgba(114,84,215,.23) 0%, rgba(68,42,136,.08) 36%, transparent 100%),
+    radial-gradient(ellipse 40% 45% at 47% 69%, rgba(255,202,251,.07) 0%, transparent 100%);
+  opacity: .68;
+  transform: translate3d(50vw,48vh,0) translate3d(-50%,-50%,0);
+  will-change: transform;
+  animation: nierisLiquidBreathe 12s ease-in-out infinite alternate;
 }
 
-/* Fine film grain is intentionally decorative, never an image element. */
+@keyframes nierisLiquidBreathe {
+  0%   {border-radius:54% 46% 59% 41% / 43% 61% 39% 57%;opacity:.61}
+  50%  {border-radius:41% 59% 44% 56% / 61% 39% 60% 40%;opacity:.64}
+  100% {border-radius:62% 38% 53% 47% / 36% 55% 45% 64%;opacity:.64}
+}
+
+/* Subtle, static grain: 128px tile, no large realtime SVG noise filter. */
 .grain-film {
-  position:fixed; inset:-40%; width:180%; height:180%; z-index:1;
-  pointer-events:none; contain:strict; opacity:.105;
-  mix-blend-mode:soft-light;
-  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.77' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Cpath fill='%23fff' filter='url(%23n)' d='M0 0h180v180H0z'/%3E%3C/svg%3E");
-  background-size:180px 180px;
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: url('/assets/grain-tile.png') repeat;
+  background-size: 128px 128px;
+  opacity: .055;
 }
 
-/* Keep the original editorial typography and proportions. Only add a soft halo. */
+/* Decorative elements from v12.7 that are unrelated to following the cursor. */
 .page-home .hero-copy h1 {text-shadow:0 14px 66px rgba(255,181,224,.12),0 0 130px rgba(68,42,136,.14)}
 :not(.page-music) .intro-grid h1 {text-shadow:0 12px 65px rgba(255,181,224,.095)}
-
-/* Subtle card-reactive reflections, without replacing layout/card imagery. */
-:not(.page-music) .credit-card:hover,
-:not(.page-music) .credit-card:focus-within {
-  background:radial-gradient(360px circle at var(--card-x,50%) var(--card-y,50%),rgba(255,181,224,.075),transparent 72%),rgba(255,255,255,.018);
-}
 :not(.page-music) .fan-piece,
-:not(.page-music) .community-grid article {transition:border-color .45s ease, box-shadow .45s ease}
+:not(.page-music) .community-grid article {transition:border-color .45s ease,box-shadow .45s ease}
 :not(.page-music) .fan-piece:hover,
-:not(.page-music) .community-grid article:hover {
-  box-shadow:0 22px 68px -42px rgba(255,123,165,.2);
-}
-
-/* Existing links/menus remain identical until directly interacted with. */
+:not(.page-music) .community-grid article:hover {box-shadow:0 22px 68px -42px rgba(255,123,165,.2)}
 :not(.page-music) .action-link svg {transition:transform .4s cubic-bezier(.16,1,.3,1)}
 :not(.page-music) .action-link:hover svg {transform:translateX(4px)}
 :not(.page-music) .artist-cta svg {transition:transform .4s cubic-bezier(.16,1,.3,1)}
 :not(.page-music) .artist-cta:hover svg {transform:translate(2px,-2px)}
 
-@media(max-width:700px) {
-  .liquid-scene__halo {width:130vw;opacity:.55}
-  .liquid-scene__blob--pink {width:100vw;opacity:.6}
-  .liquid-scene__blob--violet {width:94vw;opacity:.7}
-  .liquid-scene__blob--pearl {width:70vw;opacity:.5}
-  .grain-film {opacity:.07}
+@media (hover:none), (pointer:coarse) {
+  .liquid-follow {display:none}
+  .grain-film {opacity:.04}
 }
-@media(prefers-reduced-motion:reduce) {
-  .liquid-scene__blob {animation:none!important;will-change:auto}
-  .liquid-scene__halo,.liquid-scene__blob {transition:none!important}
+@media (prefers-reduced-motion:reduce) {
+  .liquid-follow {display:none;animation:none}
   :not(.page-music) .action-link svg,
   :not(.page-music) .artist-cta svg {transition:none!important}
 }

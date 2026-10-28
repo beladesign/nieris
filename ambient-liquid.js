@@ -1,59 +1,67 @@
-/* Nieris v12.7: visual-only enhancement. Does not touch the original UI logic.
-   Deliberately never included on music.html. */
+/* Nieris v12.9: a single, lightweight liquid motion mouse follower.
+   Keeps the v12.8 pages, styling, glitch and music player untouched. */
 (() => {
   'use strict';
-  const motion = window.matchMedia('(prefers-reduced-motion: reduce)');
-  const finePointer = window.matchMedia('(pointer: fine)');
-  const scene = document.createElement('div');
-  scene.className = 'liquid-scene';
-  scene.setAttribute('aria-hidden', 'true');
-  scene.innerHTML = '<span class="liquid-scene__halo"></span>' +
-    '<span class="liquid-scene__blob liquid-scene__blob--pink"></span>' +
-    '<span class="liquid-scene__blob liquid-scene__blob--violet"></span>' +
-    '<span class="liquid-scene__blob liquid-scene__blob--pearl"></span>';
   const grain = document.createElement('div');
   grain.className = 'grain-film';
-  grain.setAttribute('aria-hidden','true');
-  document.body.insertBefore(grain, document.body.firstChild);
-  document.body.insertBefore(scene, document.body.firstChild);
+  grain.setAttribute('aria-hidden', 'true');
+  document.body.prepend(grain);
 
-  // Smooth delayed motion produces a liquid response, not a hard cursor spotlight.
-  let x=innerWidth*.5, y=innerHeight*.48, targetX=x, targetY=y, raf=0;
-  const animate=()=>{
-    raf=0;
-    x+=(targetX-x)*.065;
-    y+=(targetY-y)*.065;
-    scene.style.setProperty('--follow-x',x.toFixed(2)+'px');
-    scene.style.setProperty('--follow-y',y.toFixed(2)+'px');
-    if(Math.abs(targetX-x)+Math.abs(targetY-y)>.5) raf=requestAnimationFrame(animate);
+  // On touch devices and with reduced motion, keep grain but don't animate a follower.
+  const fine = window.matchMedia('(hover: hover) and (pointer: fine)');
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
+  if (!fine.matches || reduced.matches) return;
+
+  const liquid = document.createElement('div');
+  liquid.className = 'liquid-follow';
+  liquid.setAttribute('aria-hidden', 'true');
+  document.body.insertBefore(liquid, grain);
+
+  let x = innerWidth * .5;
+  let y = innerHeight * .48;
+  let tx = x;
+  let ty = y;
+  let frame = 0;
+  let active = true;
+
+  const position = () => {
+    liquid.style.transform = `translate3d(${x.toFixed(1)}px, ${y.toFixed(1)}px, 0) translate3d(-50%, -50%, 0)`;
   };
-  const schedule=()=>{if(!raf) raf=requestAnimationFrame(animate)};
-  const handlePointer=(ev)=>{
-    if(motion.matches || !finePointer.matches) return;
-    targetX=ev.clientX;
-    targetY=ev.clientY;
-    schedule();
+  position();
+
+  // Request frames ONLY when moving. Animation updates one compositor transform.
+  const follow = () => {
+    frame = 0;
+    if (!active || document.hidden) return;
+    const dx = tx - x;
+    const dy = ty - y;
+    x += dx * .105;
+    y += dy * .105;
+    position();
+    if (Math.abs(dx) + Math.abs(dy) > .7) frame = requestAnimationFrame(follow);
   };
-  window.addEventListener('pointermove',handlePointer,{passive:true});
-  window.addEventListener('resize',()=>{
-    if(!finePointer.matches){
-      x=targetX=innerWidth/2;
-      y=targetY=innerHeight*.48;
-      schedule();
-    }
-  },{passive:true});
-  document.addEventListener('visibilitychange',()=>{
-    if(document.hidden && raf){cancelAnimationFrame(raf);raf=0}
+  const queue = () => { if (!frame && active && !document.hidden) frame = requestAnimationFrame(follow); };
+  const pointer = (event) => {
+    if (event.pointerType === 'touch') return;
+    tx = event.clientX;
+    ty = event.clientY;
+    queue();
+  };
+  window.addEventListener('pointermove', pointer, {passive: true});
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden && frame) { cancelAnimationFrame(frame); frame = 0; }
+    else if (!document.hidden) queue();
   });
-
-  // Track the pointer locally for an extremely soft highlight on original cards.
-  if(finePointer.matches && !motion.matches){
-    document.querySelectorAll('.credit-card').forEach(card=>{
-      card.addEventListener('pointermove',ev=>{
-        const r=card.getBoundingClientRect();
-        card.style.setProperty('--card-x',((ev.clientX-r.left)/r.width*100).toFixed(1)+'%');
-        card.style.setProperty('--card-y',((ev.clientY-r.top)/r.height*100).toFixed(1)+'%');
-      },{passive:true});
-    });
-  }
+  reduced.addEventListener('change', () => {
+    active = !reduced.matches && fine.matches;
+    liquid.hidden = !active;
+    if (frame) { cancelAnimationFrame(frame); frame = 0; }
+    if (active) queue();
+  });
+  fine.addEventListener('change', () => {
+    active = !reduced.matches && fine.matches;
+    liquid.hidden = !active;
+    if (frame) { cancelAnimationFrame(frame); frame = 0; }
+    if (active) queue();
+  });
 })();

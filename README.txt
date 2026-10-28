@@ -1,16 +1,21 @@
-NIERIS v12.8 — v12.6 preservada + detalhes do site de referência
+NIERIS v12.9 — liquid mouse-follow otimizado
 
-Esta edição parte da v12.7, construída diretamente sobre a v12.6.
-Continua com páginas SEPARADAS, cores/tipografia/assets da v12.6, funcionalidades e idiomas PT-BR/EN-US.
+Base: Nieris v12.8, preservando a identidade v12.6, páginas independentes e traduções.
 
-NOVO:
-* Glitch delicado nos títulos principais (sem fonte pixel, respeita reduzir movimento).
-* Números coloridos com piscadas sutis nos menus numerados, capítulos da lore e identificadores das páginas.
-* Sinal de reprodução no topo da página MÚSICAS: quadradinho verde piscando somente quando o áudio toca; vermelho quando pausado/parado. Sincronizado aos eventos reais do player e à tradução PT/EN.
-* Mantidos Grainy Gradient e Mouse-Follow / Liquid Motion das páginas externas à de Músicas.
+Alteração solicitada: removidos o cursor reactive gradient pesado, três gradientes
+que seguiam o cursor e o reflexo reativo dos cards. Em seu lugar, apenas UMA
+mancha líquida pequena, sutil e suave que segue o mouse com atraso delicado.
+O acompanhamento usa apenas transform GPU/compositor, sem bibliotecas externas
+nem filtros blur. A animação JS para quando não há movimento.
 
-MÚSICAS: capas, ordem, carrossel 3D, player, faixas, controles, volume e CSS original INALTERADOS. Só foi adicionado o status próximo ao subtítulo da página e o glitch do h1.
+A textura granulada permanece, agora com um pequeno tile PNG estático em vez
+de calcular filtro SVG de ruído sobre a tela inteira. Mobile e preferência
+"reduzir movimento" não ativam efeito mouse-follow.
 
-Arquivos novos: signal-effects.css e signal-effects.js. As páginas HTML recebem links para eles. styles.css, script.js, music-legacy.css e as mídias permanecem idênticos à v12.6.
+Glitch dos títulos, números piscando, indicador verde/vermelho do áudio,
+layout, fontes, cores, imagens, galerias, navegação e idiomas: INALTERADOS.
+MÚSICAS: music.html, styles.css, script.js, music-legacy.css, signal-effects.*,
+arquivos de música e player permanecem byte a byte idênticos aos da v12.8.
 
-Use os arquivos na raiz do domínio customizado GitHub Pages (nieris.com.br). Os links absolutos existentes começam em /, como no projeto original.
+Publique o conteúdo do ZIP na raiz do domínio nieris.com.br (GitHub Pages).
+Os caminhos de arquivo absolutos (/) são do site original.
