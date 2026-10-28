@@ -107,3 +107,18 @@
   box-shadow:none!important;
 }
 @media(max-width:700px){.page-lore .lore-summary-panel{padding:24px 20px}}
+
+/* Nieris v12.11 — fanarts collection; existing visual identity preserved. */
+.page-fanarts .fan-gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));align-items:start;gap:46px 24px;max-width:1050px}
+.page-fanarts .fan-piece{width:100%;margin:0;min-width:0}
+.page-fanarts .fan-image-button{aspect-ratio:4/5;display:grid;place-items:center;background:rgba(20,13,44,.42)}
+.page-fanarts .fan-image-button img{width:100%;height:100%;object-fit:contain;transition:transform .35s ease}
+.page-fanarts .fan-image-button:hover img{transform:scale(1.025)}
+.page-fanarts .fan-piece figcaption strong{display:block;color:var(--fg);font-size:11px;font-weight:600}
+.page-fanarts .fan-piece figcaption span{display:block;margin-top:5px}
+.page-fanarts .fan-dialog{width:min(92vw,1100px);overflow:visible}
+.page-fanarts .fan-dialog img{width:auto;height:auto;max-width:min(92vw,1100px);max-height:calc(90svh - 58px);margin:auto}
+.page-fanarts .fan-dialog p{display:flex;align-items:center;gap:12px;margin:0;padding:14px 18px;font:500 11px/1.4 var(--mono);color:var(--muted)}
+.page-fanarts .fan-dialog p strong{color:var(--fg)}
+@media(max-width:700px){.page-fanarts .fan-gallery{grid-template-columns:1fr;gap:32px}.page-fanarts .fan-image-button{aspect-ratio:auto}.page-fanarts .fan-image-button img{height:auto;max-height:76svh;object-fit:contain}}
+@media(prefers-reduced-motion:reduce){.page-fanarts .fan-image-button img{transition:none}.page-fanarts .fan-image-button:hover img{transform:none}}

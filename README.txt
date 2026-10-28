@@ -19,3 +19,11 @@ arquivos de música e player permanecem byte a byte idênticos aos da v12.8.
 
 Publique o conteúdo do ZIP na raiz do domínio nieris.com.br (GitHub Pages).
 Os caminhos de arquivo absolutos (/) são do site original.
+
+
+NIERIS v12.11 — 3 novas fanarts
+Galeria anterior preservada. Novas artes: Nie_choro_20261025231523
+por Infinity Void; Nie_fanart_1.3 e Nie_fanart_1.2 por blacksthe12.
+Imagens otimizadas em WebP, com créditos na galeria e no visualizador.
+Somente fanarts.html, styles.css, script.js e README.txt foram alterados;
+3 imagens foram adicionadas em assets/fanarts/. Outras páginas permanecem intactas.

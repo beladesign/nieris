@@ -122,8 +122,21 @@
   // Credits gallery.
   const modal=qs('[data-gallery-modal]'),items=qsa('[data-gallery-item]');if(modal&&items.length){const media=qs('[data-gallery-media]',modal),artist=qs('[data-gallery-artist]',modal),label=qs('[data-gallery-label]',modal),count=qs('[data-gallery-count]',modal),prev=qs('[data-gallery-prev]',modal),next=qs('[data-gallery-next]',modal);let group=[],gi=0,last=null;const render=()=>{const item=group[gi];media.src=item.dataset.gallerySrc;media.alt=`${item.dataset.galleryArtist} — ${item.dataset.galleryLabel}`;artist.textContent=item.dataset.galleryArtist;const key=item.dataset.galleryLabel;label.textContent=translations[localStorage.getItem('nieris-site-language')||'pt-BR'][key]||key;count.textContent=`${String(gi+1).padStart(2,'0')} / ${String(group.length).padStart(2,'0')}`;prev.hidden=next.hidden=group.length<2};const open=item=>{group=items.filter(x=>x.dataset.galleryArtist===item.dataset.galleryArtist);gi=group.indexOf(item);last=item;render();modal.classList.add('is-open');modal.setAttribute('aria-hidden','false');document.body.style.overflow='hidden'};const close=()=>{modal.classList.remove('is-open');modal.setAttribute('aria-hidden','true');document.body.style.overflow='';media.removeAttribute('src');last?.focus()};items.forEach(i=>i.addEventListener('click',()=>open(i)));qsa('[data-gallery-close]',modal).forEach(b=>b.addEventListener('click',close));prev.addEventListener('click',()=>{gi=(gi-1+group.length)%group.length;render()});next.addEventListener('click',()=>{gi=(gi+1)%group.length;render()});document.addEventListener('keydown',e=>{if(!modal.classList.contains('is-open'))return;if(e.key==='Escape')close();if(e.key==='ArrowLeft')prev.click();if(e.key==='ArrowRight')next.click()})}
 
-  // Fanart dialog.
-  const fan=qs('[data-fan-dialog]');qs('[data-fan-open]')?.addEventListener('click',()=>fan?.showModal());qs('[data-fan-close]')?.addEventListener('click',()=>fan?.close());fan?.addEventListener('click',e=>{if(e.target===fan)fan.close()});
+  // Fanart dialog: all gallery pieces share one accessible image viewer.
+  const fan=qs('[data-fan-dialog]');
+  if(fan){
+    const fanFull=qs('img',fan),fanCredit=qs('p strong',fan),fanType=qs('p span',fan);
+    qsa('[data-fan-open]').forEach(btn=>btn.addEventListener('click',()=>{
+      const picture=qs('img',btn),fig=btn.closest('figure');
+      if(!picture||!fig)return;
+      fanFull.src=picture.src;fanFull.alt=picture.alt;
+      fanCredit.textContent=qs('figcaption strong',fig)?.textContent||'';
+      fanType.textContent=qs('figcaption span',fig)?.textContent||'Fanart';
+      fan.showModal();
+    }));
+    qs('[data-fan-close]')?.addEventListener('click',()=>fan.close());
+    fan.addEventListener('click',e=>{if(e.target===fan)fan.close()});
+  }
 
   // Low-friction media save deterrence.
   qsa('img').forEach(img=>img.draggable=false);document.addEventListener('dragstart',e=>{if(e.target.closest?.('img'))e.preventDefault()});document.addEventListener('contextmenu',e=>{if(e.target.closest?.('img,.work-tile'))e.preventDefault()});
