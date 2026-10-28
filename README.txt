@@ -27,3 +27,5 @@ por Infinity Void; Nie_fanart_1.3 e Nie_fanart_1.2 por blacksthe12.
 Imagens otimizadas em WebP, com créditos na galeria e no visualizador.
 Somente fanarts.html, styles.css, script.js e README.txt foram alterados;
 3 imagens foram adicionadas em assets/fanarts/. Outras páginas permanecem intactas.
+
+NIERIS v12.12: fanarts em uma unica fileira (4 por linha em desktop; arraste horizontal em mobile/tablet); espaco entre artista e categoria. Apenas styles.css foi alterado.
