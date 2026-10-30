@@ -1,50 +1,41 @@
-NIERIS v12.9 — liquid mouse-follow otimizado
+NIERIS SITE V10.0
 
-Base: Nieris v12.8, preservando a identidade v12.6, páginas independentes e traduções.
+Full visual rebuild.
 
-Alteração solicitada: removidos o cursor reactive gradient pesado, três gradientes
-que seguiam o cursor e o reflexo reativo dos cards. Em seu lugar, apenas UMA
-mancha líquida pequena, sutil e suave que segue o mouse com atraso delicado.
-O acompanhamento usa apenas transform GPU/compositor, sem bibliotecas externas
-nem filtros blur. A animação JS para quando não há movimento.
+Direction:
+- dark organic / biotech atmosphere without root/tendril graphics
+- editorial hierarchy and modular surfaces inspired by modern product sites
+- interaction-first portfolio storytelling
+- custom easing and continuous text transitions
+- center-focused music coverflow with side blur
+- artist commission gallery and filtering
+- PT-BR / EN-US switch
+- responsive static HTML/CSS/JS for GitHub Pages
 
-A textura granulada permanece, agora com um pequeno tile PNG estático em vez
-de calcular filtro SVG de ruído sobre a tela inteira. Mobile e preferência
-"reduzir movimento" não ativam efeito mouse-follow.
+Palette:
+#FFD7FF #FFB5E0 #881E5E #FF7BA5 #31242B #EFDAE1 #442A88 #B1518B #F394AD #FFEC94 #1B113F #FFCAFB #DBD4FE
 
-Glitch dos títulos, números piscando, indicador verde/vermelho do áudio,
-layout, fontes, cores, imagens, galerias, navegação e idiomas: INALTERADOS.
-MÚSICAS: music.html, styles.css, script.js, music-legacy.css, signal-effects.*,
-arquivos de música e player permanecem byte a byte idênticos aos da v12.8.
+Public technical references studied: Vercel Store, Bill Guo portfolio review, DesignCode, easing.dev, Torph (MIT). No proprietary source code was copied from closed-source sites.
 
-Publique o conteúdo do ZIP na raiz do domínio nieris.com.br (GitHub Pages).
-Os caminhos de arquivo absolutos (/) são do site original.
+V10.1: Credits media tiles now use each source file's real aspect ratio and object-fit: contain, preventing commission artwork/GIFs from being cropped.
 
+V11.0: Phase 1 visual refactor inspired by Korean futuristic editorial references. Added subtle technical grid, celestial orbit system, microdata labels, cleaner line-based navigation, flatter surfaces and a redesigned Home observatory composition. Content preserved.
 
-NIERIS v12.11 — 3 novas fanarts
-Galeria anterior preservada. Novas artes: Nie_choro_20261025231523
-por Infinity Void; Nie_fanart_1.3 e Nie_fanart_1.2 por blacksthe12.
-Imagens otimizadas em WebP, com créditos na galeria e no visualizador.
-Somente fanarts.html, styles.css, script.js e README.txt foram alterados;
-3 imagens foram adicionadas em assets/fanarts/. Outras páginas permanecem intactas.
+V11.3: Removed Nabis from the primary navigation on all pages. The /nabis page remains in the package but is no longer linked from the main menu.
 
-NIERIS v12.12: fanarts em uma unica fileira (4 por linha em desktop; arraste horizontal em mobile/tablet); espaco entre artista e categoria. Apenas styles.css foi alterado.
+V11.5: removed the V11.4 light dream panel treatment; retained only subtle dotted technical dividers on the Home.
 
+V12.0 — interaction architecture rebuilt using Emotion Agency as reference: fixed stateful header, loader, 12-col design grid, consistent easing, project-style active metadata, track pagination, lightweight motion.
 
-NIERIS v12.13 — reforço de segurança em código (base v12.12)
-- Content-Security-Policy adicionada diretamente ao HTML das 7 páginas:
-  scripts, imagens e áudios limitados à própria origem; bloqueio de objects,
-  iframes incorporados e formulários; sem execução de scripts inline ou eval.
-- Trusted Types ativado onde disponível. Os quatro usos de innerHTML no JS
-  foram trocados por criação segura de elementos, sem mudar sua aparência.
-- Referrer-Policy: no-referrer nas páginas, para não revelar a URL de origem
-  quando um visitante segue links externos. Links externos já eram seguros.
-- Proteção existente contra arrastar / menu de contexto de imagens PRESERVADA.
-- Fanarts otimizadas WebP preservadas; todas as músicas em qualidade original.
-- O layout, player, efeitos, textos e navegação não foram redesenhados.
+V12.1: Music page restored to the previously approved V11.5 layout: coverflow cards, track info, and a simple player below with time/progress/volume. Removed the V12 track tick pagination.
 
-AVISO: Estas medidas protegem contra certas injeções e exposições involuntárias
-de navegação; NÃO bloqueiam downloads ou cópias de arquivos públicos.
-Para proteção de hotlink, cabeçalhos HTTP, desafios de bots e controle de acesso,
-é necessária configuração de hospedagem/CDN (não possível só com HTML/JS
-estático no GitHub Pages).
+V12.2: Replaced Lore with the new official Nieris lore in PT-BR and EN-US, including Dream/Nightmare Butterflies, Distortions, Waking World, Ming, Central Mystery and Summary panel.
+V12.3: Music page now uses a dedicated final stylesheet loaded after the global V12 styles, restoring the approved V11.5 cards + metadata + player/time/volume layout while preserving the V12.2 official lore update.
+
+V12.4: Music coverflow fixed: clicked track animates to center, side cards use stronger blur, redundant metadata block removed, and player restyled as dark glass with lavender progress/volume.
+
+V12.5: Removed all em/en dashes from Lore in PT-BR and EN-US, replacing them with natural punctuation.
+
+V12.6: Lore replaced with the reorganized official PT-BR source and faithful EN-US translation. Lore rail simplified to 4 source-aligned sections. Home summary updated to match the new canon.
+
+V12.7: Créditos: Hely substituída por Nome à definir (sem avatar/link); Rubyfilia recebe Fall Critters YCH como item sem mídia; Gato adicionada com avatar da usuária e Sub Badges como trabalho, sem preview de commission ou link inventado. Idiomas PT-BR e EN-US atualizados.
