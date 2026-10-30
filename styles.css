@@ -107,3 +107,82 @@
   box-shadow:none!important;
 }
 @media(max-width:700px){.page-lore .lore-summary-panel{padding:24px 20px}}
+
+/* Nieris v12.12 — galeria horizontal de fanarts. Apenas esta página. */
+.page-fanarts .fan-gallery{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  align-items:start;
+  gap:20px;
+  max-width:1180px;
+  padding-top:32px;
+  padding-bottom:120px;
+}
+.page-fanarts .fan-piece{
+  width:100%;min-width:0;margin:0;
+}
+.page-fanarts .fan-image-button{
+  width:100%;aspect-ratio:4/5;
+  display:grid;place-items:center;
+  background:rgba(20,13,44,.42);
+}
+.page-fanarts .fan-image-button img{
+  display:block;width:100%;height:100%;object-fit:contain;
+  transition:transform .35s ease;
+}
+.page-fanarts .fan-image-button:hover img{transform:scale(1.025)}
+/* Artista à esquerda e categoria à direita, com distância perceptível. */
+.page-fanarts .fan-piece figcaption{
+  display:flex;align-items:baseline;justify-content:space-between;
+  flex-wrap:wrap;column-gap:22px;row-gap:9px;
+  margin-top:14px;padding-top:12px;
+}
+.page-fanarts .fan-piece figcaption > div{
+  width:100%;display:flex;justify-content:space-between;
+  align-items:baseline;flex-wrap:wrap;column-gap:22px;row-gap:9px;
+}
+.page-fanarts .fan-piece figcaption strong{
+  color:var(--fg);font-size:11px;line-height:1.5;font-weight:600;
+}
+.page-fanarts .fan-piece figcaption span{
+  display:block;margin:0;color:var(--muted);
+  font-size:10px;line-height:1.5;text-align:right;
+}
+.page-fanarts .fan-dialog{width:min(92vw,1100px);overflow:visible}
+.page-fanarts .fan-dialog img{
+  width:auto;height:auto;max-width:min(92vw,1100px);
+  max-height:calc(90svh - 58px);margin:auto
+}
+.page-fanarts .fan-dialog p{
+  display:flex;align-items:center;flex-wrap:wrap;gap:12px;
+  margin:0;padding:14px 18px;
+  font:500 11px/1.4 var(--mono);color:var(--muted)
+}
+.page-fanarts .fan-dialog p strong{color:var(--fg)}
+/* Em telas menores, todas as artes continuam na mesma fileira,
+   com arraste lateral e encaixe entre os cards. */
+@media(max-width:1000px){
+  .page-fanarts .fan-gallery{
+    grid-template-columns:none;
+    grid-auto-flow:column;
+    grid-auto-columns:minmax(240px,46%);
+    overflow-x:auto;overscroll-behavior-x:contain;
+    scroll-snap-type:x mandatory;scroll-padding-inline:1px;
+    -webkit-overflow-scrolling:touch;
+    scrollbar-width:thin;scrollbar-color:rgba(255,181,224,.36) transparent;
+    padding-bottom:35px;
+  }
+  .page-fanarts .fan-piece{scroll-snap-align:start}
+}
+@media(max-width:600px){
+  .page-fanarts .fan-gallery{
+    grid-auto-columns:min(78vw,330px);
+    gap:16px;padding-top:24px;padding-bottom:56px;
+  }
+  .page-fanarts .fan-piece figcaption{margin-top:12px;padding-top:11px}
+}
+@media(prefers-reduced-motion:reduce){
+  .page-fanarts .fan-image-button img{transition:none}
+  .page-fanarts .fan-image-button:hover img{transform:none}
+  .page-fanarts .fan-gallery{scroll-behavior:auto}
+}
