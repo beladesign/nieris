@@ -48,3 +48,12 @@ de navegação; NÃO bloqueiam downloads ou cópias de arquivos públicos.
 Para proteção de hotlink, cabeçalhos HTTP, desafios de bots e controle de acesso,
 é necessária configuração de hospedagem/CDN (não possível só com HTML/JS
 estático no GitHub Pages).
+
+NIERIS v12.16 — Créditos e música
+- Mantidos todos os conteúdos da V12.14 e o link da Gato da V12.15.
+- Infinity Void: vídeo original de Discord Reactive entregue, com prévia em loop e visualização ampliada no card de créditos.
+- Kiwi: Icon Headshot entregue e mostrado na galeria; avatar antigo preservado.
+- Tomato Yuki: novo crédito para Icon 90's, com link para https://x.com/tomatinhoyuki; sem inventar avatar ou arte ainda não enviada.
+- Música principal da Lore: novo MP3 fornecido, substituindo a faixa anterior no mesmo caminho e mantendo o título público Where the Butterflies Turn Black, sem sufixo de versão; duração 03:52.
+- Não foram modificados a Lore, as Fanarts, a Home, a Moderação nem a arte dos demais créditos.
+- Icon Headshot da Kiwi otimizado em WebP lossless, sem perda de pixels.
