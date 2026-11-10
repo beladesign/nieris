@@ -189,3 +189,6 @@
 
 /* Delivered Discord Reactive clip in the credits media gallery. */
 .work-tile.has-media video{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:center;pointer-events:none}.gallery-media video{display:block;max-width:100%;max-height:calc(100svh - 160px);object-fit:contain}.gallery-media [hidden]{display:none!important}
+
+/* V12.17: Keep the delivered Kiwi icon at a compact preview size in credits only. */
+.credit-card-kiwi .work-grid{grid-template-columns:minmax(0,210px)}
