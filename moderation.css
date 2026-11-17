@@ -1,0 +1,45 @@
+/* Nieris / Moderation V12.23. Scoped to the moderation page only. */
+.page-moderation .moderation-main{display:block;min-height:70svh;padding:0;place-items:initial}
+.page-moderation .moderation-content{padding-top:54px;padding-bottom:126px}
+.page-moderation .mod-team{margin-bottom:91px}
+.page-moderation .mod-section-heading{display:flex;justify-content:space-between;align-items:start;gap:24px;margin-bottom:26px}
+.page-moderation .mod-section-index,.page-moderation .mod-section-count{font:500 9px/1.4 var(--mono);letter-spacing:.16em;color:#bd9dbf}
+.page-moderation .mod-section-index{display:block;margin-bottom:12px;color:var(--c-pink1)}
+.page-moderation .mod-section-count{margin-top:4px;white-space:nowrap;color:rgba(219,212,254,.51)}
+.page-moderation .mod-section-heading h2{font-family:var(--display);font-weight:400;letter-spacing:-.045em;line-height:1.12;font-size:clamp(31px,4vw,46px);margin:0 0 9px}
+.page-moderation .mod-section-heading p{max-width:640px;color:var(--muted);font-size:14px;line-height:1.7;margin:0}
+.page-moderation .mod-person-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}
+.page-moderation .mod-person-card{position:relative;min-width:0;display:flex;align-items:center;gap:15px;min-height:103px;padding:19px 21px;border:1px solid rgba(219,212,254,.15);border-radius:14px;background:linear-gradient(140deg,rgba(34,24,59,.58),rgba(17,11,39,.5));transition:border-color .25s ease,background .25s ease}
+.page-moderation .mod-person-card:hover,.page-moderation .mod-person-card:focus-within{border-color:rgba(255,181,224,.46);background:linear-gradient(145deg,rgba(41,27,64,.78),rgba(20,13,43,.72))}
+.page-moderation .mod-person-number{position:absolute;right:19px;top:11px;color:rgba(219,212,254,.23);font:500 8px/1 var(--mono);letter-spacing:.06em}
+.page-moderation .mod-person-avatar{position:relative;flex:none;width:49px;height:49px;border-radius:50%;display:grid;place-items:center;color:var(--c-pink0);border:1px solid rgba(255,181,224,.25);background:linear-gradient(145deg,rgba(136,30,94,.18),rgba(68,42,136,.24));font-family:var(--display);font-size:22px;line-height:1}
+.page-moderation .mod-person-avatar i{position:absolute;right:0;bottom:1px;width:7px;height:7px;border-radius:50%;background:var(--c-pink1);box-shadow:0 0 0 3px #1a1234}
+.page-moderation .mod-person-info{min-width:0;flex:1}
+.page-moderation .mod-person-info h3{margin:0 0 4px;font-size:15px;line-height:1.3;font-weight:600;letter-spacing:-.015em;overflow-wrap:anywhere}
+.page-moderation .mod-person-info p{margin:0;color:#b2a0b8;font:500 10px/1.5 var(--mono);letter-spacing:.02em}
+.page-moderation .mod-person-link{display:inline-flex;flex:none;align-items:center;gap:6px;text-decoration:none;color:#e3bfdc;border:1px solid rgba(255,181,224,.2);border-radius:999px;padding:8px 10px;font:500 10px/1 var(--mono);transition:color .2s ease,background .2s ease,border-color .2s ease}
+.page-moderation .mod-person-link:hover,.page-moderation .mod-person-link:focus-visible{color:#fff;border-color:rgba(255,181,224,.55);background:rgba(255,181,224,.1)}
+.page-moderation .mod-person-link svg{width:13px;height:13px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.page-moderation .mod-guidelines-list{border-top:1px solid rgba(219,212,254,.18)}
+.page-moderation .mod-guideline{border-bottom:1px solid rgba(219,212,254,.15);background:rgba(255,255,255,.009);transition:background .22s ease,border-color .22s ease}
+.page-moderation .mod-guideline:hover,.page-moderation .mod-guideline[open]{background:rgba(255,181,224,.035);border-bottom-color:rgba(255,181,224,.33)}
+.page-moderation .mod-guideline summary{display:flex;align-items:center;gap:21px;min-height:83px;padding:16px 20px 16px 17px;list-style:none;cursor:pointer}
+.page-moderation .mod-guideline summary::-webkit-details-marker{display:none}
+.page-moderation .mod-guideline summary::marker{content:""}
+.page-moderation .mod-guideline summary:focus-visible{outline:1px solid var(--c-pink1);outline-offset:-2px;border-radius:4px}
+.page-moderation .mod-guideline-number{flex:none;min-width:32px;color:var(--c-pink1);font:500 11px/1 var(--mono);letter-spacing:.09em}
+.page-moderation .mod-guideline-title{flex:1;color:var(--fg);font-size:clamp(15px,1.7vw,18px);font-weight:500;letter-spacing:-.014em;line-height:1.45}
+.page-moderation .mod-guideline-plus{flex:none;width:30px;height:30px;display:grid;place-items:center;border:1px solid rgba(255,181,224,.22);border-radius:50%;color:#c5acc9;transition:transform .25s ease,border-color .25s ease,color .25s ease}
+.page-moderation .mod-guideline-plus svg{width:15px;height:15px;stroke:currentColor;stroke-width:1.6;fill:none;stroke-linecap:round}
+.page-moderation .mod-guideline[open] .mod-guideline-plus{transform:rotate(45deg);color:var(--c-pink1);border-color:rgba(255,181,224,.5)}
+.page-moderation .mod-guideline-body{padding:0 68px 24px 70px}
+.page-moderation .mod-guideline-body p{margin:0;max-width:870px;color:#c3b6ce;font-size:14px;line-height:1.84}
+.page-moderation .mod-community-note{position:relative;margin-top:30px;padding:27px 30px;display:flex;align-items:center;gap:18px;border-radius:14px;border:1px solid rgba(255,181,224,.19);background:linear-gradient(110deg,rgba(136,30,94,.095),rgba(68,42,136,.09) 70%,rgba(20,13,44,.48))}
+.page-moderation .mod-note-mark{display:grid;place-items:center;flex:none;width:46px;height:46px;border-radius:50%;background:rgba(255,181,224,.095);border:1px solid rgba(255,181,224,.21);color:#ffc4e2;font-size:23px}
+.page-moderation .mod-note-copy{min-width:0;flex:1}
+.page-moderation .mod-note-copy h3{margin:0 0 4px;font-family:var(--display);font-size:26px;letter-spacing:-.035em;font-weight:400;color:#ffe6f6}
+.page-moderation .mod-note-copy p{margin:0;color:#bfb1c7;font-size:13px;line-height:1.6}
+.page-moderation .mod-note-tag{align-self:flex-end;white-space:nowrap;color:rgba(255,181,224,.48);font:500 8px/1 var(--mono);letter-spacing:.12em}
+@media(max-width:800px){.page-moderation .mod-person-grid{grid-template-columns:1fr}.page-moderation .mod-team{margin-bottom:64px}.page-moderation .moderation-content{padding-bottom:84px}}
+@media(max-width:580px){.page-moderation .moderation-content{padding-top:38px;padding-bottom:68px}.page-moderation .mod-section-heading{gap:8px;margin-bottom:20px}.page-moderation .mod-section-count{font-size:8px}.page-moderation .mod-person-card{min-height:92px;gap:12px;padding:17px 14px}.page-moderation .mod-person-avatar{width:44px;height:44px}.page-moderation .mod-person-link{padding:7px 8px}.page-moderation .mod-person-info h3{font-size:13px}.page-moderation .mod-guideline summary{gap:10px;min-height:73px;padding:13px 8px 13px 10px}.page-moderation .mod-guideline-number{min-width:27px;font-size:10px}.page-moderation .mod-guideline-title{font-size:15px}.page-moderation .mod-guideline-body{padding:0 22px 21px 47px}.page-moderation .mod-community-note{margin-top:22px;padding:22px 18px;gap:13px}.page-moderation .mod-note-mark{width:38px;height:38px}.page-moderation .mod-note-copy h3{font-size:22px}.page-moderation .mod-note-tag{display:none}}
+@media(prefers-reduced-motion:reduce){.page-moderation .mod-person-card,.page-moderation .mod-guideline,.page-moderation .mod-guideline-plus{transition:none}}
