@@ -1,0 +1,72 @@
+/* Credits-only layout. Other pages retain the approved V12.17 appearance. */
+.page-credits .credits-section{padding-top:22px}
+.page-credits .filter-row{margin-bottom:20px}
+.page-credits .credits-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.page-credits .credit-card-compact{
+  grid-column:auto;
+  min-height:98px;
+  padding:18px 18px;
+  border-radius:12px;
+  background:rgba(255,255,255,.018);
+  display:flex;
+  align-items:center;
+}
+.page-credits .credit-card-compact.is-filtered{display:none}
+.page-credits .credit-card-compact .credit-head{width:100%;display:flex;align-items:center;gap:13px;margin:0}
+.page-credits .credit-card-compact .artist-avatar{
+  width:46px;height:46px;min-width:46px;display:block;
+  object-fit:cover;object-position:center;
+  border-radius:50%;background:rgba(255,255,255,.026);
+  border:1px solid rgba(219,212,254,.15);
+}
+.page-credits .credit-card-compact .credit-avatar-empty{width:46px;min-width:46px;height:46px;display:block}
+.page-credits .credit-card-compact .artist-copy{flex:1;min-width:0}
+.page-credits .credit-card-compact .artist-copy h2{
+  margin:0;font-family:var(--display);font-size:21px;line-height:1.15;font-weight:400;
+  letter-spacing:-.02em;color:#f2eafa;overflow-wrap:anywhere;
+}
+.page-credits .credit-card-compact .artist-copy p{
+  margin:5px 0 0;font-size:11px;line-height:1.45;
+  color:#a89bb4;overflow-wrap:anywhere;
+}
+.page-credits .credit-card-compact .credit-actions{display:flex;align-items:center;justify-content:flex-end;flex:0 0 auto;gap:8px;margin-left:auto}
+.page-credits .credit-card-compact .artist-cta{
+  margin:0;display:inline-flex;align-items:center;justify-content:center;
+  gap:3px;min-height:36px;padding:0 8px;
+  font:500 10px/1 var(--mono);color:#bcaec9;text-decoration:none;
+  border:1px solid rgba(219,212,254,.13);border-radius:8px;
+  background:rgba(255,255,255,.017);
+}
+.page-credits .credit-card-compact .artist-cta svg{width:13px;height:13px;fill:none;stroke:currentColor;stroke-width:1.5}
+.page-credits .credit-card-compact .credit-gallery-button{
+  display:inline-flex;align-items:center;justify-content:center;gap:5px;
+  min-width:40px;height:36px;padding:0 8px;
+  border:1px solid rgba(219,212,254,.13);border-radius:8px;
+  background:rgba(255,255,255,.017);color:#bcaec9;cursor:pointer;
+}
+.page-credits .credit-card-compact .credit-gallery-button svg{
+  width:17px;height:17px;fill:none;stroke:currentColor;
+  stroke-width:1.4;stroke-linejoin:round;stroke-linecap:round;
+}
+.page-credits .credit-gallery-count{font:500 9px/1 var(--mono);color:#8f82a0;font-variant-numeric:tabular-nums}
+.page-credits .credit-gallery-inventory,.page-credits .credit-gallery-inventory [hidden]{display:none!important}
+.page-credits .credits-live-info{display:none!important}
+.page-credits .credit-card-compact :is(a,button):focus-visible{outline:2px solid #dbd4fe;outline-offset:3px}
+@media(max-width:850px){
+ .page-credits .credits-grid{grid-template-columns:1fr}
+}
+@media(max-width:480px){
+ .page-credits .credit-card-compact{padding:14px 12px;min-height:86px}
+ .page-credits .credit-card-compact .credit-head{gap:9px}
+ .page-credits .credit-card-compact .artist-avatar,
+ .page-credits .credit-card-compact .credit-avatar-empty{width:40px;min-width:40px;height:40px}
+ .page-credits .credit-card-compact .artist-copy h2{font-size:18px}
+ .page-credits .credit-card-compact .artist-copy p{font-size:10.5px}
+ .page-credits .credit-card-compact .credit-actions{gap:5px}
+ .page-credits .credit-card-compact .artist-cta{min-height:32px;padding:0 5px;font-size:9px}
+ .page-credits .credit-card-compact .artist-cta svg{width:11px;height:11px}
+ .page-credits .credit-card-compact .credit-gallery-button{height:32px;min-width:32px;padding:0 5px;gap:3px}
+ .page-credits .credit-card-compact .credit-gallery-button svg{width:15px;height:15px}
+ .page-credits .credit-gallery-count{font-size:8px}
+}
+@media(prefers-reduced-motion:reduce){.page-credits .credit-card-compact:before{animation:none!important}}
